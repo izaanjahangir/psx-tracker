@@ -1,7 +1,11 @@
 # Secrets: never commit these
 .env
 service-account*.json
+# ...except the sheet template, which holds no personal data
+!template.json
 *.json
+# ...except the sheet template, which holds no personal data
+!template.json
 
 # Python
 .venv/

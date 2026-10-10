@@ -4,7 +4,12 @@ Tracks how a Pakistan Stock Exchange (PSX) portfolio performs **day by day again
 
 Brokers usually show only today's change. This script builds a history: one row per trading day with your portfolio's value, your daily return, the KSE-100's daily return, and running totals since you started. Over time you can see whether your stock picks beat the market.
 
-It runs on your computer. Each run:
+It has two parts:
+
+- **`./psx setup`** builds the whole tracker (every tab, formula, format, dropdown and chart) in a blank Google Sheet, with 3 sample trades to start from.
+- **`./psx update`** keeps the Daily Performance tab up to date.
+
+Each update run:
 
 1. Reads your trades from the **Trade List** tab of your Google Sheet.
 2. Downloads PSX's free end-of-day files for each trading day.
@@ -19,9 +24,11 @@ Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 
 
 - [Requirements](#requirements)
 - [One-time setup](#one-time-setup)
+- [Create your own tracker sheet](#create-your-own-tracker-sheet)
 - [Configuration (.env)](#configuration-env)
 - [Running the script](#running-the-script)
 - [Spreadsheet layout](#spreadsheet-layout)
+- [Changing the sheet's structure](#changing-the-sheets-structure)
 - [How the numbers are calculated](#how-the-numbers-are-calculated)
 - [Data sources](#data-sources)
 - [Troubleshooting](#troubleshooting)
@@ -71,7 +78,11 @@ python3 -m venv .venv
 
 On Windows use `.venv\Scripts\pip` and `.venv\Scripts\python` instead of `.venv/bin/...`, and run the Python script directly (the `psx` shortcut is for macOS/Linux).
 
-### 4. Check that everything works
+### 4. Create your tracker sheet
+
+Skip this if you already have a tracker sheet. See [Create your own tracker sheet](#create-your-own-tracker-sheet).
+
+### 5. Check that everything works
 
 ```bash
 ./psx dry-run
@@ -81,13 +92,62 @@ You should see a table of trading days and a line comparing the rebuilt KSE-100 
 
 ---
 
+## Create your own tracker sheet
+
+`template.json` holds the structure of the tracker: all tabs, labels, formulas, number formats, colours, dropdowns, column widths and charts. It holds **no personal data**. `setup_sheet.py` rebuilds that structure in a blank Google Sheet.
+
+1. Create a blank Google Sheet (<https://sheets.new>) and give it a name.
+2. Click **Share**, add your service account's email as **Editor**, and untick *Notify people*.
+3. Copy the sheet's ID from its URL: `docs.google.com/spreadsheets/d/`**`<THIS PART>`**`/edit`.
+4. Run:
+
+   ```bash
+   ./psx setup <spreadsheet-id>
+   ```
+
+   Add `--no-samples` if you don't want the sample trades.
+5. Put the same ID in `.env` as `SPREADSHEET_ID`.
+6. Replace the sample trades in **Trade List** with your own (or keep them while you try things out). Then run:
+
+   ```bash
+   ./psx update
+   ```
+
+   On an empty Daily Performance tab, the first run builds the history all the way back to your first trade.
+
+**What you get:**
+
+| Tab | Purpose |
+|---|---|
+| Trade List | Where you enter every buy and sell. Gross, charges, net amount, cost basis and realized P/L are calculated for you. |
+| Dividend summary | Enter dividends (ex-date, stock, dividend per share, tax rate, status). Shares held, amounts and yield are calculated. |
+| Dashboard | Totals and charts, for all stocks or one stock (pick it in cell B1) |
+| Dashboard_Data | Hidden helper tab for the Dashboard |
+| Daily Summary | Trades, investment, charges and realized P/L per day |
+| Portfolio Summary | Holdings per stock, weights, realized P/L, and average, lowest and highest buy prices (with and without charges) |
+| Daily Performance | Daily and cumulative return vs KSE-100, filled by `./psx update` |
+
+**Sample trades** (dated in the last few weeks so `./psx update` has something to price):
+
+| Stock | Side | Qty | Price |
+|---|---|---|---|
+| MEBL (Meezan Bank) | Buy | 10 | 540.00 |
+| HUBC (The Hub Power Company Limited) | Buy | 20 | 205.00 |
+| MEBL (Meezan Bank) | Sell | 5 | 555.00 |
+
+The setup script refuses to run on a sheet that already has data, so it can never overwrite a real tracker.
+
+When entering trades, type column **B** as `TICKER (Company name)`. The ticker must match the PSX symbol, because `./psx update` uses it to look up closing prices.
+
+---
+
 ## Configuration (.env)
 
 All settings that differ between people live in `.env`. That file isn't committed; `.env.example` is the committed template.
 
 | Setting | Required | Default | Description |
 |---|---|---|---|
-| `SPREADSHEET_ID` | Yes | – | The ID in your sheet's URL: `docs.google.com/spreadsheets/d/`**`<SPREADSHEET_ID>`**`/edit` |
+| `SPREADSHEET_ID` | Yes (for `update`, unless you give an ID) | – | The ID in your sheet's URL: `docs.google.com/spreadsheets/d/`**`<SPREADSHEET_ID>`**`/edit` |
 | `GOOGLE_KEY_FILE` | No | `service-account.json` | Path to the service account key, relative to this folder |
 | `TRADE_SHEET` | No | `Trade List` | Name of the tab holding your trades |
 | `PERF_SHEET` | No | `Daily Performance` | Name of the tab the script writes to |
@@ -103,10 +163,20 @@ Use the `psx` shortcut from this folder:
 ```bash
 ./psx update     # refresh the Daily Performance tab
 ./psx dry-run    # show what would change, without writing to the sheet
+./psx update <id>   # same, for another sheet instead of the one in .env
+./psx setup <id> # build the tracker in a blank Google Sheet
+./psx export-template  # save your sheet's structure to template.json
 ./psx            # list the commands
 ```
 
 It works from any folder if you give its path, e.g. `~/Desktop/psx-tracker/psx update`.
+
+`update` and `dry-run` use `SPREADSHEET_ID` from `.env`. To work on a different sheet just once, add its ID; `.env` is then ignored:
+
+```bash
+./psx update <spreadsheet-id>
+./psx dry-run <spreadsheet-id>
+```
 
 The shortcut just runs the Python script, which you can also call directly:
 
@@ -196,6 +266,23 @@ M2: =ARRAYFORMULA(IF(A2:A="","",IFERROR(B2:B/L2:L-1,"")))
 
 ---
 
+## Changing the sheet's structure
+
+If you change the tracker sheet itself (new columns, formulas, formatting or charts) and want new copies to include the change:
+
+```bash
+./psx export-template
+```
+
+This rewrites `template.json` from the sheet in `SPREADSHEET_ID`. Values typed into Trade List (row 2 down), Dividend summary (row 8 down) and Daily Performance (row 2 down) count as personal data and are left out; formulas in those rows are kept. Commit the updated `template.json`.
+
+Two rules keep `./psx update` working:
+
+- Keep the Daily Performance columns in place. The script writes to columns **A, B, E and F**.
+- Keep Trade List columns **A–D** (date, stock, Buy/Sell, quantity), plus **K** and **N**, which the Daily Performance formulas use.
+
+---
+
 ## How the numbers are calculated
 
 ### My Return % (time-weighted)
@@ -265,6 +352,7 @@ No file for a date means the market was closed. The script treats that as a holi
 | Message / problem | Cause and fix |
 |---|---|
 | `./psx: Permission denied` | Run `chmod +x psx` once. |
+| `The spreadsheet is not blank` | `./psx setup` only works on an empty sheet. Create a new one at <https://sheets.new>. |
 | `Missing setting SPREADSHEET_ID` | `.env` is missing or incomplete. Run `cp .env.example .env` and fill it in. |
 | `Key file not found` | The JSON key isn't where `GOOGLE_KEY_FILE` points. Check the file name and location. |
 | `PermissionError` / `403` from Google | The sheet isn't shared with the service account email as **Editor**, or the Google Sheets API isn't enabled in the Cloud project. |

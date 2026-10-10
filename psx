@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # Shortcut for running the PSX Tracker.
-#   ./psx update    Refresh the Daily Performance tab
-#   ./psx dry-run   Show what would change, without writing to the sheet
+#   ./psx update [spreadsheet-id]    Refresh the Daily Performance tab
+#   ./psx dry-run [spreadsheet-id]   Show what would change, without writing to the sheet
+#   (without an ID, SPREADSHEET_ID from .env is used)
+#   ./psx setup <spreadsheet-id>   Build the tracker in a blank Google Sheet
+#   ./psx export-template          Save your sheet's structure to template.json
 set -euo pipefail
 
 cd "$(dirname "$0")"
@@ -14,14 +17,20 @@ if [ ! -x "$PYTHON" ]; then
 fi
 
 case "${1:-}" in
-  update)  exec "$PYTHON" update_performance.py ;;
-  dry-run) exec "$PYTHON" update_performance.py --dry-run ;;
+  update)  shift; exec "$PYTHON" update_performance.py "$@" ;;
+  dry-run) shift; exec "$PYTHON" update_performance.py --dry-run "$@" ;;
+  setup)   shift; exec "$PYTHON" setup_sheet.py "$@" ;;
+  export-template) exec "$PYTHON" export_template.py ;;
   *)
     echo "Usage: ./psx <command>"
     echo
     echo "Commands:"
-    echo "  update    Refresh the Daily Performance tab in the Google Sheet"
-    echo "  dry-run   Show what would change, without writing to the sheet"
+    echo "  update [spreadsheet-id]    Refresh the Daily Performance tab in the Google Sheet"
+    echo "  dry-run [spreadsheet-id]   Show what would change, without writing to the sheet"
+    echo "  setup <spreadsheet-id>     Build the tracker in a blank Google Sheet"
+    echo "  export-template            Save your sheet's structure to template.json"
+    echo
+    echo "update and dry-run use SPREADSHEET_ID from .env unless you give an ID."
     exit 1
     ;;
 esac

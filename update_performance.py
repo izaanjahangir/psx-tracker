@@ -9,41 +9,22 @@ All other columns on that tab are formulas and update themselves.
 Usage:
   .venv/bin/python update_performance.py            # update the sheet
   .venv/bin/python update_performance.py --dry-run  # only show what would change
+  .venv/bin/python update_performance.py <spreadsheet-id> [--dry-run]
+      # use this spreadsheet instead of SPREADSHEET_ID from .env
 """
 
 import datetime as dt
 import io
-import os
 import re
 import sys
 import urllib.error
 import urllib.request
 import zipfile
-from pathlib import Path
 
-import gspread
 import xlrd
-from dotenv import load_dotenv
 
-PROJECT_DIR = Path(__file__).resolve().parent
-load_dotenv(PROJECT_DIR / ".env")
+from config import DAYS_TO_REFILL, PERF_SHEET, PSX, TRADE_SHEET, open_spreadsheet, spreadsheet_id
 
-
-def setting(name, default=None):
-    value = os.getenv(name, default)
-    if value in (None, ""):
-        sys.exit(f"Missing setting {name}. Copy .env.example to .env and fill it in.")
-    return value
-
-
-# How many days back to re-price using the current Trade List.
-DAYS_TO_REFILL = int(setting("DAYS_TO_REFILL", "30"))
-
-SPREADSHEET_ID = setting("SPREADSHEET_ID")
-KEY_FILE = PROJECT_DIR / setting("GOOGLE_KEY_FILE", "service-account.json")
-PERF_SHEET = setting("PERF_SHEET", "Daily Performance")
-TRADE_SHEET = setting("TRADE_SHEET", "Trade List")
-PSX = setting("PSX_BASE_URL", "https://dps.psx.com.pk")
 SHEETS_EPOCH = dt.date(1899, 12, 30)  # Google Sheets date serial 0
 
 
@@ -120,9 +101,11 @@ def to_serial(day):
 
 def main():
     dry_run = "--dry-run" in sys.argv
-    if not KEY_FILE.exists():
-        sys.exit(f"Key file not found: {KEY_FILE}. Set GOOGLE_KEY_FILE in .env.")
-    book =gspread.service_account(filename=str(KEY_FILE)).open_by_key(SPREADSHEET_ID)
+    ids = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if len(ids) > 1:
+        sys.exit("Give at most one spreadsheet ID.")
+    book = open_spreadsheet(ids[0] if ids else spreadsheet_id())
+    print(f"Spreadsheet: {book.title}")
     perf = book.worksheet(PERF_SHEET)
 
     trades = [
@@ -145,7 +128,9 @@ def main():
     today = dt.date.today()
     first_trade = min(t[0] for t in trades)
     start = max(today - dt.timedelta(days=DAYS_TO_REFILL - 1), first_trade)
-    if rows and max(rows) + dt.timedelta(days=1) < start:
+    if not rows:
+        start = first_trade  # empty tab: build the whole history
+    elif max(rows) + dt.timedelta(days=1) < start:
         start = max(rows) + dt.timedelta(days=1)  # also fill any gap since the last row
 
     # KSE-100 level continues from the last row before the refill window
