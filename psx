@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Shortcut for running the PSX Tracker.
+#   ./psx update    Refresh the Daily Performance tab
+#   ./psx dry-run   Show what would change, without writing to the sheet
+set -euo pipefail
+
+cd "$(dirname "$0")"
+PYTHON=.venv/bin/python
+
+if [ ! -x "$PYTHON" ]; then
+  echo "Python environment not found. Set it up first:"
+  echo "  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt"
+  exit 1
+fi
+
+case "${1:-}" in
+  update)  exec "$PYTHON" update_performance.py ;;
+  dry-run) exec "$PYTHON" update_performance.py --dry-run ;;
+  *)
+    echo "Usage: ./psx <command>"
+    echo
+    echo "Commands:"
+    echo "  update    Refresh the Daily Performance tab in the Google Sheet"
+    echo "  dry-run   Show what would change, without writing to the sheet"
+    exit 1
+    ;;
+esac
