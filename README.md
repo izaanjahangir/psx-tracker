@@ -249,6 +249,10 @@ The script writes **only columns A, B, E and F**. Every other column is a formul
 | K | Dividends (ex-date, after tax) | formula | From the Dividend summary tab, on the ex-date |
 | L | Cost of Holdings | formula | What the shares held that day cost (incl. charges) |
 | M | Return on Cost % | formula | B ÷ L − 1, the figure most broker apps show |
+| N | Chart label: My Return (helper) | formula | Value of H shown on the chart, filled every 5th trading day (counting back from the latest) |
+| O | Chart label: KSE-100 (helper) | formula | Same for I |
+
+The chart next to the table plots H and I. It shows labels taken from columns N and O: the latest value plus one per week, so the values are visible without hovering and the labels don't overlap. To label more or fewer points, change the `5` in the N and O formulas.
 
 Formulas for a fresh copy of the tab (enter in row 2; they fill down automatically):
 
@@ -262,6 +266,8 @@ J2: =ARRAYFORMULA(IF(A2:A="","",H2:H-I2:I))
 K2: =MAP(A2:A,LAMBDA(day,IF(day="","",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$B$8:$B,day))))
 L2: =MAP(A2:A,LAMBDA(day,IF(day="","",SUMIFS('Trade List'!$N$2:$N,'Trade List'!$A$2:$A,"<="&day))))
 M2: =ARRAYFORMULA(IF(A2:A="","",IFERROR(B2:B/L2:L-1,"")))
+N2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(H2:H,idx),"+0.0%;-0.0%;0.0%"),""))))
+O2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(I2:I,idx),"+0.0%;-0.0%;0.0%"),""))))
 ```
 
 ---
