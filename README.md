@@ -14,7 +14,7 @@ Each update run:
 1. Reads your trades from the **Trade List** tab of your Google Sheet.
 2. Downloads PSX's free end-of-day files for each trading day.
 3. Prices your holdings at each day's closing prices and works out the KSE-100's daily change.
-4. Writes the results to the **Daily Performance** tab. Formulas on that tab calculate everything else.
+4. Writes the results to the **Daily Performance** tab, and each stock's latest closing price to the **Latest Prices** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
 
 Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 by default) using your current Trade List, so trades you enter a few days late are picked up automatically. It also fills any gap since the last row.
 
@@ -28,6 +28,7 @@ Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 
 - [Configuration (.env)](#configuration-env)
 - [Running the script](#running-the-script)
 - [Spreadsheet layout](#spreadsheet-layout)
+- [Charts tab](#charts-tab)
 - [Changing the sheet's structure](#changing-the-sheets-structure)
 - [How the numbers are calculated](#how-the-numbers-are-calculated)
 - [Data sources](#data-sources)
@@ -123,9 +124,12 @@ You should see a table of trading days and a line comparing the rebuilt KSE-100 
 | Dividend summary | Enter dividends (ex-date, stock, dividend per share, tax rate, status). Shares held, amounts and yield are calculated. |
 | Dashboard | Totals and charts, for all stocks or one stock (pick it in cell B1) |
 | Dashboard_Data | Hidden helper tab for the Dashboard |
+| Charts | Four performance charts with their key numbers (see [Charts tab](#charts-tab)) |
+| Charts_Data | Hidden helper tab for the drawdown chart |
 | Daily Summary | Trades, investment, charges and realized P/L per day |
 | Portfolio Summary | Holdings per stock, weights, realized P/L, and average, lowest and highest buy prices (with and without charges) |
 | Daily Performance | Daily and cumulative return vs KSE-100, filled by `./psx update` |
+| Latest Prices | Latest closing price of every stock you have traded, filled by `./psx update` |
 
 **Sample trades** (dated in the last few weeks so `./psx update` has something to price):
 
@@ -150,7 +154,8 @@ All settings that differ between people live in `.env`. That file isn't committe
 | `SPREADSHEET_ID` | Yes (for `update`, unless you give an ID) | – | The ID in your sheet's URL: `docs.google.com/spreadsheets/d/`**`<SPREADSHEET_ID>`**`/edit` |
 | `GOOGLE_KEY_FILE` | No | `service-account.json` | Path to the service account key, relative to this folder |
 | `TRADE_SHEET` | No | `Trade List` | Name of the tab holding your trades |
-| `PERF_SHEET` | No | `Daily Performance` | Name of the tab the script writes to |
+| `PERF_SHEET` | No | `Daily Performance` | Name of the daily performance tab the script writes to |
+| `PRICES_SHEET` | No | `Latest Prices` | Name of the tab the script writes latest closing prices to (created if missing) |
 | `DAYS_TO_REFILL` | No | `30` | How many days back to re-price on every run. Increase it if you often enter trades more than 30 days late. Set it high (e.g. `400`) to rebuild your whole history. |
 | `PSX_BASE_URL` | No | `https://dps.psx.com.pk` | PSX Data Portal address. Only change it if PSX moves the portal. |
 
@@ -272,6 +277,29 @@ O2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",IF(MOD(COUNT(A
 
 ---
 
+## Charts tab
+
+Four charts, each with its key numbers to the right: summary figures in columns S–T, the monthly table in N–Q (rows 3–70), and the per-stock table in N–V (from row 72). They update by themselves after each `./psx update`.
+
+| # | Chart | What it answers | Key numbers next to it |
+|---|---|---|---|
+| 1 | **Monthly return: me vs KSE-100** (columns) | Do I beat the market consistently, or thanks to one good month? | Months and days I beat KSE-100, best and worst month. Monthly table in columns N–Q. |
+| 2 | **Portfolio value vs money invested** (lines) | How much of my growth is new money and how much is gain? The gap between the lines is the gain or loss in rupees. | Latest value, cost, gain or loss in rupees, return on cost |
+| 3 | **Drawdown** (area) | How far below its previous high is each line? A measure of risk: smaller drops than KSE-100 mean my picks were less risky. | Worst drop and current drop from peak, for me and for KSE-100 |
+| 4 | **What drove my return, by stock** (stacked columns) | Which stocks made or lost money since my first trade? Each column stacks unrealized P/L, realized P/L and dividends, with the total on top. | Per-stock table: shares held, latest close, market value, unrealized, realized, dividends, total |
+
+How they're calculated:
+
+- **Monthly return** compounds that month's daily *My Return %* and *KSE-100 %* from Daily Performance, so the months multiply up to the "since start" figures.
+- **Drawdown** = (1 + return since start) ÷ (highest value of that so far) − 1, counted from your starting point. The series are in the hidden **Charts_Data** tab.
+- **Unrealized P/L** = shares held × latest close − cost of those shares (incl. charges, from Portfolio Summary). **Realized P/L** comes from Portfolio Summary. **Dividends** are the after-tax amounts in Dividend summary. Unrealized P/L across all stocks adds up to the rupee gain or loss in chart 2.
+
+The per-stock table, like Portfolio Summary, has room for 20 stocks. The monthly table has room for 67 months; it stops at row 70 so it doesn't run into the per-stock table below it.
+
+If you move a table, its formulas and the chart that uses it need updating: ask for help or rebuild from `template.json`.
+
+---
+
 ## Changing the sheet's structure
 
 If you change the tracker sheet itself (new columns, formulas, formatting or charts) and want new copies to include the change:
@@ -280,11 +308,12 @@ If you change the tracker sheet itself (new columns, formulas, formatting or cha
 ./psx export-template
 ```
 
-This rewrites `template.json` from the sheet in `SPREADSHEET_ID`. Values typed into Trade List (row 2 down), Dividend summary (row 8 down) and Daily Performance (row 2 down) count as personal data and are left out; formulas in those rows are kept. Commit the updated `template.json`.
+This rewrites `template.json` from the sheet in `SPREADSHEET_ID`. Values in Trade List (row 2 down), Dividend summary (row 8 down), Daily Performance (row 2 down) and Latest Prices (row 2 down) count as personal data and are left out; formulas in those rows are kept. Commit the updated `template.json`.
 
 Two rules keep `./psx update` working:
 
 - Keep the Daily Performance columns in place. The script writes to columns **A, B, E and F**.
+- The script rewrites **Latest Prices** columns A–C on every run, so don't put anything else on that tab.
 - Keep Trade List columns **A–D** (date, stock, Buy/Sell, quantity), plus **K** and **N**, which the Daily Performance formulas use.
 
 ---

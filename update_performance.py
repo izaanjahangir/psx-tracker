@@ -5,6 +5,8 @@ For every trading day in the last DAYS_TO_REFILL days (plus any gap since the
 last row), it downloads PSX's daily files and writes:
   A Date, B Portfolio Value, E KSE-100 (price index), F KSE-100 %
 All other columns on that tab are formulas and update themselves.
+It also writes each traded stock's latest closing price to the
+"Latest Prices" tab (used by the Charts tab).
 
 Usage:
   .venv/bin/python update_performance.py            # update the sheet
@@ -21,9 +23,10 @@ import urllib.error
 import urllib.request
 import zipfile
 
+import gspread
 import xlrd
 
-from config import DAYS_TO_REFILL, PERF_SHEET, PSX, TRADE_SHEET, open_spreadsheet, spreadsheet_id
+from config import DAYS_TO_REFILL, PERF_SHEET, PRICES_SHEET, PSX, TRADE_SHEET, open_spreadsheet, spreadsheet_id
 
 SHEETS_EPOCH = dt.date(1899, 12, 30)  # Google Sheets date serial 0
 
@@ -140,10 +143,12 @@ def main():
     print(f"Refilling {start} to {today} ({'dry run' if dry_run else 'writing to sheet'})\n")
     print(f"{'Date':<12}{'Portfolio Value':>18}{'KSE-100':>12}{'KSE-100 %':>11}   Change vs sheet")
     computed = {}
+    last_closes = None
     day = start
     while day <= today:
         closes = psx_closes(day) if day.weekday() < 5 else None
         if closes:
+            last_closes = (day, closes)
             held = holdings_on(day, trades)
             missing = [t for t in held if t not in closes]
             if missing:
@@ -198,6 +203,22 @@ def main():
     perf.update(range_name=f"E2:F{len(ordered) + 1}",
                 values=[[rows[d][1], rows[d][2]] for d in ordered], value_input_option="RAW")
     print(f"\nUpdated {len(days)} trading day(s) in '{PERF_SHEET}'.")
+    write_latest_prices(book, trades, *last_closes)
+
+
+def write_latest_prices(book, trades, day, closes):
+    """Latest closing price of every stock in the Trade List, for the Charts tab."""
+    tickers = sorted({stock.strip().split(" ")[0] for _, stock, _, _ in trades})
+    rows = [[t, closes[t][0], to_serial(day)] for t in tickers if t in closes]
+    try:
+        ws = book.worksheet(PRICES_SHEET)
+    except gspread.WorksheetNotFound:
+        ws = book.add_worksheet(PRICES_SHEET, rows=200, cols=3)
+    ws.batch_clear(["A2:C"])
+    ws.update(range_name="A1:C1", values=[["Ticker", "Latest Close", "As of"]])
+    if rows:
+        ws.update(range_name=f"A2:C{len(rows) + 1}", values=rows, value_input_option="RAW")
+    print(f"Wrote latest closing prices of {len(rows)} stock(s) to '{PRICES_SHEET}' (as of {day}).")
 
 
 if __name__ == "__main__":

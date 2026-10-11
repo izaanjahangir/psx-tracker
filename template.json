@@ -363,7 +363,7 @@
   {
    "userEnteredFormat": {
     "textFormat": {
-     "fontSize": 12,
+     "fontSize": 18,
      "bold": true
     }
    }
@@ -371,6 +371,71 @@
   {
    "userEnteredFormat": {
     "textFormat": {
+     "fontSize": 13,
+     "bold": true
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.4,
+     "green": 0.4,
+     "blue": 0.4
+    },
+    "verticalAlignment": "MIDDLE",
+    "wrapStrategy": "WRAP",
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.4,
+      "green": 0.4,
+      "blue": 0.4
+     }
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "textFormat": {
+     "bold": true
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "numberFormat": {
+     "type": "PERCENT",
+     "pattern": "+0.00%;[Red]-0.00%;0.00%"
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "numberFormat": {
+     "type": "NUMBER",
+     "pattern": "#,##0"
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "textFormat": {
+     "fontSize": 12,
      "bold": true
     }
    }
@@ -518,14 +583,6 @@
   {
    "userEnteredFormat": {
     "numberFormat": {
-     "type": "NUMBER",
-     "pattern": "#,##0"
-    }
-   }
-  },
-  {
-   "userEnteredFormat": {
-    "numberFormat": {
      "type": "PERCENT",
      "pattern": "0.0%"
     }
@@ -552,39 +609,6 @@
     "numberFormat": {
      "type": "NUMBER",
      "pattern": "0.00"
-    }
-   }
-  },
-  {
-   "userEnteredFormat": {
-    "backgroundColor": {
-     "red": 0.4,
-     "green": 0.4,
-     "blue": 0.4
-    },
-    "verticalAlignment": "MIDDLE",
-    "wrapStrategy": "WRAP",
-    "textFormat": {
-     "foregroundColor": {
-      "red": 1,
-      "green": 1,
-      "blue": 1
-     },
-     "bold": true,
-     "foregroundColorStyle": {
-      "rgbColor": {
-       "red": 1,
-       "green": 1,
-       "blue": 1
-      }
-     }
-    },
-    "backgroundColorStyle": {
-     "rgbColor": {
-      "red": 0.4,
-      "green": 0.4,
-      "blue": 0.4
-     }
     }
    }
   },
@@ -5953,9 +5977,1253 @@
   },
   {
    "properties": {
+    "sheetId": 212512334,
+    "title": "Charts",
+    "index": 4,
+    "gridProperties": {
+     "rowCount": 200,
+     "columnCount": 27
+    }
+   },
+   "columnWidths": [
+    [
+     13,
+     306
+    ],
+    [
+     14,
+     110
+    ],
+    [
+     15,
+     110
+    ],
+    [
+     16,
+     110
+    ],
+    [
+     17,
+     110
+    ],
+    [
+     18,
+     230
+    ],
+    [
+     19,
+     150
+    ],
+    [
+     20,
+     110
+    ],
+    [
+     21,
+     110
+    ],
+    [
+     22,
+     110
+    ],
+    [
+     23,
+     110
+    ],
+    [
+     24,
+     110
+    ],
+    [
+     25,
+     110
+    ],
+    [
+     26,
+     110
+    ]
+   ],
+   "rowHeights": [],
+   "values": [
+    [
+     0,
+     0,
+     {
+      "stringValue": "Charts"
+     }
+    ],
+    [
+     1,
+     0,
+     {
+      "stringValue": "1. Monthly returns vs KSE-100"
+     }
+    ],
+    [
+     2,
+     13,
+     {
+      "stringValue": "Month"
+     }
+    ],
+    [
+     2,
+     14,
+     {
+      "stringValue": "My Return"
+     }
+    ],
+    [
+     2,
+     15,
+     {
+      "stringValue": "KSE-100"
+     }
+    ],
+    [
+     2,
+     16,
+     {
+      "stringValue": "Difference"
+     }
+    ],
+    [
+     2,
+     18,
+     {
+      "stringValue": "Months I beat KSE-100"
+     }
+    ],
+    [
+     2,
+     19,
+     {
+      "formulaValue": "=COUNTIF(Q4:Q70,\">0\")&\" of \"&COUNT(Q4:Q70)"
+     }
+    ],
+    [
+     3,
+     13,
+     {
+      "formulaValue": "=IFERROR(UNIQUE(FILTER(TEXT('Daily Performance'!A2:A,\"mmm yyyy\"),'Daily Performance'!A2:A<>\"\")),\"\")"
+     }
+    ],
+    [
+     3,
+     14,
+     {
+      "formulaValue": "=MAP(N4:N70,LAMBDA(m,IF(m=\"\",\"\",IFERROR(PRODUCT(ARRAYFORMULA(1+FILTER('Daily Performance'!D2:D,TEXT('Daily Performance'!A2:A,\"mmm yyyy\")=m,ISNUMBER('Daily Performance'!D2:D))))-1,\"\"))))"
+     }
+    ],
+    [
+     3,
+     15,
+     {
+      "formulaValue": "=MAP(N4:N70,LAMBDA(m,IF(m=\"\",\"\",IFERROR(PRODUCT(ARRAYFORMULA(1+FILTER('Daily Performance'!F2:F,TEXT('Daily Performance'!A2:A,\"mmm yyyy\")=m,ISNUMBER('Daily Performance'!F2:F))))-1,\"\"))))"
+     }
+    ],
+    [
+     3,
+     16,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF(N4:N70=\"\",\"\",O4:O70-P4:P70))"
+     }
+    ],
+    [
+     3,
+     18,
+     {
+      "stringValue": "Days I beat KSE-100"
+     }
+    ],
+    [
+     3,
+     19,
+     {
+      "formulaValue": "=COUNTIF('Daily Performance'!G2:G,\">0\")&\" of \"&COUNT('Daily Performance'!G2:G)"
+     }
+    ],
+    [
+     4,
+     18,
+     {
+      "stringValue": "Best month"
+     }
+    ],
+    [
+     4,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(N4:N70,MATCH(MAX(O4:O70),O4:O70,0))&\" (\"&TEXT(MAX(O4:O70),\"+0.0%;-0.0%\")&\")\",\"\")"
+     }
+    ],
+    [
+     5,
+     18,
+     {
+      "stringValue": "Worst month"
+     }
+    ],
+    [
+     5,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(N4:N70,MATCH(MIN(O4:O70),O4:O70,0))&\" (\"&TEXT(MIN(O4:O70),\"+0.0%;-0.0%\")&\")\",\"\")"
+     }
+    ],
+    [
+     24,
+     0,
+     {
+      "stringValue": "2. Portfolio value vs money invested"
+     }
+    ],
+    [
+     25,
+     18,
+     {
+      "stringValue": "As of"
+     }
+    ],
+    [
+     25,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(FILTER('Daily Performance'!A2:A,'Daily Performance'!A2:A<>\"\"),COUNT('Daily Performance'!A2:A)),\"\")"
+     }
+    ],
+    [
+     26,
+     18,
+     {
+      "stringValue": "Portfolio value"
+     }
+    ],
+    [
+     26,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(FILTER('Daily Performance'!B2:B,'Daily Performance'!A2:A<>\"\"),COUNT('Daily Performance'!A2:A)),\"\")"
+     }
+    ],
+    [
+     27,
+     18,
+     {
+      "stringValue": "Money invested (cost)"
+     }
+    ],
+    [
+     27,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(FILTER('Daily Performance'!L2:L,'Daily Performance'!A2:A<>\"\"),COUNT('Daily Performance'!A2:A)),\"\")"
+     }
+    ],
+    [
+     28,
+     18,
+     {
+      "stringValue": "Gain / loss (Rs)"
+     }
+    ],
+    [
+     28,
+     19,
+     {
+      "formulaValue": "=IFERROR(T27-T28,\"\")"
+     }
+    ],
+    [
+     29,
+     18,
+     {
+      "stringValue": "Return on cost"
+     }
+    ],
+    [
+     29,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(FILTER('Daily Performance'!M2:M,'Daily Performance'!A2:A<>\"\"),COUNT('Daily Performance'!A2:A)),\"\")"
+     }
+    ],
+    [
+     47,
+     0,
+     {
+      "stringValue": "3. Drawdown: drop from previous high"
+     }
+    ],
+    [
+     48,
+     18,
+     {
+      "stringValue": "My worst drop"
+     }
+    ],
+    [
+     48,
+     19,
+     {
+      "formulaValue": "=IFERROR(MIN(Charts_Data!B2:B),\"\")"
+     }
+    ],
+    [
+     49,
+     18,
+     {
+      "stringValue": "KSE-100 worst drop"
+     }
+    ],
+    [
+     49,
+     19,
+     {
+      "formulaValue": "=IFERROR(MIN(Charts_Data!C2:C),\"\")"
+     }
+    ],
+    [
+     50,
+     18,
+     {
+      "stringValue": "My drop from peak now"
+     }
+    ],
+    [
+     50,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(FILTER(Charts_Data!B2:B,Charts_Data!A2:A<>\"\"),COUNT(Charts_Data!A2:A)),\"\")"
+     }
+    ],
+    [
+     51,
+     18,
+     {
+      "stringValue": "KSE-100 drop from peak now"
+     }
+    ],
+    [
+     51,
+     19,
+     {
+      "formulaValue": "=IFERROR(INDEX(FILTER(Charts_Data!C2:C,Charts_Data!A2:A<>\"\"),COUNT(Charts_Data!A2:A)),\"\")"
+     }
+    ],
+    [
+     70,
+     0,
+     {
+      "stringValue": "4. What drove my return (since my first trade)"
+     }
+    ],
+    [
+     71,
+     13,
+     {
+      "stringValue": "Stock"
+     }
+    ],
+    [
+     71,
+     14,
+     {
+      "stringValue": "Ticker"
+     }
+    ],
+    [
+     71,
+     15,
+     {
+      "stringValue": "Shares Held"
+     }
+    ],
+    [
+     71,
+     16,
+     {
+      "stringValue": "Latest Close"
+     }
+    ],
+    [
+     71,
+     17,
+     {
+      "stringValue": "Market Value"
+     }
+    ],
+    [
+     71,
+     18,
+     {
+      "stringValue": "Unrealized P/L"
+     }
+    ],
+    [
+     71,
+     19,
+     {
+      "stringValue": "Realized P/L"
+     }
+    ],
+    [
+     71,
+     20,
+     {
+      "stringValue": "Dividends (after tax)"
+     }
+    ],
+    [
+     71,
+     21,
+     {
+      "stringValue": "Total P/L"
+     }
+    ],
+    [
+     72,
+     13,
+     {
+      "formulaValue": "=IFERROR(FILTER('Portfolio Summary'!A6:A25,'Portfolio Summary'!A6:A25<>\"\"),\"\")"
+     }
+    ],
+    [
+     72,
+     14,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",REGEXEXTRACT($N$73:$N$92,\"^\\S+\")))"
+     }
+    ],
+    [
+     72,
+     15,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",IFERROR(VLOOKUP($N$73:$N$92,'Portfolio Summary'!$A$6:$H$25,2,0),0)))"
+     }
+    ],
+    [
+     72,
+     16,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",IFERROR(VLOOKUP($O$73:$O$92,'Latest Prices'!$A:$B,2,0),\"\")))"
+     }
+    ],
+    [
+     72,
+     17,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",IFERROR($P$73:$P$92*$Q$73:$Q$92,0)))"
+     }
+    ],
+    [
+     72,
+     18,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",IF($P$73:$P$92=0,0,$R$73:$R$92-IFERROR(VLOOKUP($N$73:$N$92,'Portfolio Summary'!$A$6:$H$25,5,0),0))))"
+     }
+    ],
+    [
+     72,
+     19,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",IFERROR(VLOOKUP($N$73:$N$92,'Portfolio Summary'!$A$6:$H$25,8,0),0)))"
+     }
+    ],
+    [
+     72,
+     20,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",SUMIF('Dividend summary'!$C$8:$C,$N$73:$N$92,'Dividend summary'!$H$8:$H)))"
+     }
+    ],
+    [
+     72,
+     21,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",$S$73:$S$92+$T$73:$T$92+$U$73:$U$92))"
+     }
+    ]
+   ],
+   "styleRuns": [
+    [
+     0,
+     0,
+     0,
+     17
+    ],
+    [
+     0,
+     1,
+     1,
+     18
+    ],
+    [
+     0,
+     24,
+     24,
+     18
+    ],
+    [
+     0,
+     47,
+     47,
+     18
+    ],
+    [
+     0,
+     70,
+     70,
+     18
+    ],
+    [
+     13,
+     2,
+     2,
+     19
+    ],
+    [
+     13,
+     71,
+     71,
+     19
+    ],
+    [
+     14,
+     2,
+     2,
+     19
+    ],
+    [
+     14,
+     3,
+     70,
+     21
+    ],
+    [
+     14,
+     71,
+     71,
+     19
+    ],
+    [
+     14,
+     92,
+     199,
+     21
+    ],
+    [
+     15,
+     2,
+     2,
+     19
+    ],
+    [
+     15,
+     3,
+     70,
+     21
+    ],
+    [
+     15,
+     71,
+     71,
+     19
+    ],
+    [
+     15,
+     72,
+     91,
+     22
+    ],
+    [
+     15,
+     92,
+     199,
+     21
+    ],
+    [
+     16,
+     2,
+     2,
+     19
+    ],
+    [
+     16,
+     3,
+     70,
+     21
+    ],
+    [
+     16,
+     71,
+     71,
+     19
+    ],
+    [
+     16,
+     72,
+     91,
+     4
+    ],
+    [
+     16,
+     92,
+     199,
+     21
+    ],
+    [
+     17,
+     71,
+     71,
+     19
+    ],
+    [
+     17,
+     72,
+     91,
+     4
+    ],
+    [
+     18,
+     2,
+     5,
+     20
+    ],
+    [
+     18,
+     25,
+     29,
+     20
+    ],
+    [
+     18,
+     48,
+     51,
+     20
+    ],
+    [
+     18,
+     71,
+     71,
+     19
+    ],
+    [
+     18,
+     72,
+     91,
+     4
+    ],
+    [
+     19,
+     25,
+     25,
+     1
+    ],
+    [
+     19,
+     26,
+     28,
+     4
+    ],
+    [
+     19,
+     29,
+     29,
+     21
+    ],
+    [
+     19,
+     48,
+     51,
+     21
+    ],
+    [
+     19,
+     71,
+     71,
+     19
+    ],
+    [
+     19,
+     72,
+     91,
+     4
+    ],
+    [
+     20,
+     71,
+     71,
+     19
+    ],
+    [
+     20,
+     72,
+     91,
+     4
+    ],
+    [
+     21,
+     71,
+     71,
+     19
+    ],
+    [
+     21,
+     72,
+     91,
+     4
+    ],
+    [
+     22,
+     79,
+     91,
+     4
+    ],
+    [
+     23,
+     79,
+     91,
+     4
+    ],
+    [
+     24,
+     79,
+     91,
+     4
+    ],
+    [
+     25,
+     79,
+     91,
+     4
+    ],
+    [
+     26,
+     79,
+     91,
+     4
+    ]
+   ],
+   "merges": [],
+   "conditionalFormats": [],
+   "bandedRanges": [],
+   "basicFilter": null,
+   "charts": [
+    {
+     "chartId": 88394920,
+     "spec": {
+      "title": "Monthly return: me vs KSE-100",
+      "basicChart": {
+       "chartType": "COLUMN",
+       "legendPosition": "BOTTOM_LEGEND",
+       "axis": [
+        {
+         "position": "BOTTOM_AXIS",
+         "viewWindowOptions": {}
+        },
+        {
+         "position": "LEFT_AXIS",
+         "title": "Return",
+         "format": {
+          "fontFamily": "Roboto"
+         },
+         "viewWindowOptions": {}
+        }
+       ],
+       "domains": [
+        {
+         "domain": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 2,
+             "endRowIndex": 70,
+             "startColumnIndex": 13,
+             "endColumnIndex": 14
+            }
+           ]
+          }
+         }
+        }
+       ],
+       "series": [
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 2,
+             "endRowIndex": 70,
+             "startColumnIndex": 14,
+             "endColumnIndex": 15
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "dataLabel": {
+          "type": "DATA",
+          "textFormat": {
+           "fontFamily": "Roboto",
+           "fontSize": 9
+          },
+          "placement": "OUTSIDE_END"
+         },
+         "color": {
+          "red": 0.25882354,
+          "green": 0.52156866,
+          "blue": 0.95686275
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.25882354,
+           "green": 0.52156866,
+           "blue": 0.95686275
+          }
+         }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 2,
+             "endRowIndex": 70,
+             "startColumnIndex": 15,
+             "endColumnIndex": 16
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "dataLabel": {
+          "type": "DATA",
+          "textFormat": {
+           "fontFamily": "Roboto",
+           "fontSize": 9
+          },
+          "placement": "OUTSIDE_END"
+         },
+         "color": {
+          "red": 0.85882354,
+          "green": 0.26666668,
+          "blue": 0.21568628
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.85882354,
+           "green": 0.26666668,
+           "blue": 0.21568628
+          }
+         }
+        }
+       ],
+       "headerCount": 1
+      },
+      "hiddenDimensionStrategy": "SKIP_HIDDEN_ROWS_AND_COLUMNS",
+      "titleTextFormat": {
+       "fontFamily": "Roboto"
+      },
+      "fontName": "Roboto"
+     },
+     "position": {
+      "overlayPosition": {
+       "anchorCell": {
+        "sheetId": 212512334,
+        "rowIndex": 2
+       },
+       "widthPixels": 1150,
+       "heightPixels": 440
+      }
+     }
+    },
+    {
+     "chartId": 2080308643,
+     "spec": {
+      "title": "Portfolio value vs money invested (Rs)",
+      "basicChart": {
+       "chartType": "LINE",
+       "legendPosition": "BOTTOM_LEGEND",
+       "axis": [
+        {
+         "position": "BOTTOM_AXIS",
+         "viewWindowOptions": {}
+        },
+        {
+         "position": "LEFT_AXIS",
+         "title": "Rupees",
+         "format": {
+          "fontFamily": "Roboto"
+         },
+         "viewWindowOptions": {}
+        }
+       ],
+       "domains": [
+        {
+         "domain": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 0,
+             "endColumnIndex": 1
+            }
+           ]
+          }
+         }
+        }
+       ],
+       "series": [
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 1,
+             "endColumnIndex": 2
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.20392157,
+          "green": 0.65882355,
+          "blue": 0.32156864
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.20392157,
+           "green": 0.65882355,
+           "blue": 0.32156864
+          }
+         }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 11,
+             "endColumnIndex": 12
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.6,
+          "green": 0.6,
+          "blue": 0.6
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.6,
+           "green": 0.6,
+           "blue": 0.6
+          }
+         }
+        }
+       ],
+       "headerCount": 1
+      },
+      "hiddenDimensionStrategy": "SKIP_HIDDEN_ROWS_AND_COLUMNS",
+      "titleTextFormat": {
+       "fontFamily": "Roboto"
+      },
+      "fontName": "Roboto"
+     },
+     "position": {
+      "overlayPosition": {
+       "anchorCell": {
+        "sheetId": 212512334,
+        "rowIndex": 25
+       },
+       "widthPixels": 1150,
+       "heightPixels": 440
+      }
+     }
+    },
+    {
+     "chartId": 1852207737,
+     "spec": {
+      "title": "Drawdown: how far below the previous high",
+      "basicChart": {
+       "chartType": "AREA",
+       "legendPosition": "BOTTOM_LEGEND",
+       "axis": [
+        {
+         "position": "BOTTOM_AXIS",
+         "viewWindowOptions": {}
+        },
+        {
+         "position": "LEFT_AXIS",
+         "title": "Drop from high",
+         "format": {
+          "fontFamily": "Roboto"
+         },
+         "viewWindowOptions": {}
+        }
+       ],
+       "domains": [
+        {
+         "domain": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 111448676,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 0,
+             "endColumnIndex": 1
+            }
+           ]
+          }
+         }
+        }
+       ],
+       "series": [
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 111448676,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 1,
+             "endColumnIndex": 2
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.25882354,
+          "green": 0.52156866,
+          "blue": 0.95686275
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.25882354,
+           "green": 0.52156866,
+           "blue": 0.95686275
+          }
+         }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 111448676,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 2,
+             "endColumnIndex": 3
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.85882354,
+          "green": 0.26666668,
+          "blue": 0.21568628
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.85882354,
+           "green": 0.26666668,
+           "blue": 0.21568628
+          }
+         }
+        }
+       ],
+       "headerCount": 1
+      },
+      "hiddenDimensionStrategy": "SKIP_HIDDEN_ROWS_AND_COLUMNS",
+      "titleTextFormat": {
+       "fontFamily": "Roboto"
+      },
+      "fontName": "Roboto"
+     },
+     "position": {
+      "overlayPosition": {
+       "anchorCell": {
+        "sheetId": 212512334,
+        "rowIndex": 48
+       },
+       "widthPixels": 1150,
+       "heightPixels": 440
+      }
+     }
+    },
+    {
+     "chartId": 278249654,
+     "spec": {
+      "title": "What drove my return, by stock (Rs)",
+      "basicChart": {
+       "chartType": "COLUMN",
+       "legendPosition": "BOTTOM_LEGEND",
+       "axis": [
+        {
+         "position": "BOTTOM_AXIS",
+         "viewWindowOptions": {}
+        },
+        {
+         "position": "LEFT_AXIS",
+         "viewWindowOptions": {}
+        }
+       ],
+       "domains": [
+        {
+         "domain": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 71,
+             "endRowIndex": 92,
+             "startColumnIndex": 14,
+             "endColumnIndex": 15
+            }
+           ]
+          }
+         }
+        }
+       ],
+       "series": [
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 71,
+             "endRowIndex": 92,
+             "startColumnIndex": 18,
+             "endColumnIndex": 19
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.25882354,
+          "green": 0.52156866,
+          "blue": 0.95686275
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.25882354,
+           "green": 0.52156866,
+           "blue": 0.95686275
+          }
+         }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 71,
+             "endRowIndex": 92,
+             "startColumnIndex": 19,
+             "endColumnIndex": 20
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.20392157,
+          "green": 0.65882355,
+          "blue": 0.32156864
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.20392157,
+           "green": 0.65882355,
+           "blue": 0.32156864
+          }
+         }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 212512334,
+             "startRowIndex": 71,
+             "endRowIndex": 92,
+             "startColumnIndex": 20,
+             "endColumnIndex": 21
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "color": {
+          "red": 0.98039216,
+          "green": 0.73333335,
+          "blue": 0.015686275
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.98039216,
+           "green": 0.73333335,
+           "blue": 0.015686275
+          }
+         }
+        }
+       ],
+       "headerCount": 1,
+       "stackedType": "STACKED",
+       "totalDataLabel": {
+        "type": "DATA",
+        "textFormat": {
+         "fontFamily": "Roboto"
+        }
+       }
+      },
+      "hiddenDimensionStrategy": "SKIP_HIDDEN_ROWS_AND_COLUMNS",
+      "titleTextFormat": {
+       "fontFamily": "Roboto"
+      },
+      "fontName": "Roboto"
+     },
+     "position": {
+      "overlayPosition": {
+       "anchorCell": {
+        "sheetId": 212512334,
+        "rowIndex": 71
+       },
+       "widthPixels": 1150,
+       "heightPixels": 440
+      }
+     }
+    }
+   ]
+  },
+  {
+   "properties": {
     "sheetId": 1287706534,
     "title": "Daily Summary",
-    "index": 4,
+    "index": 5,
     "gridProperties": {
      "rowCount": 1000,
      "columnCount": 17
@@ -6086,13 +7354,13 @@
      0,
      0,
      0,
-     17
+     23
     ],
     [
      0,
      1,
      1,
-     18
+     20
     ],
     [
      0,
@@ -6104,13 +7372,13 @@
      1,
      1,
      1,
-     18
+     20
     ],
     [
      2,
      1,
      1,
-     18
+     20
     ],
     [
      2,
@@ -6122,7 +7390,7 @@
      3,
      1,
      1,
-     18
+     20
     ],
     [
      3,
@@ -6134,7 +7402,7 @@
      4,
      1,
      1,
-     18
+     20
     ],
     [
      4,
@@ -6146,7 +7414,7 @@
      5,
      1,
      1,
-     18
+     20
     ],
     [
      5,
@@ -6165,7 +7433,7 @@
    "properties": {
     "sheetId": 723686304,
     "title": "Portfolio Summary",
-    "index": 5,
+    "index": 6,
     "gridProperties": {
      "rowCount": 1000,
      "columnCount": 26,
@@ -6543,243 +7811,243 @@
      0,
      0,
      0,
-     19
-    ],
-    [
-     0,
-     2,
-     2,
-     20
-    ],
-    [
-     0,
-     3,
-     3,
-     22
-    ],
-    [
-     0,
-     4,
-     4,
-     0
-    ],
-    [
-     0,
-     26,
-     26,
-     28
-    ],
-    [
-     0,
-     27,
-     27,
-     0
-    ],
-    [
-     1,
-     2,
-     2,
-     21
-    ],
-    [
-     1,
-     3,
-     3,
-     23
-    ],
-    [
-     1,
-     4,
-     4,
-     0
-    ],
-    [
-     1,
-     5,
-     24,
-     25
-    ],
-    [
-     1,
-     27,
-     27,
-     0
-    ],
-    [
-     1,
-     28,
-     47,
-     3
-    ],
-    [
-     2,
-     2,
-     3,
-     22
-    ],
-    [
-     2,
-     4,
-     4,
-     0
-    ],
-    [
-     2,
-     5,
-     24,
-     3
-    ],
-    [
-     2,
-     27,
-     27,
-     0
-    ],
-    [
-     2,
-     28,
-     47,
-     3
-    ],
-    [
-     2,
-     48,
-     399,
-     29
-    ],
-    [
-     3,
-     2,
-     2,
-     21
-    ],
-    [
-     3,
-     3,
-     3,
-     23
-    ],
-    [
-     3,
-     4,
-     4,
-     0
-    ],
-    [
-     3,
-     5,
-     24,
-     3
-    ],
-    [
-     3,
-     27,
-     27,
-     0
-    ],
-    [
-     3,
-     28,
-     47,
-     3
-    ],
-    [
-     3,
-     48,
-     399,
-     29
-    ],
-    [
-     4,
-     2,
-     3,
-     22
-    ],
-    [
-     4,
-     4,
-     4,
-     0
-    ],
-    [
-     4,
-     5,
-     24,
-     3
-    ],
-    [
-     4,
-     27,
-     27,
-     0
-    ],
-    [
-     4,
-     28,
-     47,
-     3
-    ],
-    [
-     4,
-     48,
-     399,
-     29
-    ],
-    [
-     5,
-     2,
-     2,
-     23
-    ],
-    [
-     5,
-     3,
-     3,
      24
     ],
     [
-     5,
-     4,
-     4,
-     0
+     0,
+     2,
+     2,
+     25
     ],
     [
-     5,
-     5,
-     24,
-     26
-    ],
-    [
-     5,
-     27,
-     27,
-     0
-    ],
-    [
-     5,
-     28,
-     47,
-     3
-    ],
-    [
-     5,
-     48,
-     399,
-     29
-    ],
-    [
-     6,
-     4,
-     4,
-     0
-    ],
-    [
-     6,
-     5,
-     24,
+     0,
+     3,
+     3,
      27
     ],
     [
+     0,
+     4,
+     4,
+     0
+    ],
+    [
+     0,
+     26,
+     26,
+     32
+    ],
+    [
+     0,
+     27,
+     27,
+     0
+    ],
+    [
+     1,
+     2,
+     2,
+     26
+    ],
+    [
+     1,
+     3,
+     3,
+     28
+    ],
+    [
+     1,
+     4,
+     4,
+     0
+    ],
+    [
+     1,
+     5,
+     24,
+     22
+    ],
+    [
+     1,
+     27,
+     27,
+     0
+    ],
+    [
+     1,
+     28,
+     47,
+     3
+    ],
+    [
+     2,
+     2,
+     3,
+     27
+    ],
+    [
+     2,
+     4,
+     4,
+     0
+    ],
+    [
+     2,
+     5,
+     24,
+     3
+    ],
+    [
+     2,
+     27,
+     27,
+     0
+    ],
+    [
+     2,
+     28,
+     47,
+     3
+    ],
+    [
+     2,
+     48,
+     399,
+     33
+    ],
+    [
+     3,
+     2,
+     2,
+     26
+    ],
+    [
+     3,
+     3,
+     3,
+     28
+    ],
+    [
+     3,
+     4,
+     4,
+     0
+    ],
+    [
+     3,
+     5,
+     24,
+     3
+    ],
+    [
+     3,
+     27,
+     27,
+     0
+    ],
+    [
+     3,
+     28,
+     47,
+     3
+    ],
+    [
+     3,
+     48,
+     399,
+     33
+    ],
+    [
+     4,
+     2,
+     3,
+     27
+    ],
+    [
+     4,
+     4,
+     4,
+     0
+    ],
+    [
+     4,
+     5,
+     24,
+     3
+    ],
+    [
+     4,
+     27,
+     27,
+     0
+    ],
+    [
+     4,
+     28,
+     47,
+     3
+    ],
+    [
+     4,
+     48,
+     399,
+     33
+    ],
+    [
+     5,
+     2,
+     2,
+     28
+    ],
+    [
+     5,
+     3,
+     3,
+     29
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ],
+    [
+     5,
+     5,
+     24,
+     30
+    ],
+    [
+     5,
+     27,
+     27,
+     0
+    ],
+    [
+     5,
+     28,
+     47,
+     3
+    ],
+    [
+     5,
+     48,
+     399,
+     33
+    ],
+    [
+     6,
+     4,
+     4,
+     0
+    ],
+    [
+     6,
+     5,
+     24,
+     31
+    ],
+    [
      6,
      27,
      27,
@@ -6795,7 +8063,7 @@
      6,
      48,
      399,
-     29
+     33
     ],
     [
      7,
@@ -6820,7 +8088,7 @@
    "properties": {
     "sheetId": 387349341,
     "title": "Daily Performance",
-    "index": 6,
+    "index": 7,
     "gridProperties": {
      "rowCount": 1000,
      "columnCount": 26,
@@ -7079,7 +8347,7 @@
      0,
      0,
      0,
-     30
+     19
     ],
     [
      0,
@@ -7091,7 +8359,7 @@
      1,
      0,
      0,
-     30
+     19
     ],
     [
      1,
@@ -7103,7 +8371,7 @@
      2,
      0,
      0,
-     30
+     19
     ],
     [
      2,
@@ -7115,19 +8383,19 @@
      3,
      0,
      0,
-     30
+     19
     ],
     [
      3,
      1,
      999,
-     31
+     34
     ],
     [
      4,
      0,
      0,
-     30
+     19
     ],
     [
      4,
@@ -7139,67 +8407,67 @@
      5,
      0,
      0,
-     30
+     19
     ],
     [
      5,
      1,
      999,
-     31
+     34
     ],
     [
      6,
      0,
      0,
-     30
+     19
     ],
     [
      6,
      1,
      999,
-     31
+     34
     ],
     [
      7,
      0,
      0,
-     30
+     19
     ],
     [
      7,
      1,
      999,
-     31
+     34
     ],
     [
      8,
      0,
      0,
-     30
+     19
     ],
     [
      8,
      1,
      999,
-     31
+     34
     ],
     [
      9,
      0,
      0,
-     30
+     19
     ],
     [
      9,
      1,
      999,
-     31
+     34
     ],
     [
      10,
      0,
      0,
-     30
+     19
     ],
     [
      10,
@@ -7211,7 +8479,7 @@
      11,
      0,
      0,
-     30
+     19
     ],
     [
      11,
@@ -7223,37 +8491,37 @@
      12,
      0,
      0,
-     30
+     19
     ],
     [
      12,
      1,
      999,
-     31
+     34
     ],
     [
      13,
      0,
      0,
-     30
+     19
     ],
     [
      13,
      1,
      999,
-     32
+     35
     ],
     [
      14,
      0,
      0,
-     30
+     19
     ],
     [
      14,
      1,
      999,
-     32
+     35
     ]
    ],
    "merges": [],
@@ -7450,6 +8718,180 @@
      }
     }
    ]
+  },
+  {
+   "properties": {
+    "sheetId": 583686686,
+    "title": "Latest Prices",
+    "index": 8,
+    "gridProperties": {
+     "rowCount": 200,
+     "columnCount": 3
+    }
+   },
+   "columnWidths": [],
+   "rowHeights": [],
+   "values": [
+    [
+     0,
+     0,
+     {
+      "stringValue": "Ticker"
+     }
+    ],
+    [
+     0,
+     1,
+     {
+      "stringValue": "Latest Close"
+     }
+    ],
+    [
+     0,
+     2,
+     {
+      "stringValue": "As of"
+     }
+    ]
+   ],
+   "styleRuns": [
+    [
+     0,
+     0,
+     0,
+     19
+    ],
+    [
+     1,
+     0,
+     0,
+     19
+    ],
+    [
+     1,
+     1,
+     199,
+     4
+    ],
+    [
+     2,
+     0,
+     0,
+     19
+    ],
+    [
+     2,
+     1,
+     199,
+     1
+    ]
+   ],
+   "merges": [],
+   "conditionalFormats": [],
+   "bandedRanges": [],
+   "basicFilter": null,
+   "charts": []
+  },
+  {
+   "properties": {
+    "sheetId": 111448676,
+    "title": "Charts_Data",
+    "index": 9,
+    "gridProperties": {
+     "rowCount": 1000,
+     "columnCount": 5
+    },
+    "hidden": true
+   },
+   "columnWidths": [],
+   "rowHeights": [],
+   "values": [
+    [
+     0,
+     0,
+     {
+      "stringValue": "Date"
+     }
+    ],
+    [
+     0,
+     1,
+     {
+      "stringValue": "My Drawdown"
+     }
+    ],
+    [
+     0,
+     2,
+     {
+      "stringValue": "KSE-100 Drawdown"
+     }
+    ],
+    [
+     1,
+     0,
+     {
+      "formulaValue": "=IFERROR(FILTER('Daily Performance'!A2:A,'Daily Performance'!A2:A<>\"\"),\"\")"
+     }
+    ],
+    [
+     1,
+     1,
+     {
+      "formulaValue": "=IFERROR(ARRAYFORMULA(LET(w,1+FILTER('Daily Performance'!H2:H,'Daily Performance'!A2:A<>\"\"),w/SCAN(1,w,LAMBDA(acc,x,MAX(acc,x)))-1)),\"\")"
+     }
+    ],
+    [
+     1,
+     2,
+     {
+      "formulaValue": "=IFERROR(ARRAYFORMULA(LET(w,1+FILTER('Daily Performance'!I2:I,'Daily Performance'!A2:A<>\"\"),w/SCAN(1,w,LAMBDA(acc,x,MAX(acc,x)))-1)),\"\")"
+     }
+    ]
+   ],
+   "styleRuns": [
+    [
+     0,
+     0,
+     0,
+     19
+    ],
+    [
+     0,
+     1,
+     999,
+     1
+    ],
+    [
+     1,
+     0,
+     0,
+     19
+    ],
+    [
+     1,
+     1,
+     999,
+     21
+    ],
+    [
+     2,
+     0,
+     0,
+     19
+    ],
+    [
+     2,
+     1,
+     999,
+     21
+    ]
+   ],
+   "merges": [],
+   "conditionalFormats": [],
+   "bandedRanges": [],
+   "basicFilter": null,
+   "charts": []
   }
  ]
 }

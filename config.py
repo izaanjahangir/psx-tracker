@@ -21,6 +21,7 @@ def setting(name, default=None):
 KEY_FILE = PROJECT_DIR / setting("GOOGLE_KEY_FILE", "service-account.json")
 TRADE_SHEET = setting("TRADE_SHEET", "Trade List")
 PERF_SHEET = setting("PERF_SHEET", "Daily Performance")
+PRICES_SHEET = setting("PRICES_SHEET", "Latest Prices")
 # How many days back to re-price using the current Trade List.
 DAYS_TO_REFILL = int(setting("DAYS_TO_REFILL", "30"))
 PSX = setting("PSX_BASE_URL", "https://dps.psx.com.pk")

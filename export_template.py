@@ -11,7 +11,7 @@ Usage:
 
 import json
 
-from config import PERF_SHEET, TEMPLATE_FILE, TRADE_SHEET, open_spreadsheet, spreadsheet_id
+from config import PERF_SHEET, PRICES_SHEET, TEMPLATE_FILE, TRADE_SHEET, open_spreadsheet, spreadsheet_id
 
 
 # Rows (0-based, inclusive start) where typed values are personal data and are dropped.
@@ -20,6 +20,7 @@ DATA_START_ROW = {
     TRADE_SHEET: 1,          # trades start on row 2
     "Dividend summary": 7,   # dividend entries start on row 8
     PERF_SHEET: 1,           # written by update_performance.py
+    PRICES_SHEET: 1,         # written by update_performance.py
 }
 
 FIELDS = (
