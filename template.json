@@ -362,22 +362,6 @@
   },
   {
    "userEnteredFormat": {
-    "textFormat": {
-     "fontSize": 18,
-     "bold": true
-    }
-   }
-  },
-  {
-   "userEnteredFormat": {
-    "textFormat": {
-     "fontSize": 13,
-     "bold": true
-    }
-   }
-  },
-  {
-   "userEnteredFormat": {
     "backgroundColor": {
      "red": 0.4,
      "green": 0.4,
@@ -411,6 +395,49 @@
   },
   {
    "userEnteredFormat": {
+    "numberFormat": {
+     "type": "PERCENT",
+     "pattern": "0.00%;[Red]-0.00%"
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "horizontalAlignment": "RIGHT",
+    "textFormat": {
+     "foregroundColor": {
+      "red": 0.49803922,
+      "green": 0.49803922,
+      "blue": 0.49803922
+     },
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 0.49803922,
+       "green": 0.49803922,
+       "blue": 0.49803922
+      }
+     }
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "textFormat": {
+     "fontSize": 18,
+     "bold": true
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "textFormat": {
+     "fontSize": 13,
+     "bold": true
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
     "textFormat": {
      "bold": true
     }
@@ -429,14 +456,6 @@
     "numberFormat": {
      "type": "NUMBER",
      "pattern": "#,##0"
-    }
-   }
-  },
-  {
-   "userEnteredFormat": {
-    "textFormat": {
-     "fontSize": 12,
-     "bold": true
     }
    }
   },
@@ -614,28 +633,9 @@
   },
   {
    "userEnteredFormat": {
-    "numberFormat": {
-     "type": "PERCENT",
-     "pattern": "0.00%;[Red]-0.00%"
-    }
-   }
-  },
-  {
-   "userEnteredFormat": {
-    "horizontalAlignment": "RIGHT",
     "textFormat": {
-     "foregroundColor": {
-      "red": 0.49803922,
-      "green": 0.49803922,
-      "blue": 0.49803922
-     },
-     "foregroundColorStyle": {
-      "rgbColor": {
-       "red": 0.49803922,
-       "green": 0.49803922,
-       "blue": 0.49803922
-      }
-     }
+     "fontSize": 12,
+     "bold": true
     }
    }
   }
@@ -873,7 +873,7 @@
     [
      0,
      1,
-     31,
+     33,
      1
     ],
     [
@@ -939,7 +939,7 @@
     [
      8,
      15,
-     31,
+     33,
      3
     ],
     [
@@ -947,6 +947,12 @@
      0,
      0,
      0
+    ],
+    [
+     9,
+     32,
+     33,
+     3
     ],
     [
      10,
@@ -957,7 +963,7 @@
     [
      10,
      15,
-     31,
+     33,
      3
     ],
     [
@@ -5318,318 +5324,9 @@
   },
   {
    "properties": {
-    "sheetId": 1200595840,
-    "title": "Dashboard_Data",
-    "index": 2,
-    "gridProperties": {
-     "rowCount": 1000,
-     "columnCount": 34
-    },
-    "hidden": true
-   },
-   "columnWidths": [],
-   "rowHeights": [],
-   "values": [
-    [
-     0,
-     0,
-     {
-      "stringValue": "All Stocks"
-     }
-    ],
-    [
-     0,
-     2,
-     {
-      "stringValue": "Date"
-     }
-    ],
-    [
-     0,
-     3,
-     {
-      "stringValue": "Stock"
-     }
-    ],
-    [
-     0,
-     4,
-     {
-      "stringValue": "Buy/Sell"
-     }
-    ],
-    [
-     0,
-     5,
-     {
-      "stringValue": "Quantity"
-     }
-    ],
-    [
-     0,
-     6,
-     {
-      "stringValue": "Price"
-     }
-    ],
-    [
-     0,
-     7,
-     {
-      "stringValue": "Commission"
-     }
-    ],
-    [
-     0,
-     8,
-     {
-      "stringValue": "Sales Tax"
-     }
-    ],
-    [
-     0,
-     9,
-     {
-      "stringValue": "CDC"
-     }
-    ],
-    [
-     0,
-     10,
-     {
-      "stringValue": "Gross"
-     }
-    ],
-    [
-     0,
-     11,
-     {
-      "stringValue": "Charges"
-     }
-    ],
-    [
-     0,
-     12,
-     {
-      "stringValue": "Net"
-     }
-    ],
-    [
-     0,
-     15,
-     {
-      "stringValue": "Stock"
-     }
-    ],
-    [
-     0,
-     16,
-     {
-      "stringValue": "Investment"
-     }
-    ],
-    [
-     0,
-     18,
-     {
-      "stringValue": "Date"
-     }
-    ],
-    [
-     0,
-     19,
-     {
-      "stringValue": "Daily Gross"
-     }
-    ],
-    [
-     0,
-     20,
-     {
-      "stringValue": "Cumulative Gross"
-     }
-    ],
-    [
-     0,
-     21,
-     {
-      "stringValue": "Daily Qty"
-     }
-    ],
-    [
-     0,
-     22,
-     {
-      "stringValue": "Cumulative Qty"
-     }
-    ],
-    [
-     0,
-     25,
-     {
-      "stringValue": "Cumulative Buy Qty"
-     }
-    ],
-    [
-     0,
-     26,
-     {
-      "stringValue": "Cumulative Buy Gross"
-     }
-    ],
-    [
-     0,
-     27,
-     {
-      "stringValue": "Cumulative Avg Buy Price"
-     }
-    ],
-    [
-     0,
-     29,
-     {
-      "stringValue": "Date"
-     }
-    ],
-    [
-     0,
-     30,
-     {
-      "stringValue": "Buy Price"
-     }
-    ],
-    [
-     0,
-     32,
-     {
-      "stringValue": "Month"
-     }
-    ],
-    [
-     0,
-     33,
-     {
-      "stringValue": "Gross Investment"
-     }
-    ],
-    [
-     1,
-     0,
-     {
-      "formulaValue": "=SORT(UNIQUE(FILTER('Trade List'!B2:B400,'Trade List'!B2:B400<>\"\")))"
-     }
-    ],
-    [
-     1,
-     2,
-     {
-      "formulaValue": "=IFERROR(FILTER('Trade List'!A2:K400,('Trade List'!A2:A400<>\"\")*((Dashboard!$B$1=\"All Stocks\")+('Trade List'!B2:B400=Dashboard!$B$1))),\"\")"
-     }
-    ],
-    [
-     1,
-     13,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($C2:C=\"\",\"\",TEXT($C2:C,\"YYYY-MM\")))"
-     }
-    ],
-    [
-     1,
-     15,
-     {
-      "formulaValue": "=IFERROR(FILTER({'Portfolio Summary'!$A$6:$A$25,'Portfolio Summary'!$C$6:$C$25},'Portfolio Summary'!$B$6:$B$25>0,(Dashboard!$B$1=\"All Stocks\")+('Portfolio Summary'!$A$6:$A$25=Dashboard!$B$1)),\"\")"
-     }
-    ],
-    [
-     1,
-     18,
-     {
-      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER($C2:C,$C2:C<>\"\"))),\"\")"
-     }
-    ],
-    [
-     1,
-     19,
-     {
-      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$M$2:$M,'Trade List'!$A$2:$A,d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1)))))"
-     }
-    ],
-    [
-     1,
-     20,
-     {
-      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$M$2:$M,'Trade List'!$A$2:$A,\"<=\"&d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1)))))"
-     }
-    ],
-    [
-     1,
-     21,
-     {
-      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Buy\")-SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Sell\"))))"
-     }
-    ],
-    [
-     1,
-     22,
-     {
-      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,\"<=\"&d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Buy\")-SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,\"<=\"&d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Sell\"))))"
-     }
-    ],
-    [
-     1,
-     25,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($S2:S=\"\",\"\",SUMIFS($F2:F,$C2:C,\"<=\"&$S2:S,$E2:E,\"Buy\")))"
-     }
-    ],
-    [
-     1,
-     26,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($S2:S=\"\",\"\",SUMIFS($K2:K,$C2:C,\"<=\"&$S2:S,$E2:E,\"Buy\")))"
-     }
-    ],
-    [
-     1,
-     27,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($S2:S=\"\",\"\",IFERROR($AA2:AA/$Z2:Z,\"\")))"
-     }
-    ],
-    [
-     1,
-     29,
-     {
-      "formulaValue": "=IFERROR(SORT(FILTER({$C2:C,$G2:G},($C2:C<>\"\")*($E2:E=\"Buy\")),1,TRUE),\"\")"
-     }
-    ],
-    [
-     1,
-     32,
-     {
-      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER($N2:N,$N2:N<>\"\"))),\"\")"
-     }
-    ],
-    [
-     1,
-     33,
-     {
-      "formulaValue": "=MAP($AG2:$AG,LAMBDA(m,IF(m=\"\",\"\",SUM(IFERROR(FILTER('Trade List'!$M$2:$M,TEXT('Trade List'!$A$2:$A,\"YYYY-MM\")=m,'Trade List'!$A$2:$A<>\"\",(Dashboard!$B$1=\"All Stocks\")+('Trade List'!$B$2:$B=Dashboard!$B$1)),0)))))"
-     }
-    ]
-   ],
-   "styleRuns": [],
-   "merges": [],
-   "conditionalFormats": [],
-   "bandedRanges": [],
-   "basicFilter": null,
-   "charts": []
-  },
-  {
-   "properties": {
     "sheetId": 1030036118,
     "title": "Dashboard",
-    "index": 3,
+    "index": 2,
     "gridProperties": {
      "rowCount": 1000,
      "columnCount": 26
@@ -5977,9 +5674,953 @@
   },
   {
    "properties": {
+    "sheetId": 1200595840,
+    "title": "Dashboard_Data",
+    "index": 3,
+    "gridProperties": {
+     "rowCount": 1000,
+     "columnCount": 34
+    },
+    "hidden": true
+   },
+   "columnWidths": [],
+   "rowHeights": [],
+   "values": [
+    [
+     0,
+     0,
+     {
+      "stringValue": "All Stocks"
+     }
+    ],
+    [
+     0,
+     2,
+     {
+      "stringValue": "Date"
+     }
+    ],
+    [
+     0,
+     3,
+     {
+      "stringValue": "Stock"
+     }
+    ],
+    [
+     0,
+     4,
+     {
+      "stringValue": "Buy/Sell"
+     }
+    ],
+    [
+     0,
+     5,
+     {
+      "stringValue": "Quantity"
+     }
+    ],
+    [
+     0,
+     6,
+     {
+      "stringValue": "Price"
+     }
+    ],
+    [
+     0,
+     7,
+     {
+      "stringValue": "Commission"
+     }
+    ],
+    [
+     0,
+     8,
+     {
+      "stringValue": "Sales Tax"
+     }
+    ],
+    [
+     0,
+     9,
+     {
+      "stringValue": "CDC"
+     }
+    ],
+    [
+     0,
+     10,
+     {
+      "stringValue": "Gross"
+     }
+    ],
+    [
+     0,
+     11,
+     {
+      "stringValue": "Charges"
+     }
+    ],
+    [
+     0,
+     12,
+     {
+      "stringValue": "Net"
+     }
+    ],
+    [
+     0,
+     15,
+     {
+      "stringValue": "Stock"
+     }
+    ],
+    [
+     0,
+     16,
+     {
+      "stringValue": "Investment"
+     }
+    ],
+    [
+     0,
+     18,
+     {
+      "stringValue": "Date"
+     }
+    ],
+    [
+     0,
+     19,
+     {
+      "stringValue": "Daily Gross"
+     }
+    ],
+    [
+     0,
+     20,
+     {
+      "stringValue": "Cumulative Gross"
+     }
+    ],
+    [
+     0,
+     21,
+     {
+      "stringValue": "Daily Qty"
+     }
+    ],
+    [
+     0,
+     22,
+     {
+      "stringValue": "Cumulative Qty"
+     }
+    ],
+    [
+     0,
+     25,
+     {
+      "stringValue": "Cumulative Buy Qty"
+     }
+    ],
+    [
+     0,
+     26,
+     {
+      "stringValue": "Cumulative Buy Gross"
+     }
+    ],
+    [
+     0,
+     27,
+     {
+      "stringValue": "Cumulative Avg Buy Price"
+     }
+    ],
+    [
+     0,
+     29,
+     {
+      "stringValue": "Date"
+     }
+    ],
+    [
+     0,
+     30,
+     {
+      "stringValue": "Buy Price"
+     }
+    ],
+    [
+     0,
+     32,
+     {
+      "stringValue": "Month"
+     }
+    ],
+    [
+     0,
+     33,
+     {
+      "stringValue": "Gross Investment"
+     }
+    ],
+    [
+     1,
+     0,
+     {
+      "formulaValue": "=SORT(UNIQUE(FILTER('Trade List'!B2:B400,'Trade List'!B2:B400<>\"\")))"
+     }
+    ],
+    [
+     1,
+     2,
+     {
+      "formulaValue": "=IFERROR(FILTER('Trade List'!A2:K400,('Trade List'!A2:A400<>\"\")*((Dashboard!$B$1=\"All Stocks\")+('Trade List'!B2:B400=Dashboard!$B$1))),\"\")"
+     }
+    ],
+    [
+     1,
+     13,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($C2:C=\"\",\"\",TEXT($C2:C,\"YYYY-MM\")))"
+     }
+    ],
+    [
+     1,
+     15,
+     {
+      "formulaValue": "=IFERROR(FILTER({'Portfolio Summary'!$A$6:$A$25,'Portfolio Summary'!$C$6:$C$25},'Portfolio Summary'!$B$6:$B$25>0,(Dashboard!$B$1=\"All Stocks\")+('Portfolio Summary'!$A$6:$A$25=Dashboard!$B$1)),\"\")"
+     }
+    ],
+    [
+     1,
+     18,
+     {
+      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER($C2:C,$C2:C<>\"\"))),\"\")"
+     }
+    ],
+    [
+     1,
+     19,
+     {
+      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$M$2:$M,'Trade List'!$A$2:$A,d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1)))))"
+     }
+    ],
+    [
+     1,
+     20,
+     {
+      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$M$2:$M,'Trade List'!$A$2:$A,\"<=\"&d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1)))))"
+     }
+    ],
+    [
+     1,
+     21,
+     {
+      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Buy\")-SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Sell\"))))"
+     }
+    ],
+    [
+     1,
+     22,
+     {
+      "formulaValue": "=MAP($S2:$S,LAMBDA(d,IF(d=\"\",\"\",SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,\"<=\"&d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Buy\")-SUMIFS('Trade List'!$D$2:$D,'Trade List'!$A$2:$A,\"<=\"&d,'Trade List'!$B$2:$B,IF(Dashboard!$B$1=\"All Stocks\",\"*\",Dashboard!$B$1),'Trade List'!$C$2:$C,\"Sell\"))))"
+     }
+    ],
+    [
+     1,
+     25,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($S2:S=\"\",\"\",SUMIFS($F2:F,$C2:C,\"<=\"&$S2:S,$E2:E,\"Buy\")))"
+     }
+    ],
+    [
+     1,
+     26,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($S2:S=\"\",\"\",SUMIFS($K2:K,$C2:C,\"<=\"&$S2:S,$E2:E,\"Buy\")))"
+     }
+    ],
+    [
+     1,
+     27,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($S2:S=\"\",\"\",IFERROR($AA2:AA/$Z2:Z,\"\")))"
+     }
+    ],
+    [
+     1,
+     29,
+     {
+      "formulaValue": "=IFERROR(SORT(FILTER({$C2:C,$G2:G},($C2:C<>\"\")*($E2:E=\"Buy\")),1,TRUE),\"\")"
+     }
+    ],
+    [
+     1,
+     32,
+     {
+      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER($N2:N,$N2:N<>\"\"))),\"\")"
+     }
+    ],
+    [
+     1,
+     33,
+     {
+      "formulaValue": "=MAP($AG2:$AG,LAMBDA(m,IF(m=\"\",\"\",SUM(IFERROR(FILTER('Trade List'!$M$2:$M,TEXT('Trade List'!$A$2:$A,\"YYYY-MM\")=m,'Trade List'!$A$2:$A<>\"\",(Dashboard!$B$1=\"All Stocks\")+('Trade List'!$B$2:$B=Dashboard!$B$1)),0)))))"
+     }
+    ]
+   ],
+   "styleRuns": [],
+   "merges": [],
+   "conditionalFormats": [],
+   "bandedRanges": [],
+   "basicFilter": null,
+   "charts": []
+  },
+  {
+   "properties": {
+    "sheetId": 387349341,
+    "title": "Daily Performance",
+    "index": 4,
+    "gridProperties": {
+     "rowCount": 1000,
+     "columnCount": 26,
+     "frozenRowCount": 1
+    }
+   },
+   "columnWidths": [
+    [
+     0,
+     115
+    ],
+    [
+     1,
+     115
+    ],
+    [
+     2,
+     115
+    ],
+    [
+     3,
+     115
+    ],
+    [
+     4,
+     115
+    ],
+    [
+     5,
+     115
+    ],
+    [
+     6,
+     115
+    ],
+    [
+     7,
+     115
+    ],
+    [
+     8,
+     115
+    ],
+    [
+     9,
+     115
+    ],
+    [
+     10,
+     115
+    ],
+    [
+     11,
+     115
+    ],
+    [
+     12,
+     115
+    ],
+    [
+     13,
+     115
+    ],
+    [
+     14,
+     115
+    ]
+   ],
+   "rowHeights": [],
+   "values": [
+    [
+     0,
+     0,
+     {
+      "stringValue": "Date"
+     }
+    ],
+    [
+     0,
+     1,
+     {
+      "stringValue": "Portfolio Value"
+     }
+    ],
+    [
+     0,
+     2,
+     {
+      "stringValue": "Net Money Added"
+     }
+    ],
+    [
+     0,
+     3,
+     {
+      "stringValue": "My Return % (incl. dividends)"
+     }
+    ],
+    [
+     0,
+     4,
+     {
+      "stringValue": "KSE-100"
+     }
+    ],
+    [
+     0,
+     5,
+     {
+      "stringValue": "KSE-100 %"
+     }
+    ],
+    [
+     0,
+     6,
+     {
+      "stringValue": "Difference"
+     }
+    ],
+    [
+     0,
+     7,
+     {
+      "stringValue": "My Return Since Start"
+     }
+    ],
+    [
+     0,
+     8,
+     {
+      "stringValue": "KSE-100 Since Start"
+     }
+    ],
+    [
+     0,
+     9,
+     {
+      "stringValue": "Ahead / Behind"
+     }
+    ],
+    [
+     0,
+     10,
+     {
+      "stringValue": "Dividends (ex-date, after tax)"
+     }
+    ],
+    [
+     0,
+     11,
+     {
+      "stringValue": "Cost of Holdings"
+     }
+    ],
+    [
+     0,
+     12,
+     {
+      "stringValue": "Return on Cost %"
+     }
+    ],
+    [
+     0,
+     13,
+     {
+      "stringValue": "Chart label: My Return (helper)"
+     }
+    ],
+    [
+     0,
+     14,
+     {
+      "stringValue": "Chart label: KSE-100 (helper)"
+     }
+    ],
+    [
+     1,
+     2,
+     {
+      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,day,'Trade List'!$C$2:$C,\"Buy\")-SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,day,'Trade List'!$C$2:$C,\"Sell\"))))"
+     }
+    ],
+    [
+     1,
+     3,
+     {
+      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",LET(val,INDEX(B2:B,idx),flow,INDEX(C2:C,idx),div,N(INDEX(K2:K,idx)),prev,IF(idx=1,0,INDEX(B2:B,idx-1)),IFERROR((val-prev-flow+div)/(prev+MAX(flow,0)),\"\")))))"
+     }
+    ],
+    [
+     1,
+     6,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF((A2:A=\"\")+(D2:D=\"\")+(F2:F=\"\"),\"\",D2:D-F2:F))"
+     }
+    ],
+    [
+     1,
+     7,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",SCAN(1,IF(ISNUMBER(D2:D),D2:D,0),LAMBDA(acc,ret,acc*(1+ret)))-1))"
+     }
+    ],
+    [
+     1,
+     8,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",SCAN(1,IF(ISNUMBER(F2:F),F2:F,0),LAMBDA(acc,ret,acc*(1+ret)))-1))"
+     }
+    ],
+    [
+     1,
+     9,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",H2:H-I2:I))"
+     }
+    ],
+    [
+     1,
+     10,
+     {
+      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$B$8:$B,day))))"
+     }
+    ],
+    [
+     1,
+     11,
+     {
+      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Trade List'!$N$2:$N,'Trade List'!$A$2:$A,\"<=\"&day))))"
+     }
+    ],
+    [
+     1,
+     12,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",IFERROR(B2:B/L2:L-1,\"\")))"
+     }
+    ],
+    [
+     1,
+     13,
+     {
+      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(H2:H,idx),\"+0.0%;-0.0%;0.0%\"),\"\"))))"
+     }
+    ],
+    [
+     1,
+     14,
+     {
+      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(I2:I,idx),\"+0.0%;-0.0%;0.0%\"),\"\"))))"
+     }
+    ]
+   ],
+   "styleRuns": [
+    [
+     0,
+     0,
+     0,
+     17
+    ],
+    [
+     0,
+     1,
+     999,
+     1
+    ],
+    [
+     1,
+     0,
+     0,
+     17
+    ],
+    [
+     1,
+     1,
+     999,
+     3
+    ],
+    [
+     2,
+     0,
+     0,
+     17
+    ],
+    [
+     2,
+     1,
+     999,
+     3
+    ],
+    [
+     3,
+     0,
+     0,
+     17
+    ],
+    [
+     3,
+     1,
+     999,
+     18
+    ],
+    [
+     4,
+     0,
+     0,
+     17
+    ],
+    [
+     4,
+     1,
+     999,
+     3
+    ],
+    [
+     5,
+     0,
+     0,
+     17
+    ],
+    [
+     5,
+     1,
+     999,
+     18
+    ],
+    [
+     6,
+     0,
+     0,
+     17
+    ],
+    [
+     6,
+     1,
+     999,
+     18
+    ],
+    [
+     7,
+     0,
+     0,
+     17
+    ],
+    [
+     7,
+     1,
+     999,
+     18
+    ],
+    [
+     8,
+     0,
+     0,
+     17
+    ],
+    [
+     8,
+     1,
+     999,
+     18
+    ],
+    [
+     9,
+     0,
+     0,
+     17
+    ],
+    [
+     9,
+     1,
+     999,
+     18
+    ],
+    [
+     10,
+     0,
+     0,
+     17
+    ],
+    [
+     10,
+     1,
+     999,
+     3
+    ],
+    [
+     11,
+     0,
+     0,
+     17
+    ],
+    [
+     11,
+     1,
+     999,
+     3
+    ],
+    [
+     12,
+     0,
+     0,
+     17
+    ],
+    [
+     12,
+     1,
+     999,
+     18
+    ],
+    [
+     13,
+     0,
+     0,
+     17
+    ],
+    [
+     13,
+     1,
+     999,
+     19
+    ],
+    [
+     14,
+     0,
+     0,
+     17
+    ],
+    [
+     14,
+     1,
+     999,
+     19
+    ]
+   ],
+   "merges": [],
+   "conditionalFormats": [],
+   "bandedRanges": [],
+   "basicFilter": null,
+   "charts": [
+    {
+     "chartId": 1341527595,
+     "spec": {
+      "title": "My Portfolio vs KSE-100 (return since start)",
+      "basicChart": {
+       "chartType": "LINE",
+       "legendPosition": "BOTTOM_LEGEND",
+       "axis": [
+        {
+         "position": "BOTTOM_AXIS",
+         "title": "Date",
+         "format": {
+          "fontFamily": "Roboto"
+         },
+         "viewWindowOptions": {}
+        },
+        {
+         "position": "LEFT_AXIS",
+         "title": "Return since start",
+         "format": {
+          "fontFamily": "Roboto"
+         },
+         "viewWindowOptions": {}
+        }
+       ],
+       "domains": [
+        {
+         "domain": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 0,
+             "endColumnIndex": 1
+            }
+           ]
+          }
+         }
+        }
+       ],
+       "series": [
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 7,
+             "endColumnIndex": 8
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "dataLabel": {
+          "type": "CUSTOM",
+          "textFormat": {
+           "foregroundColor": {
+            "red": 0.25882354,
+            "green": 0.52156866,
+            "blue": 0.95686275
+           },
+           "fontFamily": "Roboto",
+           "fontSize": 9,
+           "bold": true,
+           "foregroundColorStyle": {
+            "rgbColor": {
+             "red": 0.25882354,
+             "green": 0.52156866,
+             "blue": 0.95686275
+            }
+           }
+          },
+          "placement": "ABOVE",
+          "customLabelData": {
+           "sourceRange": {
+            "sources": [
+             {
+              "sheetId": 387349341,
+              "startRowIndex": 0,
+              "endRowIndex": 1000,
+              "startColumnIndex": 13,
+              "endColumnIndex": 14
+             }
+            ]
+           }
+          }
+         },
+         "color": {
+          "red": 0.25882354,
+          "green": 0.52156866,
+          "blue": 0.95686275
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.25882354,
+           "green": 0.52156866,
+           "blue": 0.95686275
+          }
+         }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 8,
+             "endColumnIndex": 9
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "dataLabel": {
+          "type": "CUSTOM",
+          "textFormat": {
+           "foregroundColor": {
+            "red": 0.85882354,
+            "green": 0.26666668,
+            "blue": 0.21568628
+           },
+           "fontFamily": "Roboto",
+           "fontSize": 9,
+           "bold": true,
+           "foregroundColorStyle": {
+            "rgbColor": {
+             "red": 0.85882354,
+             "green": 0.26666668,
+             "blue": 0.21568628
+            }
+           }
+          },
+          "placement": "BELOW",
+          "customLabelData": {
+           "sourceRange": {
+            "sources": [
+             {
+              "sheetId": 387349341,
+              "startRowIndex": 0,
+              "endRowIndex": 1000,
+              "startColumnIndex": 14,
+              "endColumnIndex": 15
+             }
+            ]
+           }
+          }
+         },
+         "color": {
+          "red": 0.85882354,
+          "green": 0.26666668,
+          "blue": 0.21568628
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.85882354,
+           "green": 0.26666668,
+           "blue": 0.21568628
+          }
+         }
+        }
+       ],
+       "headerCount": 1
+      },
+      "hiddenDimensionStrategy": "SKIP_HIDDEN_ROWS_AND_COLUMNS",
+      "titleTextFormat": {
+       "fontFamily": "Roboto"
+      },
+      "fontName": "Roboto"
+     },
+     "position": {
+      "overlayPosition": {
+       "anchorCell": {
+        "sheetId": 387349341,
+        "rowIndex": 1,
+        "columnIndex": 16
+       },
+       "widthPixels": 980,
+       "heightPixels": 480
+      }
+     }
+    }
+   ]
+  },
+  {
+   "properties": {
     "sheetId": 212512334,
     "title": "Charts",
-    "index": 4,
+    "index": 5,
     "gridProperties": {
      "rowCount": 200,
      "columnCount": 27
@@ -6450,115 +7091,115 @@
      0,
      0,
      0,
+     20
+    ],
+    [
+     0,
+     1,
+     1,
+     21
+    ],
+    [
+     0,
+     24,
+     24,
+     21
+    ],
+    [
+     0,
+     47,
+     47,
+     21
+    ],
+    [
+     0,
+     70,
+     70,
+     21
+    ],
+    [
+     13,
+     2,
+     2,
      17
     ],
     [
-     0,
-     1,
-     1,
-     18
-    ],
-    [
-     0,
-     24,
-     24,
-     18
-    ],
-    [
-     0,
-     47,
-     47,
-     18
-    ],
-    [
-     0,
-     70,
-     70,
-     18
-    ],
-    [
-     13,
-     2,
-     2,
-     19
-    ],
-    [
      13,
      71,
      71,
-     19
+     17
     ],
     [
      14,
      2,
      2,
-     19
+     17
     ],
     [
      14,
      3,
      70,
-     21
+     23
     ],
     [
      14,
      71,
      71,
-     19
+     17
     ],
     [
      14,
      92,
      199,
-     21
+     23
     ],
     [
      15,
      2,
      2,
-     19
+     17
     ],
     [
      15,
      3,
      70,
-     21
+     23
     ],
     [
      15,
      71,
      71,
-     19
+     17
     ],
     [
      15,
      72,
      91,
-     22
+     24
     ],
     [
      15,
      92,
      199,
-     21
+     23
     ],
     [
      16,
      2,
      2,
-     19
+     17
     ],
     [
      16,
      3,
      70,
-     21
+     23
     ],
     [
      16,
      71,
      71,
-     19
+     17
     ],
     [
      16,
@@ -6570,13 +7211,13 @@
      16,
      92,
      199,
-     21
+     23
     ],
     [
      17,
      71,
      71,
-     19
+     17
     ],
     [
      17,
@@ -6588,25 +7229,25 @@
      18,
      2,
      5,
-     20
+     22
     ],
     [
      18,
      25,
      29,
-     20
+     22
     ],
     [
      18,
      48,
      51,
-     20
+     22
     ],
     [
      18,
      71,
      71,
-     19
+     17
     ],
     [
      18,
@@ -6630,19 +7271,19 @@
      19,
      29,
      29,
-     21
+     23
     ],
     [
      19,
      48,
      51,
-     21
+     23
     ],
     [
      19,
      71,
      71,
-     19
+     17
     ],
     [
      19,
@@ -6654,7 +7295,7 @@
      20,
      71,
      71,
-     19
+     17
     ],
     [
      20,
@@ -6666,7 +7307,7 @@
      21,
      71,
      71,
-     19
+     17
     ],
     [
      21,
@@ -6836,8 +7477,8 @@
         "sheetId": 212512334,
         "rowIndex": 2
        },
-       "widthPixels": 1150,
-       "heightPixels": 440
+       "widthPixels": 1008,
+       "heightPixels": 385
       }
      }
     },
@@ -6951,8 +7592,8 @@
         "sheetId": 212512334,
         "rowIndex": 25
        },
-       "widthPixels": 1150,
-       "heightPixels": 440
+       "widthPixels": 1008,
+       "heightPixels": 385
       }
      }
     },
@@ -7066,8 +7707,8 @@
         "sheetId": 212512334,
         "rowIndex": 48
        },
-       "widthPixels": 1150,
-       "heightPixels": 440
+       "widthPixels": 1008,
+       "heightPixels": 385
       }
      }
     },
@@ -7212,222 +7853,12 @@
         "sheetId": 212512334,
         "rowIndex": 71
        },
-       "widthPixels": 1150,
-       "heightPixels": 440
+       "widthPixels": 1008,
+       "heightPixels": 385
       }
      }
     }
    ]
-  },
-  {
-   "properties": {
-    "sheetId": 1287706534,
-    "title": "Daily Summary",
-    "index": 5,
-    "gridProperties": {
-     "rowCount": 1000,
-     "columnCount": 17
-    }
-   },
-   "columnWidths": [
-    [
-     0,
-     96
-    ],
-    [
-     1,
-     120
-    ],
-    [
-     2,
-     154
-    ],
-    [
-     3,
-     95
-    ],
-    [
-     4,
-     137
-    ],
-    [
-     5,
-     80
-    ]
-   ],
-   "rowHeights": [],
-   "values": [
-    [
-     0,
-     0,
-     {
-      "stringValue": "Daily Totals"
-     }
-    ],
-    [
-     1,
-     0,
-     {
-      "stringValue": "Date"
-     }
-    ],
-    [
-     1,
-     1,
-     {
-      "stringValue": "Number of Trades"
-     }
-    ],
-    [
-     1,
-     2,
-     {
-      "stringValue": "Total Gross Investment"
-     }
-    ],
-    [
-     1,
-     3,
-     {
-      "stringValue": "Total Charges"
-     }
-    ],
-    [
-     1,
-     4,
-     {
-      "stringValue": "Total Net Investment"
-     }
-    ],
-    [
-     1,
-     5,
-     {
-      "stringValue": "Realized P/L"
-     }
-    ],
-    [
-     2,
-     0,
-     {
-      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER('Trade List'!A2:A,'Trade List'!A2:A<>\"\"))),\"\")"
-     }
-    ],
-    [
-     2,
-     1,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",COUNTIF('Trade List'!$A$2:$A,$A3:$A)))"
-     }
-    ],
-    [
-     2,
-     2,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$M$2:$M)))"
-     }
-    ],
-    [
-     2,
-     3,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$J$2:$J)))"
-     }
-    ],
-    [
-     2,
-     4,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$N$2:$N)))"
-     }
-    ],
-    [
-     2,
-     5,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$O$2:$O)))"
-     }
-    ]
-   ],
-   "styleRuns": [
-    [
-     0,
-     0,
-     0,
-     23
-    ],
-    [
-     0,
-     1,
-     1,
-     20
-    ],
-    [
-     0,
-     2,
-     999,
-     1
-    ],
-    [
-     1,
-     1,
-     1,
-     20
-    ],
-    [
-     2,
-     1,
-     1,
-     20
-    ],
-    [
-     2,
-     2,
-     999,
-     3
-    ],
-    [
-     3,
-     1,
-     1,
-     20
-    ],
-    [
-     3,
-     2,
-     999,
-     3
-    ],
-    [
-     4,
-     1,
-     1,
-     20
-    ],
-    [
-     4,
-     2,
-     999,
-     3
-    ],
-    [
-     5,
-     1,
-     1,
-     20
-    ],
-    [
-     5,
-     2,
-     999,
-     4
-    ]
-   ],
-   "merges": [],
-   "conditionalFormats": [],
-   "bandedRanges": [],
-   "basicFilter": null,
-   "charts": []
   },
   {
    "properties": {
@@ -7811,19 +8242,19 @@
      0,
      0,
      0,
-     24
-    ],
-    [
-     0,
-     2,
-     2,
      25
     ],
     [
      0,
+     2,
+     2,
+     26
+    ],
+    [
+     0,
      3,
      3,
-     27
+     28
     ],
     [
      0,
@@ -7835,7 +8266,7 @@
      0,
      26,
      26,
-     32
+     33
     ],
     [
      0,
@@ -7847,207 +8278,207 @@
      1,
      2,
      2,
-     26
-    ],
-    [
-     1,
-     3,
-     3,
-     28
-    ],
-    [
-     1,
-     4,
-     4,
-     0
-    ],
-    [
-     1,
-     5,
-     24,
-     22
-    ],
-    [
-     1,
-     27,
-     27,
-     0
-    ],
-    [
-     1,
-     28,
-     47,
-     3
-    ],
-    [
-     2,
-     2,
-     3,
      27
     ],
     [
-     2,
-     4,
-     4,
-     0
-    ],
-    [
-     2,
-     5,
-     24,
-     3
-    ],
-    [
-     2,
-     27,
-     27,
-     0
-    ],
-    [
-     2,
-     28,
-     47,
-     3
-    ],
-    [
-     2,
-     48,
-     399,
-     33
-    ],
-    [
-     3,
-     2,
-     2,
-     26
-    ],
-    [
-     3,
-     3,
-     3,
-     28
-    ],
-    [
-     3,
-     4,
-     4,
-     0
-    ],
-    [
-     3,
-     5,
-     24,
-     3
-    ],
-    [
-     3,
-     27,
-     27,
-     0
-    ],
-    [
-     3,
-     28,
-     47,
-     3
-    ],
-    [
-     3,
-     48,
-     399,
-     33
-    ],
-    [
-     4,
-     2,
-     3,
-     27
-    ],
-    [
-     4,
-     4,
-     4,
-     0
-    ],
-    [
-     4,
-     5,
-     24,
-     3
-    ],
-    [
-     4,
-     27,
-     27,
-     0
-    ],
-    [
-     4,
-     28,
-     47,
-     3
-    ],
-    [
-     4,
-     48,
-     399,
-     33
-    ],
-    [
-     5,
-     2,
-     2,
-     28
-    ],
-    [
-     5,
+     1,
      3,
      3,
      29
     ],
     [
-     5,
+     1,
      4,
      4,
      0
     ],
     [
-     5,
+     1,
      5,
      24,
-     30
+     24
     ],
     [
-     5,
+     1,
      27,
      27,
      0
     ],
     [
-     5,
+     1,
      28,
      47,
      3
     ],
     [
-     5,
-     48,
-     399,
-     33
+     2,
+     2,
+     3,
+     28
     ],
     [
-     6,
+     2,
      4,
      4,
      0
     ],
     [
-     6,
+     2,
+     5,
+     24,
+     3
+    ],
+    [
+     2,
+     27,
+     27,
+     0
+    ],
+    [
+     2,
+     28,
+     47,
+     3
+    ],
+    [
+     2,
+     48,
+     399,
+     34
+    ],
+    [
+     3,
+     2,
+     2,
+     27
+    ],
+    [
+     3,
+     3,
+     3,
+     29
+    ],
+    [
+     3,
+     4,
+     4,
+     0
+    ],
+    [
+     3,
+     5,
+     24,
+     3
+    ],
+    [
+     3,
+     27,
+     27,
+     0
+    ],
+    [
+     3,
+     28,
+     47,
+     3
+    ],
+    [
+     3,
+     48,
+     399,
+     34
+    ],
+    [
+     4,
+     2,
+     3,
+     28
+    ],
+    [
+     4,
+     4,
+     4,
+     0
+    ],
+    [
+     4,
+     5,
+     24,
+     3
+    ],
+    [
+     4,
+     27,
+     27,
+     0
+    ],
+    [
+     4,
+     28,
+     47,
+     3
+    ],
+    [
+     4,
+     48,
+     399,
+     34
+    ],
+    [
+     5,
+     2,
+     2,
+     29
+    ],
+    [
+     5,
+     3,
+     3,
+     30
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ],
+    [
+     5,
      5,
      24,
      31
     ],
     [
+     5,
+     27,
+     27,
+     0
+    ],
+    [
+     5,
+     28,
+     47,
+     3
+    ],
+    [
+     5,
+     48,
+     399,
+     34
+    ],
+    [
+     6,
+     4,
+     4,
+     0
+    ],
+    [
+     6,
+     5,
+     24,
+     32
+    ],
+    [
      6,
      27,
      27,
@@ -8063,7 +8494,7 @@
      6,
      48,
      399,
-     33
+     34
     ],
     [
      7,
@@ -8086,75 +8517,38 @@
   },
   {
    "properties": {
-    "sheetId": 387349341,
-    "title": "Daily Performance",
+    "sheetId": 1287706534,
+    "title": "Daily Summary",
     "index": 7,
     "gridProperties": {
      "rowCount": 1000,
-     "columnCount": 26,
-     "frozenRowCount": 1
+     "columnCount": 17
     }
    },
    "columnWidths": [
     [
      0,
-     115
+     96
     ],
     [
      1,
-     115
+     120
     ],
     [
      2,
-     115
+     154
     ],
     [
      3,
-     115
+     95
     ],
     [
      4,
-     115
+     137
     ],
     [
      5,
-     115
-    ],
-    [
-     6,
-     115
-    ],
-    [
-     7,
-     115
-    ],
-    [
-     8,
-     115
-    ],
-    [
-     9,
-     115
-    ],
-    [
-     10,
-     115
-    ],
-    [
-     11,
-     115
-    ],
-    [
-     12,
-     115
-    ],
-    [
-     13,
-     115
-    ],
-    [
-     14,
-     115
+     80
     ]
    ],
    "rowHeights": [],
@@ -8163,182 +8557,91 @@
      0,
      0,
      {
+      "stringValue": "Daily Totals"
+     }
+    ],
+    [
+     1,
+     0,
+     {
       "stringValue": "Date"
      }
     ],
     [
-     0,
+     1,
      1,
      {
-      "stringValue": "Portfolio Value"
+      "stringValue": "Number of Trades"
      }
     ],
     [
-     0,
+     1,
      2,
      {
-      "stringValue": "Net Money Added"
+      "stringValue": "Total Gross Investment"
      }
     ],
     [
-     0,
+     1,
      3,
      {
-      "stringValue": "My Return %"
+      "stringValue": "Total Charges"
      }
     ],
     [
-     0,
+     1,
      4,
      {
-      "stringValue": "KSE-100 (price index)"
+      "stringValue": "Total Net Investment"
      }
     ],
     [
-     0,
+     1,
      5,
      {
-      "stringValue": "KSE-100 %"
+      "stringValue": "Realized P/L"
      }
     ],
     [
+     2,
      0,
-     6,
      {
-      "stringValue": "Difference"
+      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER('Trade List'!A2:A,'Trade List'!A2:A<>\"\"))),\"\")"
      }
     ],
     [
-     0,
-     7,
-     {
-      "stringValue": "My Return Since Start"
-     }
-    ],
-    [
-     0,
-     8,
-     {
-      "stringValue": "KSE-100 Since Start"
-     }
-    ],
-    [
-     0,
-     9,
-     {
-      "stringValue": "Ahead / Behind"
-     }
-    ],
-    [
-     0,
-     10,
-     {
-      "stringValue": "Dividends (ex-date, after tax)"
-     }
-    ],
-    [
-     0,
-     11,
-     {
-      "stringValue": "Cost of Holdings"
-     }
-    ],
-    [
-     0,
-     12,
-     {
-      "stringValue": "Return on Cost %"
-     }
-    ],
-    [
-     0,
-     13,
-     {
-      "stringValue": "Chart label: My Return (helper)"
-     }
-    ],
-    [
-     0,
-     14,
-     {
-      "stringValue": "Chart label: KSE-100 (helper)"
-     }
-    ],
-    [
+     2,
      1,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",COUNTIF('Trade List'!$A$2:$A,$A3:$A)))"
+     }
+    ],
+    [
+     2,
      2,
      {
-      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,day,'Trade List'!$C$2:$C,\"Buy\")-SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,day,'Trade List'!$C$2:$C,\"Sell\"))))"
+      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$M$2:$M)))"
      }
     ],
     [
-     1,
+     2,
      3,
      {
-      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",LET(val,INDEX(B2:B,idx),flow,INDEX(C2:C,idx),prev,IF(idx=1,0,INDEX(B2:B,idx-1)),IFERROR((val-prev-flow)/(prev+MAX(flow,0)),\"\")))))"
+      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$J$2:$J)))"
      }
     ],
     [
-     1,
-     6,
+     2,
+     4,
      {
-      "formulaValue": "=ARRAYFORMULA(IF((A2:A=\"\")+(D2:D=\"\")+(F2:F=\"\"),\"\",D2:D-F2:F))"
+      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$N$2:$N)))"
      }
     ],
     [
-     1,
-     7,
+     2,
+     5,
      {
-      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",SCAN(1,IF(ISNUMBER(D2:D),D2:D,0),LAMBDA(acc,ret,acc*(1+ret)))-1))"
-     }
-    ],
-    [
-     1,
-     8,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",SCAN(1,IF(ISNUMBER(F2:F),F2:F,0),LAMBDA(acc,ret,acc*(1+ret)))-1))"
-     }
-    ],
-    [
-     1,
-     9,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",H2:H-I2:I))"
-     }
-    ],
-    [
-     1,
-     10,
-     {
-      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$B$8:$B,day))))"
-     }
-    ],
-    [
-     1,
-     11,
-     {
-      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Trade List'!$N$2:$N,'Trade List'!$A$2:$A,\"<=\"&day))))"
-     }
-    ],
-    [
-     1,
-     12,
-     {
-      "formulaValue": "=ARRAYFORMULA(IF(A2:A=\"\",\"\",IFERROR(B2:B/L2:L-1,\"\")))"
-     }
-    ],
-    [
-     1,
-     13,
-     {
-      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(H2:H,idx),\"+0.0%;-0.0%;0.0%\"),\"\"))))"
-     }
-    ],
-    [
-     1,
-     14,
-     {
-      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(I2:I,idx),\"+0.0%;-0.0%;0.0%\"),\"\"))))"
+      "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$O$2:$O)))"
      }
     ]
    ],
@@ -8347,377 +8650,80 @@
      0,
      0,
      0,
-     19
+     35
     ],
     [
      0,
      1,
+     1,
+     22
+    ],
+    [
+     0,
+     2,
      999,
      1
     ],
     [
      1,
-     0,
-     0,
-     19
-    ],
-    [
      1,
      1,
-     999,
-     3
-    ],
-    [
-     2,
-     0,
-     0,
-     19
+     22
     ],
     [
      2,
      1,
+     1,
+     22
+    ],
+    [
+     2,
+     2,
      999,
      3
     ],
     [
      3,
-     0,
-     0,
-     19
+     1,
+     1,
+     22
     ],
     [
      3,
-     1,
+     2,
      999,
-     34
-    ],
-    [
-     4,
-     0,
-     0,
-     19
+     3
     ],
     [
      4,
      1,
+     1,
+     22
+    ],
+    [
+     4,
+     2,
      999,
      3
     ],
     [
      5,
-     0,
-     0,
-     19
+     1,
+     1,
+     22
     ],
     [
      5,
-     1,
+     2,
      999,
-     34
-    ],
-    [
-     6,
-     0,
-     0,
-     19
-    ],
-    [
-     6,
-     1,
-     999,
-     34
-    ],
-    [
-     7,
-     0,
-     0,
-     19
-    ],
-    [
-     7,
-     1,
-     999,
-     34
-    ],
-    [
-     8,
-     0,
-     0,
-     19
-    ],
-    [
-     8,
-     1,
-     999,
-     34
-    ],
-    [
-     9,
-     0,
-     0,
-     19
-    ],
-    [
-     9,
-     1,
-     999,
-     34
-    ],
-    [
-     10,
-     0,
-     0,
-     19
-    ],
-    [
-     10,
-     1,
-     999,
-     3
-    ],
-    [
-     11,
-     0,
-     0,
-     19
-    ],
-    [
-     11,
-     1,
-     999,
-     3
-    ],
-    [
-     12,
-     0,
-     0,
-     19
-    ],
-    [
-     12,
-     1,
-     999,
-     34
-    ],
-    [
-     13,
-     0,
-     0,
-     19
-    ],
-    [
-     13,
-     1,
-     999,
-     35
-    ],
-    [
-     14,
-     0,
-     0,
-     19
-    ],
-    [
-     14,
-     1,
-     999,
-     35
+     4
     ]
    ],
    "merges": [],
    "conditionalFormats": [],
    "bandedRanges": [],
    "basicFilter": null,
-   "charts": [
-    {
-     "chartId": 1341527595,
-     "spec": {
-      "title": "My Portfolio vs KSE-100 (return since start)",
-      "basicChart": {
-       "chartType": "LINE",
-       "legendPosition": "BOTTOM_LEGEND",
-       "axis": [
-        {
-         "position": "BOTTOM_AXIS",
-         "title": "Date",
-         "format": {
-          "fontFamily": "Roboto"
-         },
-         "viewWindowOptions": {}
-        },
-        {
-         "position": "LEFT_AXIS",
-         "title": "Return since start",
-         "format": {
-          "fontFamily": "Roboto"
-         },
-         "viewWindowOptions": {}
-        }
-       ],
-       "domains": [
-        {
-         "domain": {
-          "sourceRange": {
-           "sources": [
-            {
-             "sheetId": 387349341,
-             "startRowIndex": 0,
-             "endRowIndex": 1000,
-             "startColumnIndex": 0,
-             "endColumnIndex": 1
-            }
-           ]
-          }
-         }
-        }
-       ],
-       "series": [
-        {
-         "series": {
-          "sourceRange": {
-           "sources": [
-            {
-             "sheetId": 387349341,
-             "startRowIndex": 0,
-             "endRowIndex": 1000,
-             "startColumnIndex": 7,
-             "endColumnIndex": 8
-            }
-           ]
-          }
-         },
-         "targetAxis": "LEFT_AXIS",
-         "dataLabel": {
-          "type": "CUSTOM",
-          "textFormat": {
-           "foregroundColor": {
-            "red": 0.25882354,
-            "green": 0.52156866,
-            "blue": 0.95686275
-           },
-           "fontFamily": "Roboto",
-           "fontSize": 9,
-           "bold": true,
-           "foregroundColorStyle": {
-            "rgbColor": {
-             "red": 0.25882354,
-             "green": 0.52156866,
-             "blue": 0.95686275
-            }
-           }
-          },
-          "placement": "ABOVE",
-          "customLabelData": {
-           "sourceRange": {
-            "sources": [
-             {
-              "sheetId": 387349341,
-              "startRowIndex": 0,
-              "endRowIndex": 1000,
-              "startColumnIndex": 13,
-              "endColumnIndex": 14
-             }
-            ]
-           }
-          }
-         },
-         "color": {
-          "red": 0.25882354,
-          "green": 0.52156866,
-          "blue": 0.95686275
-         },
-         "colorStyle": {
-          "rgbColor": {
-           "red": 0.25882354,
-           "green": 0.52156866,
-           "blue": 0.95686275
-          }
-         }
-        },
-        {
-         "series": {
-          "sourceRange": {
-           "sources": [
-            {
-             "sheetId": 387349341,
-             "startRowIndex": 0,
-             "endRowIndex": 1000,
-             "startColumnIndex": 8,
-             "endColumnIndex": 9
-            }
-           ]
-          }
-         },
-         "targetAxis": "LEFT_AXIS",
-         "dataLabel": {
-          "type": "CUSTOM",
-          "textFormat": {
-           "foregroundColor": {
-            "red": 0.85882354,
-            "green": 0.26666668,
-            "blue": 0.21568628
-           },
-           "fontFamily": "Roboto",
-           "fontSize": 9,
-           "bold": true,
-           "foregroundColorStyle": {
-            "rgbColor": {
-             "red": 0.85882354,
-             "green": 0.26666668,
-             "blue": 0.21568628
-            }
-           }
-          },
-          "placement": "BELOW",
-          "customLabelData": {
-           "sourceRange": {
-            "sources": [
-             {
-              "sheetId": 387349341,
-              "startRowIndex": 0,
-              "endRowIndex": 1000,
-              "startColumnIndex": 14,
-              "endColumnIndex": 15
-             }
-            ]
-           }
-          }
-         },
-         "color": {
-          "red": 0.85882354,
-          "green": 0.26666668,
-          "blue": 0.21568628
-         },
-         "colorStyle": {
-          "rgbColor": {
-           "red": 0.85882354,
-           "green": 0.26666668,
-           "blue": 0.21568628
-          }
-         }
-        }
-       ],
-       "headerCount": 1
-      },
-      "hiddenDimensionStrategy": "SKIP_HIDDEN_ROWS_AND_COLUMNS",
-      "titleTextFormat": {
-       "fontFamily": "Roboto"
-      },
-      "fontName": "Roboto"
-     },
-     "position": {
-      "overlayPosition": {
-       "anchorCell": {
-        "sheetId": 387349341,
-        "rowIndex": 1,
-        "columnIndex": 16
-       },
-       "widthPixels": 980,
-       "heightPixels": 480
-      }
-     }
-    }
-   ]
+   "charts": []
   },
   {
    "properties": {
@@ -8759,13 +8765,13 @@
      0,
      0,
      0,
-     19
+     17
     ],
     [
      1,
      0,
      0,
-     19
+     17
     ],
     [
      1,
@@ -8777,7 +8783,7 @@
      2,
      0,
      0,
-     19
+     17
     ],
     [
      2,
@@ -8854,7 +8860,7 @@
      0,
      0,
      0,
-     19
+     17
     ],
     [
      0,
@@ -8866,25 +8872,25 @@
      1,
      0,
      0,
-     19
+     17
     ],
     [
      1,
      1,
      999,
-     21
+     23
     ],
     [
      2,
      0,
      0,
-     19
+     17
     ],
     [
      2,
      1,
      999,
-     21
+     23
     ]
    ],
    "merges": [],

@@ -14,7 +14,8 @@ Each update run:
 1. Reads your trades from the **Trade List** tab of your Google Sheet.
 2. Downloads PSX's free end-of-day files for each trading day.
 3. Prices your holdings at each day's closing prices and works out the KSE-100's daily change.
-4. Writes the results to the **Daily Performance** tab, and each stock's latest closing price to the **Latest Prices** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
+4. Reads KSE-100's published daily closes from sarmaaya.pk (rebuilding any missing day from PSX's files).
+5. Writes the results to the **Daily Performance** tab, and each stock's latest closing price to the **Latest Prices** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
 
 Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 by default) using your current Trade List, so trades you enter a few days late are picked up automatically. It also fills any gap since the last row.
 
@@ -158,6 +159,7 @@ All settings that differ between people live in `.env`. That file isn't committe
 | `PRICES_SHEET` | No | `Latest Prices` | Name of the tab the script writes latest closing prices to (created if missing) |
 | `DAYS_TO_REFILL` | No | `30` | How many days back to re-price on every run. Increase it if you often enter trades more than 30 days late. Set it high (e.g. `400`) to rebuild your whole history. |
 | `PSX_BASE_URL` | No | `https://dps.psx.com.pk` | PSX Data Portal address. Only change it if PSX moves the portal. |
+| `KSE100_HISTORY_URL` | No | `https://beta-restapi.sarmaaya.pk/api/indices/price-history/KSE100` | Published daily KSE-100 closes. Only change it if the address moves. |
 
 ---
 
@@ -200,7 +202,7 @@ Date           Portfolio Value     KSE-100  KSE-100 %   Change vs sheet
 2026-10-08          282,308.29   50,395.63    -0.68%   unchanged
 2026-10-09          281,860.05   50,289.49    -0.21%   unchanged
 
-Check: PSX official KSE-100 price index on 2026-10-09 = 50,289.49, rebuilt = 50,289.49
+Check: PSX official KSE-100 on 2026-10-09 = 167,089.27, rebuilt = 167,089.29
 
 Updated 21 trading day(s) in 'Daily Performance'.
 ```
@@ -244,8 +246,8 @@ The script writes **only columns A, B, E and F**. Every other column is a formul
 | A | Date | script | Trading day |
 | B | Portfolio Value | script | Shares held at that day's close × closing price |
 | C | Net Money Added | formula | Buys (incl. charges) − sells (after charges) that day |
-| D | My Return % | formula | Your return that day, excluding money added or withdrawn |
-| E | KSE-100 (price index) | script | KSE-100 price index (KSE100PR) closing level |
+| D | My Return % (incl. dividends) | formula | Your return that day, including dividends on their ex-date, excluding money added or withdrawn |
+| E | KSE-100 | script | KSE-100 closing level (the headline, total return KSE100 index) |
 | F | KSE-100 % | script | KSE-100 daily change |
 | G | Difference | formula | D − F (positive = you beat the index that day) |
 | H | My Return Since Start | formula | Daily returns compounded since your first trade |
@@ -263,7 +265,7 @@ Formulas for a fresh copy of the tab (enter in row 2; they fill down automatical
 
 ```text
 C2: =MAP(A2:A,LAMBDA(day,IF(day="","",SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,day,'Trade List'!$C$2:$C,"Buy")-SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,day,'Trade List'!$C$2:$C,"Sell"))))
-D2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",LET(val,INDEX(B2:B,idx),flow,INDEX(C2:C,idx),prev,IF(idx=1,0,INDEX(B2:B,idx-1)),IFERROR((val-prev-flow)/(prev+MAX(flow,0)),"")))))
+D2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",LET(val,INDEX(B2:B,idx),flow,INDEX(C2:C,idx),div,N(INDEX(K2:K,idx)),prev,IF(idx=1,0,INDEX(B2:B,idx-1)),IFERROR((val-prev-flow+div)/(prev+MAX(flow,0)),"")))))
 G2: =ARRAYFORMULA(IF((A2:A="")+(D2:D="")+(F2:F=""),"",D2:D-F2:F))
 H2: =ARRAYFORMULA(IF(A2:A="","",SCAN(1,IF(ISNUMBER(D2:D),D2:D,0),LAMBDA(acc,ret,acc*(1+ret)))-1))
 I2: =ARRAYFORMULA(IF(A2:A="","",SCAN(1,IF(ISNUMBER(F2:F),F2:F,0),LAMBDA(acc,ret,acc*(1+ret)))-1))
@@ -320,13 +322,15 @@ Two rules keep `./psx update` working:
 
 ## How the numbers are calculated
 
-### My Return % (time-weighted)
+### My Return % (time-weighted, including dividends)
 
-A plain "value today vs value yesterday" would count new money as profit: buy 50,000 of shares and your value jumps 50,000. The daily return therefore removes the money you put in or took out:
+A plain "value today vs value yesterday" would count new money as profit: buy 50,000 of shares and your value jumps 50,000. The daily return therefore removes the money you put in or took out, and adds back dividends:
 
 ```
-My Return % = (Value today − Value yesterday − Net Money Added) ÷ (Value yesterday + Money added that day)
+My Return % = (Value today − Value yesterday − Net Money Added + Dividends) ÷ (Value yesterday + Money added that day)
 ```
+
+- **Dividends** are the after-tax amounts from the Dividend summary tab, counted on their **ex-date** (column K). On that day the stock's price drops by roughly the dividend; adding the dividend back means the drop isn't counted as a loss. Keep the Dividend summary up to date (ex-date and after-tax amount), or your return will be understated.
 
 - Money added (buys) counts as invested from the start of the day. That way, the move from your purchase price to the closing price counts as that day's return.
 - Money withdrawn (sells) counts at the end of the day.
@@ -349,20 +353,26 @@ This answers "how much have I made or lost on the money in my current holdings?"
 
 ### KSE-100
 
-PSX publishes two versions of the index:
+PSX publishes two versions of the index ([PSX brochure](https://www.psx.com.pk/psx/themes/psx/uploads/KSE-100-and-KSE100-PR-Brochure-Jun-2025-Updated.pdf)):
 
-- **KSE100**, the headline number, now includes reinvested dividends (a total return index).
-- **KSE100PR** is the **price-only** version.
+- **KSE100**, the headline number (≈165,000 in Oct 2026), is a **total return** index: cash dividends are treated as reinvested.
+- **KSE100PR** is the **price-only** version (≈50,000).
 
-The script compares against **KSE100PR**, because your portfolio value is also price-only (dividends are shown separately in column K).
+The tracker compares against the headline **KSE100**, because *My Return %* also includes your dividends. That's a like-for-like comparison: *"would I have done better in a KSE-100 index fund?"*
 
-PSX only publishes **today's** index level, not a history. So the script rebuilds each day's change from PSX's daily index file, using each KSE-100 stock's free-float shares × closing price vs × previous closing price:
+**Where the history comes from.** PSX's own history service can't be used by scripts (it returns *403 Forbidden*), so the script reads KSE-100's daily closes from **sarmaaya.pk**, a public price-history address that needs no login. Column E is that day's close and column F is the change from the previous close. Its figures can differ from PSX's by a few paisa of rounding (e.g. 181,629.37 vs 181,629.27 on 8 July 2026).
+
+**Backup: rebuilding from PSX's files.** For any day sarmaaya doesn't have yet (for example, today, before it updates), or if it can't be reached, the script rebuilds the day's change itself from PSX's daily index file, using each KSE-100 stock's free-float shares × closing price vs × previous closing price:
 
 ```
 KSE-100 % = Σ (free-float shares × close) ÷ Σ (free-float shares × previous close) − 1
 ```
 
-Each run compares the rebuilt figure with PSX's official KSE100PR close for the latest day and prints both. They have matched to the paisa so far.
+On a stock's ex-dividend date, PSX lowers its *previous close* by the dividend (and adjusts it for splits and bonus shares). So the dividend drop isn't counted, which is exactly how a total return index works. That's why this rebuild tracks the headline KSE100, not KSE100PR (which fell about 1.2 points more from July to October 2026 because it leaves dividends out).
+
+One correction is needed for splits and bonus shares: on that day PSX's index file already has the stock's new price but still its old share count. The script detects this (the previous close was adjusted by more than any dividend would) and scales the share count to match. With that, the rebuilt daily change matched PSX's official KSE-100 change on every trading day from 8 July to 12 October 2026, checked against a published closing-price history.
+
+The rebuild also runs on days sarmaaya has, as a cross-check: if the two daily changes differ by more than 0.05 points, the output says *please check*. The **Source** column in the output shows which was used for each day. Each run also compares the sheet's latest level with PSX's official KSE-100 close and prints both.
 
 The index level in column E continues from the previous row's level. On a brand-new sheet, it works backward from PSX's official close.
 
@@ -370,13 +380,19 @@ The index level in column E continues from the previous row's level. On a brand-
 
 ## Data sources
 
-All from the free, public **PSX Data Portal** (`dps.psx.com.pk`):
+From the free, public **PSX Data Portal** (`dps.psx.com.pk`):
 
 | File | Used for |
 |---|---|
 | `/download/mkt_summary/YYYY-MM-DD.Z` | Closing and previous closing price of every PSX symbol for the day |
 | `/download/indhist/YYYY-MM-DD.xls` | KSE-100 constituents and free-float shares for the day |
-| `/indices` | Latest official KSE100PR level, used as a check and as the starting anchor |
+| `/indices` | Latest official KSE-100 (KSE100) level, used as a check (and as the starting anchor if no published history is available) |
+
+And from **sarmaaya.pk**:
+
+| Address | Used for |
+|---|---|
+| `beta-restapi.sarmaaya.pk/api/indices/price-history/KSE100?days=N` | Daily KSE-100 closes for the last N calendar days |
 
 No file for a date means the market was closed. The script treats that as a holiday.
 
@@ -396,6 +412,8 @@ No file for a date means the market was closed. The script treats that as a holi
 | `Could not anchor the KSE-100 level` | Only on a brand-new, empty Daily Performance tab: PSX's indices page isn't showing the latest trading day yet. Run again after about 5 PM PKT. |
 | HTTP `403` from `dps.psx.com.pk` | PSX is blocking the request. PSX blocks Google's servers, so this script can't run inside Google Apps Script. Run it from your own computer. |
 | Today's row missing | PSX hadn't published today's files yet. Run again later in the evening. |
+| `Warning: could not read KSE-100 history` | sarmaaya.pk was unreachable or changed its format. The run still works using the rebuild; set `KSE100_HISTORY_URL` if the address moved. |
+| `(rebuild says …, please check)` | sarmaaya's figure and the rebuild disagree on that day by more than 0.05 points. Usually a corporate action; compare with the PSX portal. |
 
 ---
 
@@ -410,6 +428,6 @@ No file for a date means the market was closed. The script treats that as a holi
 ## Limitations
 
 - **Splits and bonus shares** aren't detected automatically. Record bonus shares in Trade List as a `Buy` at price `0` so share counts stay correct.
-- **Dividends** aren't added to *My Return %*. That keeps it comparable with the price-only KSE-100; dividends are listed in column K.
+- **Dividends** count in *My Return %* only if they are entered in the Dividend summary tab with their ex-date. The per-share amount PSX deducts on the ex-date is the gross dividend, while your return uses the after-tax amount you actually receive, so withholding tax counts against you, as it does in real life.
 - Each row uses **closing prices**. Intraday moves don't affect the numbers, except that the move from your buy price to the close counts on the day you buy.
 - Data depends on the PSX Data Portal staying available and keeping its file formats.

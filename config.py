@@ -25,6 +25,7 @@ PRICES_SHEET = setting("PRICES_SHEET", "Latest Prices")
 # How many days back to re-price using the current Trade List.
 DAYS_TO_REFILL = int(setting("DAYS_TO_REFILL", "30"))
 PSX = setting("PSX_BASE_URL", "https://dps.psx.com.pk")
+KSE100_HISTORY_URL = setting("KSE100_HISTORY_URL", "https://beta-restapi.sarmaaya.pk/api/indices/price-history/KSE100")
 TEMPLATE_FILE = PROJECT_DIR / "template.json"
 
 
