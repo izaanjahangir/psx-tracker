@@ -14,8 +14,7 @@ Each update run:
 1. Reads your trades from the **Trade List** tab of your Google Sheet.
 2. Downloads PSX's free end-of-day files for each trading day.
 3. Prices your holdings at each day's closing prices and works out the KSE-100's daily change.
-4. Reads KSE-100's published daily closes from sarmaaya.pk (rebuilding any missing day from PSX's files).
-5. Writes the results to the **Daily Performance** tab, and each stock's latest closing price to the **Latest Prices** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
+4. Writes the results to the **Daily Performance** tab, and each stock's latest closing price to the **Latest Prices** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
 
 Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 by default) using your current Trade List, so trades you enter a few days late are picked up automatically. It also fills any gap since the last row.
 
@@ -159,7 +158,6 @@ All settings that differ between people live in `.env`. That file isn't committe
 | `PRICES_SHEET` | No | `Latest Prices` | Name of the tab the script writes latest closing prices to (created if missing) |
 | `DAYS_TO_REFILL` | No | `30` | How many days back to re-price on every run. Increase it if you often enter trades more than 30 days late. Set it high (e.g. `400`) to rebuild your whole history. |
 | `PSX_BASE_URL` | No | `https://dps.psx.com.pk` | PSX Data Portal address. Only change it if PSX moves the portal. |
-| `KSE100_HISTORY_URL` | No | `https://beta-restapi.sarmaaya.pk/api/indices/price-history/KSE100` | Published daily KSE-100 closes. Only change it if the address moves. |
 
 ---
 
@@ -171,6 +169,7 @@ Use the `psx` shortcut from this folder:
 ./psx update     # refresh the Daily Performance tab
 ./psx dry-run    # show what would change, without writing to the sheet
 ./psx update <id>   # same, for another sheet instead of the one in .env
+./psx update --full # rebuild the whole history from the first trade (like a new sheet)
 ./psx setup <id> # build the tracker in a blank Google Sheet
 ./psx export-template  # save your sheet's structure to template.json
 ./psx            # list the commands
@@ -360,9 +359,7 @@ PSX publishes two versions of the index ([PSX brochure](https://www.psx.com.pk/p
 
 The tracker compares against the headline **KSE100**, because *My Return %* also includes your dividends. That's a like-for-like comparison: *"would I have done better in a KSE-100 index fund?"*
 
-**Where the history comes from.** PSX's own history service can't be used by scripts (it returns *403 Forbidden*), so the script reads KSE-100's daily closes from **sarmaaya.pk**, a public price-history address that needs no login. Column E is that day's close and column F is the change from the previous close. Its figures can differ from PSX's by a few paisa of rounding (e.g. 181,629.37 vs 181,629.27 on 8 July 2026).
-
-**Backup: rebuilding from PSX's files.** For any day sarmaaya doesn't have yet (for example, today, before it updates), or if it can't be reached, the script rebuilds the day's change itself from PSX's daily index file, using each KSE-100 stock's free-float shares × closing price vs × previous closing price:
+PSX only publishes **today's** index level; its history service can't be used by scripts (it returns *403 Forbidden*). So the script rebuilds each day's change itself from PSX's daily index file, using each KSE-100 stock's free-float shares × closing price vs × previous closing price:
 
 ```
 KSE-100 % = Σ (free-float shares × close) ÷ Σ (free-float shares × previous close) − 1
@@ -370,9 +367,11 @@ KSE-100 % = Σ (free-float shares × close) ÷ Σ (free-float shares × previous
 
 On a stock's ex-dividend date, PSX lowers its *previous close* by the dividend (and adjusts it for splits and bonus shares). So the dividend drop isn't counted, which is exactly how a total return index works. That's why this rebuild tracks the headline KSE100, not KSE100PR (which fell about 1.2 points more from July to October 2026 because it leaves dividends out).
 
-One correction is needed for splits and bonus shares: on that day PSX's index file already has the stock's new price but still its old share count. The script detects this (the previous close was adjusted by more than any dividend would) and scales the share count to match. With that, the rebuilt daily change matched PSX's official KSE-100 change on every trading day from 8 July to 12 October 2026, checked against a published closing-price history.
+**Split and bonus days are handled automatically.** On such a day, PSX's index file already has the stock's new price but still its old share count. The script detects this from PSX's own data: the previous close in the day's file differs from the stock's actual close the day before by much more than any dividend would (for example SRVI's 10-for-1 split on 24 August 2026: 2,249.33 → 224.93). It then scales that stock's share count by the same ratio. Nothing has to be stored or updated by hand, so future splits and bonus issues, and a full rebuild of the sheet, are handled the same way.
 
-The rebuild also runs on days sarmaaya has, as a cross-check: if the two daily changes differ by more than 0.05 points, the output says *please check*. The **Source** column in the output shows which was used for each day. Each run also compares the sheet's latest level with PSX's official KSE-100 close and prints both.
+With that, the rebuilt daily change matched PSX's official KSE-100 change on every trading day from 8 July to 12 October 2026. Rebuilt from scratch, the levels come out at 181,629.37 on 8 July (PSX: 181,629.27; the 0.10 is rounding over 66 chained days) and exactly 165,124.41 on 12 October.
+
+Each run compares the sheet's latest level with PSX's official KSE-100 close and prints both.
 
 The index level in column E continues from the previous row's level. On a brand-new sheet, it works backward from PSX's official close.
 
@@ -380,19 +379,13 @@ The index level in column E continues from the previous row's level. On a brand-
 
 ## Data sources
 
-From the free, public **PSX Data Portal** (`dps.psx.com.pk`):
+All from the free, public **PSX Data Portal** (`dps.psx.com.pk`):
 
 | File | Used for |
 |---|---|
 | `/download/mkt_summary/YYYY-MM-DD.Z` | Closing and previous closing price of every PSX symbol for the day |
 | `/download/indhist/YYYY-MM-DD.xls` | KSE-100 constituents and free-float shares for the day |
-| `/indices` | Latest official KSE-100 (KSE100) level, used as a check (and as the starting anchor if no published history is available) |
-
-And from **sarmaaya.pk**:
-
-| Address | Used for |
-|---|---|
-| `beta-restapi.sarmaaya.pk/api/indices/price-history/KSE100?days=N` | Daily KSE-100 closes for the last N calendar days |
+| `/indices` | Latest official KSE-100 (KSE100) level, used as the starting anchor and as a check |
 
 No file for a date means the market was closed. The script treats that as a holiday.
 
@@ -412,8 +405,6 @@ No file for a date means the market was closed. The script treats that as a holi
 | `Could not anchor the KSE-100 level` | Only on a brand-new, empty Daily Performance tab: PSX's indices page isn't showing the latest trading day yet. Run again after about 5 PM PKT. |
 | HTTP `403` from `dps.psx.com.pk` | PSX is blocking the request. PSX blocks Google's servers, so this script can't run inside Google Apps Script. Run it from your own computer. |
 | Today's row missing | PSX hadn't published today's files yet. Run again later in the evening. |
-| `Warning: could not read KSE-100 history` | sarmaaya.pk was unreachable or changed its format. The run still works using the rebuild; set `KSE100_HISTORY_URL` if the address moved. |
-| `(rebuild says …, please check)` | sarmaaya's figure and the rebuild disagree on that day by more than 0.05 points. Usually a corporate action; compare with the PSX portal. |
 
 ---
 

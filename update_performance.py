@@ -5,8 +5,8 @@ For every trading day in the last DAYS_TO_REFILL days (plus any gap since the
 last row), it downloads PSX's daily files and writes:
   A Date, B Portfolio Value, E KSE-100, F KSE-100 %
 All other columns on that tab are formulas and update themselves.
-KSE-100 closes come from sarmaaya.pk's published history. Any day it doesn't
-have yet is filled by rebuilding the change from PSX's index file.
+KSE-100's daily change is rebuilt from PSX's daily index file and anchored
+to PSX's official close.
 It also writes each traded stock's latest closing price to the
 "Latest Prices" tab (used by the Charts tab).
 
@@ -15,23 +15,22 @@ Usage:
   .venv/bin/python update_performance.py --dry-run  # only show what would change
   .venv/bin/python update_performance.py <spreadsheet-id> [--dry-run]
       # use this spreadsheet instead of SPREADSHEET_ID from .env
+  .venv/bin/python update_performance.py --full [--dry-run]
+      # rebuild the whole history from the first trade, ignoring what the tab has
 """
 
 import datetime as dt
 import io
-import json
 import re
 import sys
 import urllib.error
 import urllib.request
 import zipfile
-from math import prod
 
 import gspread
 import xlrd
 
-from config import (DAYS_TO_REFILL, KSE100_HISTORY_URL, PERF_SHEET, PRICES_SHEET, PSX, TRADE_SHEET,
-                    open_spreadsheet, spreadsheet_id)
+from config import DAYS_TO_REFILL, PERF_SHEET, PRICES_SHEET, PSX, TRADE_SHEET, open_spreadsheet, spreadsheet_id
 
 SHEETS_EPOCH = dt.date(1899, 12, 30)  # Google Sheets date serial 0
 
@@ -104,18 +103,6 @@ def kse100_change(day, closes, prev_closes):
     return today_cap / prev_cap - 1
 
 
-def kse100_history(days):
-    """{date: official KSE-100 close} for the last `days` calendar days, from sarmaaya.pk.
-    Returns {} (with a warning) if it can't be reached, so the rebuild is used instead."""
-    url = f"{KSE100_HISTORY_URL}?days={days}"
-    try:
-        data = json.loads(fetch(url) or b"{}")
-        return {dt.date.fromisoformat(r["date"][:10]): float(r["price"]) for r in data["response"]}
-    except Exception as e:  # network error, changed format, ...
-        print(f"Warning: could not read KSE-100 history from {url} ({e}). Using the rebuild instead.\n")
-        return {}
-
-
 def official_kse100():
     """(date, level) of the latest official KSE-100 (headline, total return) shown on the PSX indices page."""
     html = fetch(f"{PSX}/indices").decode("utf-8", "ignore")
@@ -146,6 +133,7 @@ def to_serial(day):
 
 def main():
     dry_run = "--dry-run" in sys.argv
+    full = "--full" in sys.argv
     ids = [a for a in sys.argv[1:] if not a.startswith("--")]
     if len(ids) > 1:
         sys.exit("Give at most one spreadsheet ID.")
@@ -169,6 +157,8 @@ def main():
         if r and r[0] != "":
             e = ef[i] if i < len(ef) else []
             rows[to_date(r[0])] = [r[1] if len(r) > 1 else "", *(e + ["", ""])[:2]]
+    if full:
+        rows = {}  # start from scratch, exactly like a new sheet
 
     today = dt.date.today()
     first_trade = min(t[0] for t in trades)
@@ -178,8 +168,12 @@ def main():
     elif max(rows) + dt.timedelta(days=1) < start:
         start = max(rows) + dt.timedelta(days=1)  # also fill any gap since the last row
 
+    # KSE-100 level continues from the last row before the refill window
+    before = [d for d in rows if d < start and isinstance(rows[d][1], (int, float))]
+    level = rows[max(before)][1] if before else None
+
     print(f"Refilling {start} to {today} ({'dry run' if dry_run else 'writing to sheet'})\n")
-    print(f"{'Date':<12}{'Portfolio Value':>18}{'KSE-100':>12}{'KSE-100 %':>11}  {'Source':<9} Change vs sheet")
+    print(f"{'Date':<12}{'Portfolio Value':>18}{'KSE-100':>12}{'KSE-100 %':>11}   Change vs sheet")
     computed = {}
     last_closes = None
     prev_closes = None
@@ -204,21 +198,30 @@ def main():
         print("No trading days in this period.")
         return
 
+    # Index level: chain forward from the previous row, or back from PSX's official close
     days = sorted(computed)
-    history = kse100_history((today - start).days + 15)
-    set_kse100_levels(computed, days, history, rows, start)
+    if level is None:
+        official = official_kse100()
+        if not official or official[0] != days[-1]:
+            sys.exit("Could not anchor the KSE-100 level: the PSX indices page is not showing the "
+                     "last trading day yet. Run again after PSX publishes the day's close.")
+        level = official[1]
+        for d in reversed(days):
+            computed[d].insert(1, round(level, 2))
+            level /= 1 + computed[d][2]
+    else:
+        for d in days:
+            level *= 1 + computed[d][1]
+            computed[d].insert(1, round(level, 2))
 
     for d in days:
-        value, lvl, change, source, rebuilt = computed[d]
+        value, lvl, change = computed[d]
         old = rows.get(d)
         if not old or not isinstance(old[0], (int, float)):
             diff = "new row"
         else:
             diff = "unchanged" if abs(old[0] - value) < 0.01 else f"value was {old[0]:,.2f}"
-        if source == "sarmaaya" and abs(change - rebuilt) > 0.0005:
-            diff += f"  (rebuild says {rebuilt:+.2%}, please check)"
-        print(f"{d.isoformat():<12}{value:>18,.2f}{lvl:>12,.2f}{change:>10.2%}  {source:<9} {diff}")
-        computed[d] = [value, lvl, change]
+        print(f"{d.isoformat():<12}{value:>18,.2f}{lvl:>12,.2f}{change:>10.2%}   {diff}")
 
     official = official_kse100()
     if official and official[0] == days[-1]:
@@ -237,44 +240,6 @@ def main():
                 values=[[rows[d][1], rows[d][2]] for d in ordered], value_input_option="RAW")
     print(f"\nUpdated {len(days)} trading day(s) in '{PERF_SHEET}'.")
     write_latest_prices(book, trades, *last_closes)
-
-
-def set_kse100_levels(computed, days, history, rows, start):
-    """Turn computed[d] = [value, rebuilt change] into [value, level, change, source, rebuilt change].
-
-    Uses the published close where available; otherwise continues from the previous
-    day's level with the rebuilt change."""
-    # Level on the trading day before the window: published history first, then the sheet
-    earlier = [d for d in history if d < start]
-    sheet_before = [d for d in rows if d < start and isinstance(rows[d][1], (int, float))]
-    level = history[max(earlier)] if earlier else (rows[max(sheet_before)][1] if sheet_before else None)
-
-    if level is None and not any(d in history for d in days):
-        # Brand-new sheet and no published history: work backward from PSX's official close
-        official = official_kse100()
-        if not official or official[0] != days[-1]:
-            sys.exit("Could not anchor the KSE-100 level: no published history and the PSX "
-                     "indices page is not showing the last trading day.")
-        level = official[1]
-        for d in reversed(days):
-            value, rebuilt = computed[d]
-            computed[d] = [value, round(level, 2), rebuilt, "rebuilt", rebuilt]
-            level /= 1 + rebuilt
-        return
-
-    for d in days:
-        value, rebuilt = computed[d]
-        if d in history:
-            new_level = history[d]
-            change = new_level / level - 1 if level else rebuilt
-            source = "sarmaaya"
-        else:
-            if level is None:  # first day missing from history: anchor on the next published close
-                nxt = min(x for x in days if x in history and x > d)
-                level = history[nxt] / prod(1 + computed[x][1] for x in days if d < x <= nxt) / (1 + rebuilt)
-            new_level, change, source = level * (1 + rebuilt), rebuilt, "rebuilt"
-        computed[d] = [value, round(new_level, 2), change, source, rebuilt]
-        level = new_level
 
 
 def write_latest_prices(book, trades, day, closes):

@@ -2,7 +2,7 @@
 # Shortcut for running the PSX Tracker.
 #   ./psx update [spreadsheet-id]    Refresh the Daily Performance tab
 #   ./psx dry-run [spreadsheet-id]   Show what would change, without writing to the sheet
-#   (without an ID, SPREADSHEET_ID from .env is used)
+#   (without an ID, SPREADSHEET_ID from .env is used; add --full to rebuild all history)
 #   ./psx setup <spreadsheet-id>   Build the tracker in a blank Google Sheet
 #   ./psx export-template          Save your sheet's structure to template.json
 set -euo pipefail
@@ -31,6 +31,7 @@ case "${1:-}" in
     echo "  export-template            Save your sheet's structure to template.json"
     echo
     echo "update and dry-run use SPREADSHEET_ID from .env unless you give an ID."
+    echo "Add --full to rebuild the whole history from the first trade."
     exit 1
     ;;
 esac
