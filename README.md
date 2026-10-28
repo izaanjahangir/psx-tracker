@@ -14,7 +14,7 @@ Each update run:
 1. Reads your trades from the **Trade List** tab of your Google Sheet.
 2. Downloads PSX's free end-of-day files for each trading day.
 3. Prices your holdings at each day's closing prices and works out the KSE-100's daily change.
-4. Writes the results to the **Daily Performance** tab, and each stock's latest closing price to the **Latest Prices** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
+4. Writes the results to the **Daily Performance** tab, each stock's latest closing price to the **Latest Prices** tab, and the closing price before each dividend's ex-date to the **Dividend summary** tab. Formulas calculate everything else, including the charts on the **Charts** tab.
 
 Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 by default) using your current Trade List, so trades you enter a few days late are picked up automatically. It also fills any gap since the last row.
 
@@ -156,6 +156,7 @@ All settings that differ between people live in `.env`. That file isn't committe
 | `TRADE_SHEET` | No | `Trade List` | Name of the tab holding your trades |
 | `PERF_SHEET` | No | `Daily Performance` | Name of the daily performance tab the script writes to |
 | `PRICES_SHEET` | No | `Latest Prices` | Name of the tab the script writes latest closing prices to (created if missing) |
+| `DIVIDEND_SHEET` | No | `Dividend summary` | Name of the dividend tab (the script fills its column N) |
 | `DAYS_TO_REFILL` | No | `30` | How many days back to re-price on every run. Increase it if you often enter trades more than 30 days late. Set it high (e.g. `400`) to rebuild your whole history. |
 | `PSX_BASE_URL` | No | `https://dps.psx.com.pk` | PSX Data Portal address. Only change it if PSX moves the portal. |
 
@@ -236,6 +237,23 @@ The **Net Money Added** and **Cost of Holdings** formulas on the Daily Performan
 - **K:** Net Amount. For a Buy this is gross + charges; for a Sell it's gross − charges.
 - **N:** Net Cost Basis Change. Each trade's effect on the cost of what you hold, using the average-cost method.
 
+### Dividend summary
+
+Enter one row per dividend from row 8 down: **Received date** (A, leave empty until the money arrives), **EX-Date** (B), **Stock** (C, same name as in Trade List), **DIV per share** (E), **Tax Rate** (G) and **Status** (M). The rest is calculated:
+
+| Column | Meaning |
+|---|---|
+| D # of shares | Shares held before the ex-date (only those qualify for the dividend) |
+| F, H | Gross dividend, and after tax (what you receive) |
+| I AVG Buy Price | Average cost of the shares held just before the ex-date (average-cost method, so shares you sold leave at their average cost; excludes charges) |
+| J Total Invested | I × D |
+| K DIV yield | **Yield on cost**: dividend per share ÷ your average buy price. What this dividend pays on *your* money. |
+| L DIV yield (received) | After-tax amount ÷ Total Invested |
+| N Price before ex-date | Filled by `./psx update`: PSX close on the last trading day before the ex-date. Blank until the ex-date has passed. |
+| O Market yield | Dividend per share ÷ N. The **market dividend yield** quoted by brokers and news; useful for comparing stocks. |
+
+A dividend counts in *My Return %* (Daily Performance) and on the Charts tab only once its **Received date** is filled in.
+
 ### Daily Performance (written by the script)
 
 The script writes **only columns A, B, E and F**. Every other column is a formula that recalculates automatically. Never type into this tab.
@@ -252,13 +270,14 @@ The script writes **only columns A, B, E and F**. Every other column is a formul
 | H | My Return Since Start | formula | Daily returns compounded since your first trade |
 | I | KSE-100 Since Start | formula | KSE-100 daily changes compounded over the same days |
 | J | Ahead / Behind | formula | H − I |
-| K | Dividends (ex-date, after tax) | formula | From the Dividend summary tab, on the ex-date |
+| K | Dividends (received, after tax) | formula | From the Dividend summary tab, on the **Received date** (column A). A dividend counts only once you enter its received date; one received on a weekend or holiday counts on the next trading day. |
 | L | Cost of Holdings | formula | What the shares held that day cost (incl. charges) |
 | M | Return on Cost % | formula | B ÷ L − 1, the figure most broker apps show |
 | N | Chart label: My Return (helper) | formula | Value of H shown on the chart, filled every 5th trading day (counting back from the latest) |
 | O | Chart label: KSE-100 (helper) | formula | Same for I |
+| P | Chart label: Return on Cost (helper) | formula | Same for M |
 
-The chart next to the table plots H and I. It shows labels taken from columns N and O: the latest value plus one per week, so the values are visible without hovering and the labels don't overlap. To label more or fewer points, change the `5` in the N and O formulas.
+The chart next to the table plots H (blue), I (red) and M (green, the figure your broker app shows). A short note under the chart explains why H and M differ. It shows labels taken from columns N and O: the latest value plus one per week, so the values are visible without hovering and the labels don't overlap. To label more or fewer points, change the `5` in the N, O and P formulas.
 
 Formulas for a fresh copy of the tab (enter in row 2; they fill down automatically):
 
@@ -269,11 +288,12 @@ G2: =ARRAYFORMULA(IF((A2:A="")+(D2:D="")+(F2:F=""),"",D2:D-F2:F))
 H2: =ARRAYFORMULA(IF(A2:A="","",SCAN(1,IF(ISNUMBER(D2:D),D2:D,0),LAMBDA(acc,ret,acc*(1+ret)))-1))
 I2: =ARRAYFORMULA(IF(A2:A="","",SCAN(1,IF(ISNUMBER(F2:F),F2:F,0),LAMBDA(acc,ret,acc*(1+ret)))-1))
 J2: =ARRAYFORMULA(IF(A2:A="","",H2:H-I2:I))
-K2: =MAP(A2:A,LAMBDA(day,IF(day="","",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$B$8:$B,day))))
+K2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",LET(day,INDEX(A2:A,idx),prev,IF(idx=1,0,INDEX(A2:A,idx-1)),SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$A$8:$A,">"&prev,'Dividend summary'!$A$8:$A,"<="&day)))))
 L2: =MAP(A2:A,LAMBDA(day,IF(day="","",SUMIFS('Trade List'!$N$2:$N,'Trade List'!$A$2:$A,"<="&day))))
 M2: =ARRAYFORMULA(IF(A2:A="","",IFERROR(B2:B/L2:L-1,"")))
 N2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(H2:H,idx),"+0.0%;-0.0%;0.0%"),""))))
 O2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(I2:I,idx),"+0.0%;-0.0%;0.0%"),""))))
+P2: =MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)="","",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(M2:M,idx),"+0.0%;-0.0%;0.0%"),""))))
 ```
 
 ---
@@ -293,7 +313,7 @@ How they're calculated:
 
 - **Monthly return** compounds that month's daily *My Return %* and *KSE-100 %* from Daily Performance, so the months multiply up to the "since start" figures.
 - **Drawdown** = (1 + return since start) ÷ (highest value of that so far) − 1, counted from your starting point. The series are in the hidden **Charts_Data** tab.
-- **Unrealized P/L** = shares held × latest close − cost of those shares (incl. charges, from Portfolio Summary). **Realized P/L** comes from Portfolio Summary. **Dividends** are the after-tax amounts in Dividend summary. Unrealized P/L across all stocks adds up to the rupee gain or loss in chart 2.
+- **Unrealized P/L** = shares held × latest close − cost of those shares (incl. charges, from Portfolio Summary). **Realized P/L** comes from Portfolio Summary. **Dividends** are the after-tax amounts in Dividend summary that have a received date on or before the "as of" date; dividends not yet received aren't counted. Unrealized P/L across all stocks adds up to the rupee gain or loss in chart 2.
 
 The per-stock table, like Portfolio Summary, has room for 20 stocks. The monthly table has room for 67 months; it stops at row 70 so it doesn't run into the per-stock table below it.
 
@@ -329,7 +349,7 @@ A plain "value today vs value yesterday" would count new money as profit: buy 50
 My Return % = (Value today − Value yesterday − Net Money Added + Dividends) ÷ (Value yesterday + Money added that day)
 ```
 
-- **Dividends** are the after-tax amounts from the Dividend summary tab, counted on their **ex-date** (column K). On that day the stock's price drops by roughly the dividend; adding the dividend back means the drop isn't counted as a loss. Keep the Dividend summary up to date (ex-date and after-tax amount), or your return will be understated.
+- **Dividends** are the after-tax amounts from the Dividend summary tab, counted on the day you **received** them (column K, from the Received date in column A). Until then they aren't counted. Note that the share price drops by about the dividend on the ex-date, so My Return dips that day and recovers when the dividend is received; KSE-100 counts dividends on the ex-date, so you may look slightly behind it for those few weeks. Enter the received date when the money arrives, or your return will be understated.
 
 - Money added (buys) counts as invested from the start of the day. That way, the move from your purchase price to the closing price counts as that day's return.
 - Money withdrawn (sells) counts at the end of the day.

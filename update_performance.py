@@ -8,7 +8,8 @@ All other columns on that tab are formulas and update themselves.
 KSE-100's daily change is rebuilt from PSX's daily index file and anchored
 to PSX's official close.
 It also writes each traded stock's latest closing price to the
-"Latest Prices" tab (used by the Charts tab).
+"Latest Prices" tab (used by the Charts tab), and the closing price before each
+dividend's ex-date to column N of the dividend tab (for the market yield).
 
 Usage:
   .venv/bin/python update_performance.py            # update the sheet
@@ -30,7 +31,8 @@ import zipfile
 import gspread
 import xlrd
 
-from config import DAYS_TO_REFILL, PERF_SHEET, PRICES_SHEET, PSX, TRADE_SHEET, open_spreadsheet, spreadsheet_id
+from config import (DAYS_TO_REFILL, DIVIDEND_SHEET, PERF_SHEET, PRICES_SHEET, PSX, TRADE_SHEET,
+                    open_spreadsheet, spreadsheet_id)
 
 SHEETS_EPOCH = dt.date(1899, 12, 30)  # Google Sheets date serial 0
 
@@ -228,6 +230,8 @@ def main():
         print(f"\nCheck: PSX official KSE-100 on {official[0]} = {official[1]:,.2f}, "
               f"sheet = {computed[days[-1]][1]:,.2f}")
 
+    write_ex_date_prices(book, today, dry_run)
+
     if dry_run:
         print("\nDry run: nothing written.")
         return
@@ -240,6 +244,31 @@ def main():
                 values=[[rows[d][1], rows[d][2]] for d in ordered], value_input_option="RAW")
     print(f"\nUpdated {len(days)} trading day(s) in '{PERF_SHEET}'.")
     write_latest_prices(book, trades, *last_closes)
+
+
+def write_ex_date_prices(book, today, dry_run):
+    """Fill the dividend tab's "Price before ex-date" (column N) with the PSX close on the
+    last trading day before each ex-date. Ex-dates in the future are left blank."""
+    ws = book.worksheet(DIVIDEND_SHEET)
+    rows = ws.get("B8:C", value_render_option="UNFORMATTED_VALUE")
+    if not rows:
+        return
+    cache, values = {}, []
+    print(f"\nPrice before ex-date ({DIVIDEND_SHEET}, column N):")
+    for r in rows:
+        ex, stock = (r + ["", ""])[:2]
+        if not isinstance(ex, (int, float)) or not stock or to_date(ex) > today:
+            values.append([""])
+            continue
+        ex = to_date(ex)
+        if ex not in cache:
+            cache[ex] = previous_trading_closes(ex) or {}
+        ticker = str(stock).strip().split(" ")[0]
+        price = cache[ex].get(ticker, ("",))[0]
+        values.append([price])
+        print(f"  {ticker:<8} ex-date {ex}  price before: {price if price != '' else 'not found'}")
+    if not dry_run:
+        ws.update(range_name=f"N8:N{len(values) + 7}", values=values, value_input_option="RAW")
 
 
 def write_latest_prices(book, trades, day, closes):

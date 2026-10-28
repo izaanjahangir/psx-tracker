@@ -119,6 +119,134 @@
   },
   {
    "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.4,
+     "green": 0.4,
+     "blue": 0.4
+    },
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.4,
+      "green": 0.4,
+      "blue": 0.4
+     }
+    }
+   },
+   "note": "Average cost of the shares you held just before the ex-date (average-cost method: sold shares leave at their average cost). Excludes charges."
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.4,
+     "green": 0.4,
+     "blue": 0.4
+    },
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.4,
+      "green": 0.4,
+      "blue": 0.4
+     }
+    }
+   },
+   "note": "Yield on cost: dividend per share ÷ your average buy price. What this dividend pays on your money."
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.4,
+     "green": 0.4,
+     "blue": 0.4
+    },
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.4,
+      "green": 0.4,
+      "blue": 0.4
+     }
+    }
+   },
+   "note": "Filled by ./psx update: PSX closing price on the last trading day before the ex-date."
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.4,
+     "green": 0.4,
+     "blue": 0.4
+    },
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.4,
+      "green": 0.4,
+      "blue": 0.4
+     }
+    }
+   },
+   "note": "Market dividend yield: dividend per share ÷ price before the ex-date. The yield quoted by brokers and news; useful for comparing stocks."
+  },
+  {
+   "userEnteredFormat": {
     "numberFormat": {
      "type": "PERCENT",
      "pattern": "0%"
@@ -395,9 +523,170 @@
   },
   {
    "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.25882354,
+     "green": 0.52156866,
+     "blue": 0.95686275
+    },
+    "verticalAlignment": "MIDDLE",
+    "wrapStrategy": "WRAP",
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.25882354,
+      "green": 0.52156866,
+      "blue": 0.95686275
+     }
+    }
+   },
+   "note": "Time-weighted return including dividends. Fair comparison with KSE-100. Not the same as your broker app; see Return on Cost %."
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.85882354,
+     "green": 0.26666668,
+     "blue": 0.21568628
+    },
+    "verticalAlignment": "MIDDLE",
+    "wrapStrategy": "WRAP",
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.85882354,
+      "green": 0.26666668,
+      "blue": 0.21568628
+     }
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.20392157,
+     "green": 0.65882355,
+     "blue": 0.32156864
+    },
+    "verticalAlignment": "MIDDLE",
+    "wrapStrategy": "WRAP",
+    "textFormat": {
+     "foregroundColor": {
+      "red": 1,
+      "green": 1,
+      "blue": 1
+     },
+     "bold": true,
+     "foregroundColorStyle": {
+      "rgbColor": {
+       "red": 1,
+       "green": 1,
+       "blue": 1
+      }
+     }
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.20392157,
+      "green": 0.65882355,
+      "blue": 0.32156864
+     }
+    }
+   },
+   "note": "Same calculation as your broker app: Portfolio Value ÷ Cost of Holdings − 1."
+  },
+  {
+   "userEnteredFormat": {
     "numberFormat": {
      "type": "PERCENT",
      "pattern": "0.00%;[Red]-0.00%"
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "numberFormat": {
+     "type": "PERCENT",
+     "pattern": "0.00%;[Red]-0.00%"
+    },
+    "backgroundColor": {
+     "red": 0.9098039,
+     "green": 0.9372549,
+     "blue": 0.9882353
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.9098039,
+      "green": 0.9372549,
+      "blue": 0.9882353
+     }
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "numberFormat": {
+     "type": "PERCENT",
+     "pattern": "0.00%;[Red]-0.00%"
+    },
+    "backgroundColor": {
+     "red": 0.9882353,
+     "green": 0.9098039,
+     "blue": 0.8980392
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.9882353,
+      "green": 0.9098039,
+      "blue": 0.8980392
+     }
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "numberFormat": {
+     "type": "PERCENT",
+     "pattern": "0.00%;[Red]-0.00%"
+    },
+    "backgroundColor": {
+     "red": 0.8980392,
+     "green": 0.95686275,
+     "blue": 0.9098039
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.8980392,
+      "green": 0.95686275,
+      "blue": 0.9098039
+     }
     }
    }
   },
@@ -416,6 +705,27 @@
        "green": 0.49803922,
        "blue": 0.49803922
       }
+     }
+    }
+   }
+  },
+  {
+   "userEnteredFormat": {
+    "backgroundColor": {
+     "red": 0.96862745,
+     "green": 0.96862745,
+     "blue": 0.92941177
+    },
+    "verticalAlignment": "TOP",
+    "wrapStrategy": "WRAP",
+    "textFormat": {
+     "fontSize": 10
+    },
+    "backgroundColorStyle": {
+     "rgbColor": {
+      "red": 0.96862745,
+      "green": 0.96862745,
+      "blue": 0.92941177
      }
     }
    }
@@ -873,7 +1183,7 @@
     [
      0,
      1,
-     33,
+     36,
      1
     ],
     [
@@ -907,6 +1217,12 @@
      0
     ],
     [
+     4,
+     35,
+     36,
+     5
+    ],
+    [
      5,
      0,
      0,
@@ -919,16 +1235,34 @@
      5
     ],
     [
+     5,
+     35,
+     36,
+     5
+    ],
+    [
      6,
      0,
      0,
      0
     ],
     [
+     6,
+     35,
+     36,
+     5
+    ],
+    [
      7,
      0,
      0,
      0
+    ],
+    [
+     7,
+     35,
+     36,
+     5
     ],
     [
      8,
@@ -963,7 +1297,7 @@
     [
      10,
      15,
-     33,
+     36,
      3
     ],
     [
@@ -1016,7 +1350,7 @@
     "index": 1,
     "gridProperties": {
      "rowCount": 1006,
-     "columnCount": 26
+     "columnCount": 27
     }
    },
    "columnWidths": [
@@ -1062,7 +1396,19 @@
     ],
     [
      11,
+     130
+    ],
+    [
+     12,
      102
+    ],
+    [
+     13,
+     120
+    ],
+    [
+     14,
+     120
     ]
    ],
    "rowHeights": [],
@@ -1120,7 +1466,7 @@
      3,
      2,
      {
-      "formulaValue": "=SUMIFS(H8:H, L8:L, \"Received\")"
+      "formulaValue": "=SUMIFS(H8:H, M8:M, \"Received\")"
      }
     ],
     [
@@ -1134,7 +1480,7 @@
      4,
      2,
      {
-      "formulaValue": "=SUMIFS(H8:H, L8:L, \"Pending\")"
+      "formulaValue": "=SUMIFS(H8:H, M8:M, \"Pending\")"
      }
     ],
     [
@@ -1218,7 +1564,28 @@
      6,
      11,
      {
+      "stringValue": "DIV yield (received)"
+     }
+    ],
+    [
+     6,
+     12,
+     {
       "stringValue": "Status"
+     }
+    ],
+    [
+     6,
+     13,
+     {
+      "stringValue": "Price before ex-date"
+     }
+    ],
+    [
+     6,
+     14,
+     {
+      "stringValue": "Market yield"
      }
     ],
     [
@@ -1246,7 +1613,7 @@
      7,
      8,
      {
-      "formulaValue": "=IF(C8=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C8, 'Trade List'!A:A, \"<=\"&B8, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C8, 'Trade List'!A:A, \"<=\"&B8, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B8=\"\",C8=\"\",N(D8)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C8,'Trade List'!A:A,\"<\"&B8)/D8,0))"
      }
     ],
     [
@@ -1261,6 +1628,20 @@
      10,
      {
       "formulaValue": "=IF(C8=\"\",\"\", IFERROR(E8/I8, 0))"
+     }
+    ],
+    [
+     7,
+     11,
+     {
+      "formulaValue": "=H8/J8"
+     }
+    ],
+    [
+     7,
+     14,
+     {
+      "formulaValue": "=IF(OR(E8=\"\",N8=\"\"),\"\",IFERROR(E8/N8,\"\"))"
      }
     ],
     [
@@ -1288,7 +1669,7 @@
      8,
      8,
      {
-      "formulaValue": "=IF(C9=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C9, 'Trade List'!A:A, \"<=\"&B9, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C9, 'Trade List'!A:A, \"<=\"&B9, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B9=\"\",C9=\"\",N(D9)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C9,'Trade List'!A:A,\"<\"&B9)/D9,0))"
      }
     ],
     [
@@ -1303,6 +1684,20 @@
      10,
      {
       "formulaValue": "=IF(C9=\"\",\"\", IFERROR(E9/I9, 0))"
+     }
+    ],
+    [
+     8,
+     11,
+     {
+      "formulaValue": "=H9/J9"
+     }
+    ],
+    [
+     8,
+     14,
+     {
+      "formulaValue": "=IF(OR(E9=\"\",N9=\"\"),\"\",IFERROR(E9/N9,\"\"))"
      }
     ],
     [
@@ -1330,7 +1725,7 @@
      9,
      8,
      {
-      "formulaValue": "=IF(C10=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C10, 'Trade List'!A:A, \"<=\"&B10, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C10, 'Trade List'!A:A, \"<=\"&B10, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B10=\"\",C10=\"\",N(D10)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C10,'Trade List'!A:A,\"<\"&B10)/D10,0))"
      }
     ],
     [
@@ -1345,6 +1740,20 @@
      10,
      {
       "formulaValue": "=IF(C10=\"\",\"\", IFERROR(E10/I10, 0))"
+     }
+    ],
+    [
+     9,
+     11,
+     {
+      "formulaValue": "=H10/J10"
+     }
+    ],
+    [
+     9,
+     14,
+     {
+      "formulaValue": "=IF(OR(E10=\"\",N10=\"\"),\"\",IFERROR(E10/N10,\"\"))"
      }
     ],
     [
@@ -1372,7 +1781,7 @@
      10,
      8,
      {
-      "formulaValue": "=IF(C11=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C11, 'Trade List'!A:A, \"<=\"&B11, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C11, 'Trade List'!A:A, \"<=\"&B11, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B11=\"\",C11=\"\",N(D11)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C11,'Trade List'!A:A,\"<\"&B11)/D11,0))"
      }
     ],
     [
@@ -1387,6 +1796,20 @@
      10,
      {
       "formulaValue": "=IF(C11=\"\",\"\", IFERROR(E11/I11, 0))"
+     }
+    ],
+    [
+     10,
+     11,
+     {
+      "formulaValue": "=H11/J11"
+     }
+    ],
+    [
+     10,
+     14,
+     {
+      "formulaValue": "=IF(OR(E11=\"\",N11=\"\"),\"\",IFERROR(E11/N11,\"\"))"
      }
     ],
     [
@@ -1414,7 +1837,7 @@
      11,
      8,
      {
-      "formulaValue": "=IF(C12=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C12, 'Trade List'!A:A, \"<=\"&B12, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C12, 'Trade List'!A:A, \"<=\"&B12, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B12=\"\",C12=\"\",N(D12)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C12,'Trade List'!A:A,\"<\"&B12)/D12,0))"
      }
     ],
     [
@@ -1429,6 +1852,20 @@
      10,
      {
       "formulaValue": "=IF(C12=\"\",\"\", IFERROR(E12/I12, 0))"
+     }
+    ],
+    [
+     11,
+     11,
+     {
+      "formulaValue": "=H12/J12"
+     }
+    ],
+    [
+     11,
+     14,
+     {
+      "formulaValue": "=IF(OR(E12=\"\",N12=\"\"),\"\",IFERROR(E12/N12,\"\"))"
      }
     ],
     [
@@ -1456,7 +1893,7 @@
      12,
      8,
      {
-      "formulaValue": "=IF(C13=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C13, 'Trade List'!A:A, \"<=\"&B13, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C13, 'Trade List'!A:A, \"<=\"&B13, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B13=\"\",C13=\"\",N(D13)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C13,'Trade List'!A:A,\"<\"&B13)/D13,0))"
      }
     ],
     [
@@ -1471,6 +1908,13 @@
      10,
      {
       "formulaValue": "=IF(C13=\"\",\"\", IFERROR(E13/I13, 0))"
+     }
+    ],
+    [
+     12,
+     14,
+     {
+      "formulaValue": "=IF(OR(E13=\"\",N13=\"\"),\"\",IFERROR(E13/N13,\"\"))"
      }
     ],
     [
@@ -1498,7 +1942,7 @@
      13,
      8,
      {
-      "formulaValue": "=IF(C14=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C14, 'Trade List'!A:A, \"<=\"&B14, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C14, 'Trade List'!A:A, \"<=\"&B14, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B14=\"\",C14=\"\",N(D14)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C14,'Trade List'!A:A,\"<\"&B14)/D14,0))"
      }
     ],
     [
@@ -1513,6 +1957,13 @@
      10,
      {
       "formulaValue": "=IF(C14=\"\",\"\", IFERROR(E14/I14, 0))"
+     }
+    ],
+    [
+     13,
+     14,
+     {
+      "formulaValue": "=IF(OR(E14=\"\",N14=\"\"),\"\",IFERROR(E14/N14,\"\"))"
      }
     ],
     [
@@ -1540,7 +1991,7 @@
      14,
      8,
      {
-      "formulaValue": "=IF(C15=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C15, 'Trade List'!A:A, \"<=\"&B15, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C15, 'Trade List'!A:A, \"<=\"&B15, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B15=\"\",C15=\"\",N(D15)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C15,'Trade List'!A:A,\"<\"&B15)/D15,0))"
      }
     ],
     [
@@ -1555,6 +2006,13 @@
      10,
      {
       "formulaValue": "=IF(C15=\"\",\"\", IFERROR(E15/I15, 0))"
+     }
+    ],
+    [
+     14,
+     14,
+     {
+      "formulaValue": "=IF(OR(E15=\"\",N15=\"\"),\"\",IFERROR(E15/N15,\"\"))"
      }
     ],
     [
@@ -1582,7 +2040,7 @@
      15,
      8,
      {
-      "formulaValue": "=IF(C16=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C16, 'Trade List'!A:A, \"<=\"&B16, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C16, 'Trade List'!A:A, \"<=\"&B16, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B16=\"\",C16=\"\",N(D16)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C16,'Trade List'!A:A,\"<\"&B16)/D16,0))"
      }
     ],
     [
@@ -1597,6 +2055,13 @@
      10,
      {
       "formulaValue": "=IF(C16=\"\",\"\", IFERROR(E16/I16, 0))"
+     }
+    ],
+    [
+     15,
+     14,
+     {
+      "formulaValue": "=IF(OR(E16=\"\",N16=\"\"),\"\",IFERROR(E16/N16,\"\"))"
      }
     ],
     [
@@ -1624,7 +2089,7 @@
      16,
      8,
      {
-      "formulaValue": "=IF(C17=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C17, 'Trade List'!A:A, \"<=\"&B17, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C17, 'Trade List'!A:A, \"<=\"&B17, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B17=\"\",C17=\"\",N(D17)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C17,'Trade List'!A:A,\"<\"&B17)/D17,0))"
      }
     ],
     [
@@ -1639,6 +2104,13 @@
      10,
      {
       "formulaValue": "=IF(C17=\"\",\"\", IFERROR(E17/I17, 0))"
+     }
+    ],
+    [
+     16,
+     14,
+     {
+      "formulaValue": "=IF(OR(E17=\"\",N17=\"\"),\"\",IFERROR(E17/N17,\"\"))"
      }
     ],
     [
@@ -1666,7 +2138,7 @@
      17,
      8,
      {
-      "formulaValue": "=IF(C18=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C18, 'Trade List'!A:A, \"<=\"&B18, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C18, 'Trade List'!A:A, \"<=\"&B18, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B18=\"\",C18=\"\",N(D18)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C18,'Trade List'!A:A,\"<\"&B18)/D18,0))"
      }
     ],
     [
@@ -1681,6 +2153,13 @@
      10,
      {
       "formulaValue": "=IF(C18=\"\",\"\", IFERROR(E18/I18, 0))"
+     }
+    ],
+    [
+     17,
+     14,
+     {
+      "formulaValue": "=IF(OR(E18=\"\",N18=\"\"),\"\",IFERROR(E18/N18,\"\"))"
      }
     ],
     [
@@ -1708,7 +2187,7 @@
      18,
      8,
      {
-      "formulaValue": "=IF(C19=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C19, 'Trade List'!A:A, \"<=\"&B19, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C19, 'Trade List'!A:A, \"<=\"&B19, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B19=\"\",C19=\"\",N(D19)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C19,'Trade List'!A:A,\"<\"&B19)/D19,0))"
      }
     ],
     [
@@ -1723,6 +2202,13 @@
      10,
      {
       "formulaValue": "=IF(C19=\"\",\"\", IFERROR(E19/I19, 0))"
+     }
+    ],
+    [
+     18,
+     14,
+     {
+      "formulaValue": "=IF(OR(E19=\"\",N19=\"\"),\"\",IFERROR(E19/N19,\"\"))"
      }
     ],
     [
@@ -1750,7 +2236,7 @@
      19,
      8,
      {
-      "formulaValue": "=IF(C20=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C20, 'Trade List'!A:A, \"<=\"&B20, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C20, 'Trade List'!A:A, \"<=\"&B20, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B20=\"\",C20=\"\",N(D20)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C20,'Trade List'!A:A,\"<\"&B20)/D20,0))"
      }
     ],
     [
@@ -1765,6 +2251,13 @@
      10,
      {
       "formulaValue": "=IF(C20=\"\",\"\", IFERROR(E20/I20, 0))"
+     }
+    ],
+    [
+     19,
+     14,
+     {
+      "formulaValue": "=IF(OR(E20=\"\",N20=\"\"),\"\",IFERROR(E20/N20,\"\"))"
      }
     ],
     [
@@ -1792,7 +2285,7 @@
      20,
      8,
      {
-      "formulaValue": "=IF(C21=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C21, 'Trade List'!A:A, \"<=\"&B21, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C21, 'Trade List'!A:A, \"<=\"&B21, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B21=\"\",C21=\"\",N(D21)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C21,'Trade List'!A:A,\"<\"&B21)/D21,0))"
      }
     ],
     [
@@ -1807,6 +2300,13 @@
      10,
      {
       "formulaValue": "=IF(C21=\"\",\"\", IFERROR(E21/I21, 0))"
+     }
+    ],
+    [
+     20,
+     14,
+     {
+      "formulaValue": "=IF(OR(E21=\"\",N21=\"\"),\"\",IFERROR(E21/N21,\"\"))"
      }
     ],
     [
@@ -1834,7 +2334,7 @@
      21,
      8,
      {
-      "formulaValue": "=IF(C22=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C22, 'Trade List'!A:A, \"<=\"&B22, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C22, 'Trade List'!A:A, \"<=\"&B22, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B22=\"\",C22=\"\",N(D22)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C22,'Trade List'!A:A,\"<\"&B22)/D22,0))"
      }
     ],
     [
@@ -1849,6 +2349,13 @@
      10,
      {
       "formulaValue": "=IF(C22=\"\",\"\", IFERROR(E22/I22, 0))"
+     }
+    ],
+    [
+     21,
+     14,
+     {
+      "formulaValue": "=IF(OR(E22=\"\",N22=\"\"),\"\",IFERROR(E22/N22,\"\"))"
      }
     ],
     [
@@ -1876,7 +2383,7 @@
      22,
      8,
      {
-      "formulaValue": "=IF(C23=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C23, 'Trade List'!A:A, \"<=\"&B23, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C23, 'Trade List'!A:A, \"<=\"&B23, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B23=\"\",C23=\"\",N(D23)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C23,'Trade List'!A:A,\"<\"&B23)/D23,0))"
      }
     ],
     [
@@ -1891,6 +2398,13 @@
      10,
      {
       "formulaValue": "=IF(C23=\"\",\"\", IFERROR(E23/I23, 0))"
+     }
+    ],
+    [
+     22,
+     14,
+     {
+      "formulaValue": "=IF(OR(E23=\"\",N23=\"\"),\"\",IFERROR(E23/N23,\"\"))"
      }
     ],
     [
@@ -1918,7 +2432,7 @@
      23,
      8,
      {
-      "formulaValue": "=IF(C24=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C24, 'Trade List'!A:A, \"<=\"&B24, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C24, 'Trade List'!A:A, \"<=\"&B24, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B24=\"\",C24=\"\",N(D24)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C24,'Trade List'!A:A,\"<\"&B24)/D24,0))"
      }
     ],
     [
@@ -1933,6 +2447,13 @@
      10,
      {
       "formulaValue": "=IF(C24=\"\",\"\", IFERROR(E24/I24, 0))"
+     }
+    ],
+    [
+     23,
+     14,
+     {
+      "formulaValue": "=IF(OR(E24=\"\",N24=\"\"),\"\",IFERROR(E24/N24,\"\"))"
      }
     ],
     [
@@ -1960,7 +2481,7 @@
      24,
      8,
      {
-      "formulaValue": "=IF(C25=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C25, 'Trade List'!A:A, \"<=\"&B25, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C25, 'Trade List'!A:A, \"<=\"&B25, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B25=\"\",C25=\"\",N(D25)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C25,'Trade List'!A:A,\"<\"&B25)/D25,0))"
      }
     ],
     [
@@ -1975,6 +2496,13 @@
      10,
      {
       "formulaValue": "=IF(C25=\"\",\"\", IFERROR(E25/I25, 0))"
+     }
+    ],
+    [
+     24,
+     14,
+     {
+      "formulaValue": "=IF(OR(E25=\"\",N25=\"\"),\"\",IFERROR(E25/N25,\"\"))"
      }
     ],
     [
@@ -2002,7 +2530,7 @@
      25,
      8,
      {
-      "formulaValue": "=IF(C26=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C26, 'Trade List'!A:A, \"<=\"&B26, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C26, 'Trade List'!A:A, \"<=\"&B26, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B26=\"\",C26=\"\",N(D26)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C26,'Trade List'!A:A,\"<\"&B26)/D26,0))"
      }
     ],
     [
@@ -2017,6 +2545,13 @@
      10,
      {
       "formulaValue": "=IF(C26=\"\",\"\", IFERROR(E26/I26, 0))"
+     }
+    ],
+    [
+     25,
+     14,
+     {
+      "formulaValue": "=IF(OR(E26=\"\",N26=\"\"),\"\",IFERROR(E26/N26,\"\"))"
      }
     ],
     [
@@ -2044,7 +2579,7 @@
      26,
      8,
      {
-      "formulaValue": "=IF(C27=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C27, 'Trade List'!A:A, \"<=\"&B27, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C27, 'Trade List'!A:A, \"<=\"&B27, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B27=\"\",C27=\"\",N(D27)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C27,'Trade List'!A:A,\"<\"&B27)/D27,0))"
      }
     ],
     [
@@ -2059,6 +2594,13 @@
      10,
      {
       "formulaValue": "=IF(C27=\"\",\"\", IFERROR(E27/I27, 0))"
+     }
+    ],
+    [
+     26,
+     14,
+     {
+      "formulaValue": "=IF(OR(E27=\"\",N27=\"\"),\"\",IFERROR(E27/N27,\"\"))"
      }
     ],
     [
@@ -2086,7 +2628,7 @@
      27,
      8,
      {
-      "formulaValue": "=IF(C28=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C28, 'Trade List'!A:A, \"<=\"&B28, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C28, 'Trade List'!A:A, \"<=\"&B28, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B28=\"\",C28=\"\",N(D28)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C28,'Trade List'!A:A,\"<\"&B28)/D28,0))"
      }
     ],
     [
@@ -2101,6 +2643,13 @@
      10,
      {
       "formulaValue": "=IF(C28=\"\",\"\", IFERROR(E28/I28, 0))"
+     }
+    ],
+    [
+     27,
+     14,
+     {
+      "formulaValue": "=IF(OR(E28=\"\",N28=\"\"),\"\",IFERROR(E28/N28,\"\"))"
      }
     ],
     [
@@ -2128,7 +2677,7 @@
      28,
      8,
      {
-      "formulaValue": "=IF(C29=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C29, 'Trade List'!A:A, \"<=\"&B29, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C29, 'Trade List'!A:A, \"<=\"&B29, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B29=\"\",C29=\"\",N(D29)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C29,'Trade List'!A:A,\"<\"&B29)/D29,0))"
      }
     ],
     [
@@ -2143,6 +2692,13 @@
      10,
      {
       "formulaValue": "=IF(C29=\"\",\"\", IFERROR(E29/I29, 0))"
+     }
+    ],
+    [
+     28,
+     14,
+     {
+      "formulaValue": "=IF(OR(E29=\"\",N29=\"\"),\"\",IFERROR(E29/N29,\"\"))"
      }
     ],
     [
@@ -2170,7 +2726,7 @@
      29,
      8,
      {
-      "formulaValue": "=IF(C30=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C30, 'Trade List'!A:A, \"<=\"&B30, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C30, 'Trade List'!A:A, \"<=\"&B30, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B30=\"\",C30=\"\",N(D30)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C30,'Trade List'!A:A,\"<\"&B30)/D30,0))"
      }
     ],
     [
@@ -2185,6 +2741,13 @@
      10,
      {
       "formulaValue": "=IF(C30=\"\",\"\", IFERROR(E30/I30, 0))"
+     }
+    ],
+    [
+     29,
+     14,
+     {
+      "formulaValue": "=IF(OR(E30=\"\",N30=\"\"),\"\",IFERROR(E30/N30,\"\"))"
      }
     ],
     [
@@ -2212,7 +2775,7 @@
      30,
      8,
      {
-      "formulaValue": "=IF(C31=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C31, 'Trade List'!A:A, \"<=\"&B31, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C31, 'Trade List'!A:A, \"<=\"&B31, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B31=\"\",C31=\"\",N(D31)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C31,'Trade List'!A:A,\"<\"&B31)/D31,0))"
      }
     ],
     [
@@ -2227,6 +2790,13 @@
      10,
      {
       "formulaValue": "=IF(C31=\"\",\"\", IFERROR(E31/I31, 0))"
+     }
+    ],
+    [
+     30,
+     14,
+     {
+      "formulaValue": "=IF(OR(E31=\"\",N31=\"\"),\"\",IFERROR(E31/N31,\"\"))"
      }
     ],
     [
@@ -2254,7 +2824,7 @@
      31,
      8,
      {
-      "formulaValue": "=IF(C32=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C32, 'Trade List'!A:A, \"<=\"&B32, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C32, 'Trade List'!A:A, \"<=\"&B32, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B32=\"\",C32=\"\",N(D32)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C32,'Trade List'!A:A,\"<\"&B32)/D32,0))"
      }
     ],
     [
@@ -2269,6 +2839,13 @@
      10,
      {
       "formulaValue": "=IF(C32=\"\",\"\", IFERROR(E32/I32, 0))"
+     }
+    ],
+    [
+     31,
+     14,
+     {
+      "formulaValue": "=IF(OR(E32=\"\",N32=\"\"),\"\",IFERROR(E32/N32,\"\"))"
      }
     ],
     [
@@ -2296,7 +2873,7 @@
      32,
      8,
      {
-      "formulaValue": "=IF(C33=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C33, 'Trade List'!A:A, \"<=\"&B33, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C33, 'Trade List'!A:A, \"<=\"&B33, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B33=\"\",C33=\"\",N(D33)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C33,'Trade List'!A:A,\"<\"&B33)/D33,0))"
      }
     ],
     [
@@ -2311,6 +2888,13 @@
      10,
      {
       "formulaValue": "=IF(C33=\"\",\"\", IFERROR(E33/I33, 0))"
+     }
+    ],
+    [
+     32,
+     14,
+     {
+      "formulaValue": "=IF(OR(E33=\"\",N33=\"\"),\"\",IFERROR(E33/N33,\"\"))"
      }
     ],
     [
@@ -2338,7 +2922,7 @@
      33,
      8,
      {
-      "formulaValue": "=IF(C34=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C34, 'Trade List'!A:A, \"<=\"&B34, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C34, 'Trade List'!A:A, \"<=\"&B34, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B34=\"\",C34=\"\",N(D34)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C34,'Trade List'!A:A,\"<\"&B34)/D34,0))"
      }
     ],
     [
@@ -2353,6 +2937,13 @@
      10,
      {
       "formulaValue": "=IF(C34=\"\",\"\", IFERROR(E34/I34, 0))"
+     }
+    ],
+    [
+     33,
+     14,
+     {
+      "formulaValue": "=IF(OR(E34=\"\",N34=\"\"),\"\",IFERROR(E34/N34,\"\"))"
      }
     ],
     [
@@ -2380,7 +2971,7 @@
      34,
      8,
      {
-      "formulaValue": "=IF(C35=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C35, 'Trade List'!A:A, \"<=\"&B35, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C35, 'Trade List'!A:A, \"<=\"&B35, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B35=\"\",C35=\"\",N(D35)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C35,'Trade List'!A:A,\"<\"&B35)/D35,0))"
      }
     ],
     [
@@ -2395,6 +2986,13 @@
      10,
      {
       "formulaValue": "=IF(C35=\"\",\"\", IFERROR(E35/I35, 0))"
+     }
+    ],
+    [
+     34,
+     14,
+     {
+      "formulaValue": "=IF(OR(E35=\"\",N35=\"\"),\"\",IFERROR(E35/N35,\"\"))"
      }
     ],
     [
@@ -2422,7 +3020,7 @@
      35,
      8,
      {
-      "formulaValue": "=IF(C36=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C36, 'Trade List'!A:A, \"<=\"&B36, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C36, 'Trade List'!A:A, \"<=\"&B36, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B36=\"\",C36=\"\",N(D36)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C36,'Trade List'!A:A,\"<\"&B36)/D36,0))"
      }
     ],
     [
@@ -2437,6 +3035,13 @@
      10,
      {
       "formulaValue": "=IF(C36=\"\",\"\", IFERROR(E36/I36, 0))"
+     }
+    ],
+    [
+     35,
+     14,
+     {
+      "formulaValue": "=IF(OR(E36=\"\",N36=\"\"),\"\",IFERROR(E36/N36,\"\"))"
      }
     ],
     [
@@ -2464,7 +3069,7 @@
      36,
      8,
      {
-      "formulaValue": "=IF(C37=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C37, 'Trade List'!A:A, \"<=\"&B37, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C37, 'Trade List'!A:A, \"<=\"&B37, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B37=\"\",C37=\"\",N(D37)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C37,'Trade List'!A:A,\"<\"&B37)/D37,0))"
      }
     ],
     [
@@ -2479,6 +3084,13 @@
      10,
      {
       "formulaValue": "=IF(C37=\"\",\"\", IFERROR(E37/I37, 0))"
+     }
+    ],
+    [
+     36,
+     14,
+     {
+      "formulaValue": "=IF(OR(E37=\"\",N37=\"\"),\"\",IFERROR(E37/N37,\"\"))"
      }
     ],
     [
@@ -2506,7 +3118,7 @@
      37,
      8,
      {
-      "formulaValue": "=IF(C38=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C38, 'Trade List'!A:A, \"<=\"&B38, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C38, 'Trade List'!A:A, \"<=\"&B38, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B38=\"\",C38=\"\",N(D38)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C38,'Trade List'!A:A,\"<\"&B38)/D38,0))"
      }
     ],
     [
@@ -2521,6 +3133,13 @@
      10,
      {
       "formulaValue": "=IF(C38=\"\",\"\", IFERROR(E38/I38, 0))"
+     }
+    ],
+    [
+     37,
+     14,
+     {
+      "formulaValue": "=IF(OR(E38=\"\",N38=\"\"),\"\",IFERROR(E38/N38,\"\"))"
      }
     ],
     [
@@ -2548,7 +3167,7 @@
      38,
      8,
      {
-      "formulaValue": "=IF(C39=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C39, 'Trade List'!A:A, \"<=\"&B39, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C39, 'Trade List'!A:A, \"<=\"&B39, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B39=\"\",C39=\"\",N(D39)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C39,'Trade List'!A:A,\"<\"&B39)/D39,0))"
      }
     ],
     [
@@ -2563,6 +3182,13 @@
      10,
      {
       "formulaValue": "=IF(C39=\"\",\"\", IFERROR(E39/I39, 0))"
+     }
+    ],
+    [
+     38,
+     14,
+     {
+      "formulaValue": "=IF(OR(E39=\"\",N39=\"\"),\"\",IFERROR(E39/N39,\"\"))"
      }
     ],
     [
@@ -2590,7 +3216,7 @@
      39,
      8,
      {
-      "formulaValue": "=IF(C40=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C40, 'Trade List'!A:A, \"<=\"&B40, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C40, 'Trade List'!A:A, \"<=\"&B40, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B40=\"\",C40=\"\",N(D40)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C40,'Trade List'!A:A,\"<\"&B40)/D40,0))"
      }
     ],
     [
@@ -2605,6 +3231,13 @@
      10,
      {
       "formulaValue": "=IF(C40=\"\",\"\", IFERROR(E40/I40, 0))"
+     }
+    ],
+    [
+     39,
+     14,
+     {
+      "formulaValue": "=IF(OR(E40=\"\",N40=\"\"),\"\",IFERROR(E40/N40,\"\"))"
      }
     ],
     [
@@ -2632,7 +3265,7 @@
      40,
      8,
      {
-      "formulaValue": "=IF(C41=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C41, 'Trade List'!A:A, \"<=\"&B41, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C41, 'Trade List'!A:A, \"<=\"&B41, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B41=\"\",C41=\"\",N(D41)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C41,'Trade List'!A:A,\"<\"&B41)/D41,0))"
      }
     ],
     [
@@ -2647,6 +3280,13 @@
      10,
      {
       "formulaValue": "=IF(C41=\"\",\"\", IFERROR(E41/I41, 0))"
+     }
+    ],
+    [
+     40,
+     14,
+     {
+      "formulaValue": "=IF(OR(E41=\"\",N41=\"\"),\"\",IFERROR(E41/N41,\"\"))"
      }
     ],
     [
@@ -2674,7 +3314,7 @@
      41,
      8,
      {
-      "formulaValue": "=IF(C42=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C42, 'Trade List'!A:A, \"<=\"&B42, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C42, 'Trade List'!A:A, \"<=\"&B42, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B42=\"\",C42=\"\",N(D42)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C42,'Trade List'!A:A,\"<\"&B42)/D42,0))"
      }
     ],
     [
@@ -2689,6 +3329,13 @@
      10,
      {
       "formulaValue": "=IF(C42=\"\",\"\", IFERROR(E42/I42, 0))"
+     }
+    ],
+    [
+     41,
+     14,
+     {
+      "formulaValue": "=IF(OR(E42=\"\",N42=\"\"),\"\",IFERROR(E42/N42,\"\"))"
      }
     ],
     [
@@ -2716,7 +3363,7 @@
      42,
      8,
      {
-      "formulaValue": "=IF(C43=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C43, 'Trade List'!A:A, \"<=\"&B43, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C43, 'Trade List'!A:A, \"<=\"&B43, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B43=\"\",C43=\"\",N(D43)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C43,'Trade List'!A:A,\"<\"&B43)/D43,0))"
      }
     ],
     [
@@ -2731,6 +3378,13 @@
      10,
      {
       "formulaValue": "=IF(C43=\"\",\"\", IFERROR(E43/I43, 0))"
+     }
+    ],
+    [
+     42,
+     14,
+     {
+      "formulaValue": "=IF(OR(E43=\"\",N43=\"\"),\"\",IFERROR(E43/N43,\"\"))"
      }
     ],
     [
@@ -2758,7 +3412,7 @@
      43,
      8,
      {
-      "formulaValue": "=IF(C44=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C44, 'Trade List'!A:A, \"<=\"&B44, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C44, 'Trade List'!A:A, \"<=\"&B44, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B44=\"\",C44=\"\",N(D44)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C44,'Trade List'!A:A,\"<\"&B44)/D44,0))"
      }
     ],
     [
@@ -2773,6 +3427,13 @@
      10,
      {
       "formulaValue": "=IF(C44=\"\",\"\", IFERROR(E44/I44, 0))"
+     }
+    ],
+    [
+     43,
+     14,
+     {
+      "formulaValue": "=IF(OR(E44=\"\",N44=\"\"),\"\",IFERROR(E44/N44,\"\"))"
      }
     ],
     [
@@ -2800,7 +3461,7 @@
      44,
      8,
      {
-      "formulaValue": "=IF(C45=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C45, 'Trade List'!A:A, \"<=\"&B45, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C45, 'Trade List'!A:A, \"<=\"&B45, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B45=\"\",C45=\"\",N(D45)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C45,'Trade List'!A:A,\"<\"&B45)/D45,0))"
      }
     ],
     [
@@ -2815,6 +3476,13 @@
      10,
      {
       "formulaValue": "=IF(C45=\"\",\"\", IFERROR(E45/I45, 0))"
+     }
+    ],
+    [
+     44,
+     14,
+     {
+      "formulaValue": "=IF(OR(E45=\"\",N45=\"\"),\"\",IFERROR(E45/N45,\"\"))"
      }
     ],
     [
@@ -2842,7 +3510,7 @@
      45,
      8,
      {
-      "formulaValue": "=IF(C46=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C46, 'Trade List'!A:A, \"<=\"&B46, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C46, 'Trade List'!A:A, \"<=\"&B46, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B46=\"\",C46=\"\",N(D46)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C46,'Trade List'!A:A,\"<\"&B46)/D46,0))"
      }
     ],
     [
@@ -2857,6 +3525,13 @@
      10,
      {
       "formulaValue": "=IF(C46=\"\",\"\", IFERROR(E46/I46, 0))"
+     }
+    ],
+    [
+     45,
+     14,
+     {
+      "formulaValue": "=IF(OR(E46=\"\",N46=\"\"),\"\",IFERROR(E46/N46,\"\"))"
      }
     ],
     [
@@ -2884,7 +3559,7 @@
      46,
      8,
      {
-      "formulaValue": "=IF(C47=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C47, 'Trade List'!A:A, \"<=\"&B47, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C47, 'Trade List'!A:A, \"<=\"&B47, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B47=\"\",C47=\"\",N(D47)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C47,'Trade List'!A:A,\"<\"&B47)/D47,0))"
      }
     ],
     [
@@ -2899,6 +3574,13 @@
      10,
      {
       "formulaValue": "=IF(C47=\"\",\"\", IFERROR(E47/I47, 0))"
+     }
+    ],
+    [
+     46,
+     14,
+     {
+      "formulaValue": "=IF(OR(E47=\"\",N47=\"\"),\"\",IFERROR(E47/N47,\"\"))"
      }
     ],
     [
@@ -2926,7 +3608,7 @@
      47,
      8,
      {
-      "formulaValue": "=IF(C48=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C48, 'Trade List'!A:A, \"<=\"&B48, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C48, 'Trade List'!A:A, \"<=\"&B48, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B48=\"\",C48=\"\",N(D48)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C48,'Trade List'!A:A,\"<\"&B48)/D48,0))"
      }
     ],
     [
@@ -2941,6 +3623,13 @@
      10,
      {
       "formulaValue": "=IF(C48=\"\",\"\", IFERROR(E48/I48, 0))"
+     }
+    ],
+    [
+     47,
+     14,
+     {
+      "formulaValue": "=IF(OR(E48=\"\",N48=\"\"),\"\",IFERROR(E48/N48,\"\"))"
      }
     ],
     [
@@ -2968,7 +3657,7 @@
      48,
      8,
      {
-      "formulaValue": "=IF(C49=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C49, 'Trade List'!A:A, \"<=\"&B49, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C49, 'Trade List'!A:A, \"<=\"&B49, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B49=\"\",C49=\"\",N(D49)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C49,'Trade List'!A:A,\"<\"&B49)/D49,0))"
      }
     ],
     [
@@ -2983,6 +3672,13 @@
      10,
      {
       "formulaValue": "=IF(C49=\"\",\"\", IFERROR(E49/I49, 0))"
+     }
+    ],
+    [
+     48,
+     14,
+     {
+      "formulaValue": "=IF(OR(E49=\"\",N49=\"\"),\"\",IFERROR(E49/N49,\"\"))"
      }
     ],
     [
@@ -3010,7 +3706,7 @@
      49,
      8,
      {
-      "formulaValue": "=IF(C50=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C50, 'Trade List'!A:A, \"<=\"&B50, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C50, 'Trade List'!A:A, \"<=\"&B50, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B50=\"\",C50=\"\",N(D50)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C50,'Trade List'!A:A,\"<\"&B50)/D50,0))"
      }
     ],
     [
@@ -3025,6 +3721,13 @@
      10,
      {
       "formulaValue": "=IF(C50=\"\",\"\", IFERROR(E50/I50, 0))"
+     }
+    ],
+    [
+     49,
+     14,
+     {
+      "formulaValue": "=IF(OR(E50=\"\",N50=\"\"),\"\",IFERROR(E50/N50,\"\"))"
      }
     ],
     [
@@ -3052,7 +3755,7 @@
      50,
      8,
      {
-      "formulaValue": "=IF(C51=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C51, 'Trade List'!A:A, \"<=\"&B51, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C51, 'Trade List'!A:A, \"<=\"&B51, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B51=\"\",C51=\"\",N(D51)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C51,'Trade List'!A:A,\"<\"&B51)/D51,0))"
      }
     ],
     [
@@ -3067,6 +3770,13 @@
      10,
      {
       "formulaValue": "=IF(C51=\"\",\"\", IFERROR(E51/I51, 0))"
+     }
+    ],
+    [
+     50,
+     14,
+     {
+      "formulaValue": "=IF(OR(E51=\"\",N51=\"\"),\"\",IFERROR(E51/N51,\"\"))"
      }
     ],
     [
@@ -3094,7 +3804,7 @@
      51,
      8,
      {
-      "formulaValue": "=IF(C52=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C52, 'Trade List'!A:A, \"<=\"&B52, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C52, 'Trade List'!A:A, \"<=\"&B52, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B52=\"\",C52=\"\",N(D52)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C52,'Trade List'!A:A,\"<\"&B52)/D52,0))"
      }
     ],
     [
@@ -3109,6 +3819,13 @@
      10,
      {
       "formulaValue": "=IF(C52=\"\",\"\", IFERROR(E52/I52, 0))"
+     }
+    ],
+    [
+     51,
+     14,
+     {
+      "formulaValue": "=IF(OR(E52=\"\",N52=\"\"),\"\",IFERROR(E52/N52,\"\"))"
      }
     ],
     [
@@ -3136,7 +3853,7 @@
      52,
      8,
      {
-      "formulaValue": "=IF(C53=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C53, 'Trade List'!A:A, \"<=\"&B53, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C53, 'Trade List'!A:A, \"<=\"&B53, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B53=\"\",C53=\"\",N(D53)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C53,'Trade List'!A:A,\"<\"&B53)/D53,0))"
      }
     ],
     [
@@ -3151,6 +3868,13 @@
      10,
      {
       "formulaValue": "=IF(C53=\"\",\"\", IFERROR(E53/I53, 0))"
+     }
+    ],
+    [
+     52,
+     14,
+     {
+      "formulaValue": "=IF(OR(E53=\"\",N53=\"\"),\"\",IFERROR(E53/N53,\"\"))"
      }
     ],
     [
@@ -3178,7 +3902,7 @@
      53,
      8,
      {
-      "formulaValue": "=IF(C54=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C54, 'Trade List'!A:A, \"<=\"&B54, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C54, 'Trade List'!A:A, \"<=\"&B54, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B54=\"\",C54=\"\",N(D54)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C54,'Trade List'!A:A,\"<\"&B54)/D54,0))"
      }
     ],
     [
@@ -3193,6 +3917,13 @@
      10,
      {
       "formulaValue": "=IF(C54=\"\",\"\", IFERROR(E54/I54, 0))"
+     }
+    ],
+    [
+     53,
+     14,
+     {
+      "formulaValue": "=IF(OR(E54=\"\",N54=\"\"),\"\",IFERROR(E54/N54,\"\"))"
      }
     ],
     [
@@ -3220,7 +3951,7 @@
      54,
      8,
      {
-      "formulaValue": "=IF(C55=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C55, 'Trade List'!A:A, \"<=\"&B55, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C55, 'Trade List'!A:A, \"<=\"&B55, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B55=\"\",C55=\"\",N(D55)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C55,'Trade List'!A:A,\"<\"&B55)/D55,0))"
      }
     ],
     [
@@ -3235,6 +3966,13 @@
      10,
      {
       "formulaValue": "=IF(C55=\"\",\"\", IFERROR(E55/I55, 0))"
+     }
+    ],
+    [
+     54,
+     14,
+     {
+      "formulaValue": "=IF(OR(E55=\"\",N55=\"\"),\"\",IFERROR(E55/N55,\"\"))"
      }
     ],
     [
@@ -3262,7 +4000,7 @@
      55,
      8,
      {
-      "formulaValue": "=IF(C56=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C56, 'Trade List'!A:A, \"<=\"&B56, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C56, 'Trade List'!A:A, \"<=\"&B56, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B56=\"\",C56=\"\",N(D56)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C56,'Trade List'!A:A,\"<\"&B56)/D56,0))"
      }
     ],
     [
@@ -3277,6 +4015,13 @@
      10,
      {
       "formulaValue": "=IF(C56=\"\",\"\", IFERROR(E56/I56, 0))"
+     }
+    ],
+    [
+     55,
+     14,
+     {
+      "formulaValue": "=IF(OR(E56=\"\",N56=\"\"),\"\",IFERROR(E56/N56,\"\"))"
      }
     ],
     [
@@ -3304,7 +4049,7 @@
      56,
      8,
      {
-      "formulaValue": "=IF(C57=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C57, 'Trade List'!A:A, \"<=\"&B57, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C57, 'Trade List'!A:A, \"<=\"&B57, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B57=\"\",C57=\"\",N(D57)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C57,'Trade List'!A:A,\"<\"&B57)/D57,0))"
      }
     ],
     [
@@ -3319,6 +4064,13 @@
      10,
      {
       "formulaValue": "=IF(C57=\"\",\"\", IFERROR(E57/I57, 0))"
+     }
+    ],
+    [
+     56,
+     14,
+     {
+      "formulaValue": "=IF(OR(E57=\"\",N57=\"\"),\"\",IFERROR(E57/N57,\"\"))"
      }
     ],
     [
@@ -3346,7 +4098,7 @@
      57,
      8,
      {
-      "formulaValue": "=IF(C58=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C58, 'Trade List'!A:A, \"<=\"&B58, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C58, 'Trade List'!A:A, \"<=\"&B58, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B58=\"\",C58=\"\",N(D58)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C58,'Trade List'!A:A,\"<\"&B58)/D58,0))"
      }
     ],
     [
@@ -3361,6 +4113,13 @@
      10,
      {
       "formulaValue": "=IF(C58=\"\",\"\", IFERROR(E58/I58, 0))"
+     }
+    ],
+    [
+     57,
+     14,
+     {
+      "formulaValue": "=IF(OR(E58=\"\",N58=\"\"),\"\",IFERROR(E58/N58,\"\"))"
      }
     ],
     [
@@ -3388,7 +4147,7 @@
      58,
      8,
      {
-      "formulaValue": "=IF(C59=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C59, 'Trade List'!A:A, \"<=\"&B59, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C59, 'Trade List'!A:A, \"<=\"&B59, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B59=\"\",C59=\"\",N(D59)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C59,'Trade List'!A:A,\"<\"&B59)/D59,0))"
      }
     ],
     [
@@ -3403,6 +4162,13 @@
      10,
      {
       "formulaValue": "=IF(C59=\"\",\"\", IFERROR(E59/I59, 0))"
+     }
+    ],
+    [
+     58,
+     14,
+     {
+      "formulaValue": "=IF(OR(E59=\"\",N59=\"\"),\"\",IFERROR(E59/N59,\"\"))"
      }
     ],
     [
@@ -3430,7 +4196,7 @@
      59,
      8,
      {
-      "formulaValue": "=IF(C60=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C60, 'Trade List'!A:A, \"<=\"&B60, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C60, 'Trade List'!A:A, \"<=\"&B60, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B60=\"\",C60=\"\",N(D60)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C60,'Trade List'!A:A,\"<\"&B60)/D60,0))"
      }
     ],
     [
@@ -3445,6 +4211,13 @@
      10,
      {
       "formulaValue": "=IF(C60=\"\",\"\", IFERROR(E60/I60, 0))"
+     }
+    ],
+    [
+     59,
+     14,
+     {
+      "formulaValue": "=IF(OR(E60=\"\",N60=\"\"),\"\",IFERROR(E60/N60,\"\"))"
      }
     ],
     [
@@ -3472,7 +4245,7 @@
      60,
      8,
      {
-      "formulaValue": "=IF(C61=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C61, 'Trade List'!A:A, \"<=\"&B61, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C61, 'Trade List'!A:A, \"<=\"&B61, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B61=\"\",C61=\"\",N(D61)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C61,'Trade List'!A:A,\"<\"&B61)/D61,0))"
      }
     ],
     [
@@ -3487,6 +4260,13 @@
      10,
      {
       "formulaValue": "=IF(C61=\"\",\"\", IFERROR(E61/I61, 0))"
+     }
+    ],
+    [
+     60,
+     14,
+     {
+      "formulaValue": "=IF(OR(E61=\"\",N61=\"\"),\"\",IFERROR(E61/N61,\"\"))"
      }
     ],
     [
@@ -3514,7 +4294,7 @@
      61,
      8,
      {
-      "formulaValue": "=IF(C62=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C62, 'Trade List'!A:A, \"<=\"&B62, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C62, 'Trade List'!A:A, \"<=\"&B62, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B62=\"\",C62=\"\",N(D62)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C62,'Trade List'!A:A,\"<\"&B62)/D62,0))"
      }
     ],
     [
@@ -3529,6 +4309,13 @@
      10,
      {
       "formulaValue": "=IF(C62=\"\",\"\", IFERROR(E62/I62, 0))"
+     }
+    ],
+    [
+     61,
+     14,
+     {
+      "formulaValue": "=IF(OR(E62=\"\",N62=\"\"),\"\",IFERROR(E62/N62,\"\"))"
      }
     ],
     [
@@ -3556,7 +4343,7 @@
      62,
      8,
      {
-      "formulaValue": "=IF(C63=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C63, 'Trade List'!A:A, \"<=\"&B63, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C63, 'Trade List'!A:A, \"<=\"&B63, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B63=\"\",C63=\"\",N(D63)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C63,'Trade List'!A:A,\"<\"&B63)/D63,0))"
      }
     ],
     [
@@ -3571,6 +4358,13 @@
      10,
      {
       "formulaValue": "=IF(C63=\"\",\"\", IFERROR(E63/I63, 0))"
+     }
+    ],
+    [
+     62,
+     14,
+     {
+      "formulaValue": "=IF(OR(E63=\"\",N63=\"\"),\"\",IFERROR(E63/N63,\"\"))"
      }
     ],
     [
@@ -3598,7 +4392,7 @@
      63,
      8,
      {
-      "formulaValue": "=IF(C64=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C64, 'Trade List'!A:A, \"<=\"&B64, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C64, 'Trade List'!A:A, \"<=\"&B64, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B64=\"\",C64=\"\",N(D64)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C64,'Trade List'!A:A,\"<\"&B64)/D64,0))"
      }
     ],
     [
@@ -3613,6 +4407,13 @@
      10,
      {
       "formulaValue": "=IF(C64=\"\",\"\", IFERROR(E64/I64, 0))"
+     }
+    ],
+    [
+     63,
+     14,
+     {
+      "formulaValue": "=IF(OR(E64=\"\",N64=\"\"),\"\",IFERROR(E64/N64,\"\"))"
      }
     ],
     [
@@ -3640,7 +4441,7 @@
      64,
      8,
      {
-      "formulaValue": "=IF(C65=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C65, 'Trade List'!A:A, \"<=\"&B65, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C65, 'Trade List'!A:A, \"<=\"&B65, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B65=\"\",C65=\"\",N(D65)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C65,'Trade List'!A:A,\"<\"&B65)/D65,0))"
      }
     ],
     [
@@ -3655,6 +4456,13 @@
      10,
      {
       "formulaValue": "=IF(C65=\"\",\"\", IFERROR(E65/I65, 0))"
+     }
+    ],
+    [
+     64,
+     14,
+     {
+      "formulaValue": "=IF(OR(E65=\"\",N65=\"\"),\"\",IFERROR(E65/N65,\"\"))"
      }
     ],
     [
@@ -3682,7 +4490,7 @@
      65,
      8,
      {
-      "formulaValue": "=IF(C66=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C66, 'Trade List'!A:A, \"<=\"&B66, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C66, 'Trade List'!A:A, \"<=\"&B66, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B66=\"\",C66=\"\",N(D66)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C66,'Trade List'!A:A,\"<\"&B66)/D66,0))"
      }
     ],
     [
@@ -3697,6 +4505,13 @@
      10,
      {
       "formulaValue": "=IF(C66=\"\",\"\", IFERROR(E66/I66, 0))"
+     }
+    ],
+    [
+     65,
+     14,
+     {
+      "formulaValue": "=IF(OR(E66=\"\",N66=\"\"),\"\",IFERROR(E66/N66,\"\"))"
      }
     ],
     [
@@ -3724,7 +4539,7 @@
      66,
      8,
      {
-      "formulaValue": "=IF(C67=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C67, 'Trade List'!A:A, \"<=\"&B67, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C67, 'Trade List'!A:A, \"<=\"&B67, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B67=\"\",C67=\"\",N(D67)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C67,'Trade List'!A:A,\"<\"&B67)/D67,0))"
      }
     ],
     [
@@ -3739,6 +4554,13 @@
      10,
      {
       "formulaValue": "=IF(C67=\"\",\"\", IFERROR(E67/I67, 0))"
+     }
+    ],
+    [
+     66,
+     14,
+     {
+      "formulaValue": "=IF(OR(E67=\"\",N67=\"\"),\"\",IFERROR(E67/N67,\"\"))"
      }
     ],
     [
@@ -3766,7 +4588,7 @@
      67,
      8,
      {
-      "formulaValue": "=IF(C68=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C68, 'Trade List'!A:A, \"<=\"&B68, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C68, 'Trade List'!A:A, \"<=\"&B68, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B68=\"\",C68=\"\",N(D68)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C68,'Trade List'!A:A,\"<\"&B68)/D68,0))"
      }
     ],
     [
@@ -3781,6 +4603,13 @@
      10,
      {
       "formulaValue": "=IF(C68=\"\",\"\", IFERROR(E68/I68, 0))"
+     }
+    ],
+    [
+     67,
+     14,
+     {
+      "formulaValue": "=IF(OR(E68=\"\",N68=\"\"),\"\",IFERROR(E68/N68,\"\"))"
      }
     ],
     [
@@ -3808,7 +4637,7 @@
      68,
      8,
      {
-      "formulaValue": "=IF(C69=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C69, 'Trade List'!A:A, \"<=\"&B69, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C69, 'Trade List'!A:A, \"<=\"&B69, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B69=\"\",C69=\"\",N(D69)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C69,'Trade List'!A:A,\"<\"&B69)/D69,0))"
      }
     ],
     [
@@ -3823,6 +4652,13 @@
      10,
      {
       "formulaValue": "=IF(C69=\"\",\"\", IFERROR(E69/I69, 0))"
+     }
+    ],
+    [
+     68,
+     14,
+     {
+      "formulaValue": "=IF(OR(E69=\"\",N69=\"\"),\"\",IFERROR(E69/N69,\"\"))"
      }
     ],
     [
@@ -3850,7 +4686,7 @@
      69,
      8,
      {
-      "formulaValue": "=IF(C70=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C70, 'Trade List'!A:A, \"<=\"&B70, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C70, 'Trade List'!A:A, \"<=\"&B70, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B70=\"\",C70=\"\",N(D70)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C70,'Trade List'!A:A,\"<\"&B70)/D70,0))"
      }
     ],
     [
@@ -3865,6 +4701,13 @@
      10,
      {
       "formulaValue": "=IF(C70=\"\",\"\", IFERROR(E70/I70, 0))"
+     }
+    ],
+    [
+     69,
+     14,
+     {
+      "formulaValue": "=IF(OR(E70=\"\",N70=\"\"),\"\",IFERROR(E70/N70,\"\"))"
      }
     ],
     [
@@ -3892,7 +4735,7 @@
      70,
      8,
      {
-      "formulaValue": "=IF(C71=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C71, 'Trade List'!A:A, \"<=\"&B71, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C71, 'Trade List'!A:A, \"<=\"&B71, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B71=\"\",C71=\"\",N(D71)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C71,'Trade List'!A:A,\"<\"&B71)/D71,0))"
      }
     ],
     [
@@ -3907,6 +4750,13 @@
      10,
      {
       "formulaValue": "=IF(C71=\"\",\"\", IFERROR(E71/I71, 0))"
+     }
+    ],
+    [
+     70,
+     14,
+     {
+      "formulaValue": "=IF(OR(E71=\"\",N71=\"\"),\"\",IFERROR(E71/N71,\"\"))"
      }
     ],
     [
@@ -3934,7 +4784,7 @@
      71,
      8,
      {
-      "formulaValue": "=IF(C72=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C72, 'Trade List'!A:A, \"<=\"&B72, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C72, 'Trade List'!A:A, \"<=\"&B72, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B72=\"\",C72=\"\",N(D72)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C72,'Trade List'!A:A,\"<\"&B72)/D72,0))"
      }
     ],
     [
@@ -3949,6 +4799,13 @@
      10,
      {
       "formulaValue": "=IF(C72=\"\",\"\", IFERROR(E72/I72, 0))"
+     }
+    ],
+    [
+     71,
+     14,
+     {
+      "formulaValue": "=IF(OR(E72=\"\",N72=\"\"),\"\",IFERROR(E72/N72,\"\"))"
      }
     ],
     [
@@ -3976,7 +4833,7 @@
      72,
      8,
      {
-      "formulaValue": "=IF(C73=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C73, 'Trade List'!A:A, \"<=\"&B73, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C73, 'Trade List'!A:A, \"<=\"&B73, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B73=\"\",C73=\"\",N(D73)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C73,'Trade List'!A:A,\"<\"&B73)/D73,0))"
      }
     ],
     [
@@ -3991,6 +4848,13 @@
      10,
      {
       "formulaValue": "=IF(C73=\"\",\"\", IFERROR(E73/I73, 0))"
+     }
+    ],
+    [
+     72,
+     14,
+     {
+      "formulaValue": "=IF(OR(E73=\"\",N73=\"\"),\"\",IFERROR(E73/N73,\"\"))"
      }
     ],
     [
@@ -4018,7 +4882,7 @@
      73,
      8,
      {
-      "formulaValue": "=IF(C74=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C74, 'Trade List'!A:A, \"<=\"&B74, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C74, 'Trade List'!A:A, \"<=\"&B74, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B74=\"\",C74=\"\",N(D74)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C74,'Trade List'!A:A,\"<\"&B74)/D74,0))"
      }
     ],
     [
@@ -4033,6 +4897,13 @@
      10,
      {
       "formulaValue": "=IF(C74=\"\",\"\", IFERROR(E74/I74, 0))"
+     }
+    ],
+    [
+     73,
+     14,
+     {
+      "formulaValue": "=IF(OR(E74=\"\",N74=\"\"),\"\",IFERROR(E74/N74,\"\"))"
      }
     ],
     [
@@ -4060,7 +4931,7 @@
      74,
      8,
      {
-      "formulaValue": "=IF(C75=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C75, 'Trade List'!A:A, \"<=\"&B75, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C75, 'Trade List'!A:A, \"<=\"&B75, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B75=\"\",C75=\"\",N(D75)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C75,'Trade List'!A:A,\"<\"&B75)/D75,0))"
      }
     ],
     [
@@ -4075,6 +4946,13 @@
      10,
      {
       "formulaValue": "=IF(C75=\"\",\"\", IFERROR(E75/I75, 0))"
+     }
+    ],
+    [
+     74,
+     14,
+     {
+      "formulaValue": "=IF(OR(E75=\"\",N75=\"\"),\"\",IFERROR(E75/N75,\"\"))"
      }
     ],
     [
@@ -4102,7 +4980,7 @@
      75,
      8,
      {
-      "formulaValue": "=IF(C76=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C76, 'Trade List'!A:A, \"<=\"&B76, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C76, 'Trade List'!A:A, \"<=\"&B76, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B76=\"\",C76=\"\",N(D76)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C76,'Trade List'!A:A,\"<\"&B76)/D76,0))"
      }
     ],
     [
@@ -4117,6 +4995,13 @@
      10,
      {
       "formulaValue": "=IF(C76=\"\",\"\", IFERROR(E76/I76, 0))"
+     }
+    ],
+    [
+     75,
+     14,
+     {
+      "formulaValue": "=IF(OR(E76=\"\",N76=\"\"),\"\",IFERROR(E76/N76,\"\"))"
      }
     ],
     [
@@ -4144,7 +5029,7 @@
      76,
      8,
      {
-      "formulaValue": "=IF(C77=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C77, 'Trade List'!A:A, \"<=\"&B77, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C77, 'Trade List'!A:A, \"<=\"&B77, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B77=\"\",C77=\"\",N(D77)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C77,'Trade List'!A:A,\"<\"&B77)/D77,0))"
      }
     ],
     [
@@ -4159,6 +5044,13 @@
      10,
      {
       "formulaValue": "=IF(C77=\"\",\"\", IFERROR(E77/I77, 0))"
+     }
+    ],
+    [
+     76,
+     14,
+     {
+      "formulaValue": "=IF(OR(E77=\"\",N77=\"\"),\"\",IFERROR(E77/N77,\"\"))"
      }
     ],
     [
@@ -4186,7 +5078,7 @@
      77,
      8,
      {
-      "formulaValue": "=IF(C78=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C78, 'Trade List'!A:A, \"<=\"&B78, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C78, 'Trade List'!A:A, \"<=\"&B78, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B78=\"\",C78=\"\",N(D78)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C78,'Trade List'!A:A,\"<\"&B78)/D78,0))"
      }
     ],
     [
@@ -4201,6 +5093,13 @@
      10,
      {
       "formulaValue": "=IF(C78=\"\",\"\", IFERROR(E78/I78, 0))"
+     }
+    ],
+    [
+     77,
+     14,
+     {
+      "formulaValue": "=IF(OR(E78=\"\",N78=\"\"),\"\",IFERROR(E78/N78,\"\"))"
      }
     ],
     [
@@ -4228,7 +5127,7 @@
      78,
      8,
      {
-      "formulaValue": "=IF(C79=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C79, 'Trade List'!A:A, \"<=\"&B79, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C79, 'Trade List'!A:A, \"<=\"&B79, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B79=\"\",C79=\"\",N(D79)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C79,'Trade List'!A:A,\"<\"&B79)/D79,0))"
      }
     ],
     [
@@ -4243,6 +5142,13 @@
      10,
      {
       "formulaValue": "=IF(C79=\"\",\"\", IFERROR(E79/I79, 0))"
+     }
+    ],
+    [
+     78,
+     14,
+     {
+      "formulaValue": "=IF(OR(E79=\"\",N79=\"\"),\"\",IFERROR(E79/N79,\"\"))"
      }
     ],
     [
@@ -4270,7 +5176,7 @@
      79,
      8,
      {
-      "formulaValue": "=IF(C80=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C80, 'Trade List'!A:A, \"<=\"&B80, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C80, 'Trade List'!A:A, \"<=\"&B80, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B80=\"\",C80=\"\",N(D80)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C80,'Trade List'!A:A,\"<\"&B80)/D80,0))"
      }
     ],
     [
@@ -4285,6 +5191,13 @@
      10,
      {
       "formulaValue": "=IF(C80=\"\",\"\", IFERROR(E80/I80, 0))"
+     }
+    ],
+    [
+     79,
+     14,
+     {
+      "formulaValue": "=IF(OR(E80=\"\",N80=\"\"),\"\",IFERROR(E80/N80,\"\"))"
      }
     ],
     [
@@ -4312,7 +5225,7 @@
      80,
      8,
      {
-      "formulaValue": "=IF(C81=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C81, 'Trade List'!A:A, \"<=\"&B81, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C81, 'Trade List'!A:A, \"<=\"&B81, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B81=\"\",C81=\"\",N(D81)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C81,'Trade List'!A:A,\"<\"&B81)/D81,0))"
      }
     ],
     [
@@ -4327,6 +5240,13 @@
      10,
      {
       "formulaValue": "=IF(C81=\"\",\"\", IFERROR(E81/I81, 0))"
+     }
+    ],
+    [
+     80,
+     14,
+     {
+      "formulaValue": "=IF(OR(E81=\"\",N81=\"\"),\"\",IFERROR(E81/N81,\"\"))"
      }
     ],
     [
@@ -4354,7 +5274,7 @@
      81,
      8,
      {
-      "formulaValue": "=IF(C82=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C82, 'Trade List'!A:A, \"<=\"&B82, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C82, 'Trade List'!A:A, \"<=\"&B82, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B82=\"\",C82=\"\",N(D82)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C82,'Trade List'!A:A,\"<\"&B82)/D82,0))"
      }
     ],
     [
@@ -4369,6 +5289,13 @@
      10,
      {
       "formulaValue": "=IF(C82=\"\",\"\", IFERROR(E82/I82, 0))"
+     }
+    ],
+    [
+     81,
+     14,
+     {
+      "formulaValue": "=IF(OR(E82=\"\",N82=\"\"),\"\",IFERROR(E82/N82,\"\"))"
      }
     ],
     [
@@ -4396,7 +5323,7 @@
      82,
      8,
      {
-      "formulaValue": "=IF(C83=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C83, 'Trade List'!A:A, \"<=\"&B83, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C83, 'Trade List'!A:A, \"<=\"&B83, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B83=\"\",C83=\"\",N(D83)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C83,'Trade List'!A:A,\"<\"&B83)/D83,0))"
      }
     ],
     [
@@ -4411,6 +5338,13 @@
      10,
      {
       "formulaValue": "=IF(C83=\"\",\"\", IFERROR(E83/I83, 0))"
+     }
+    ],
+    [
+     82,
+     14,
+     {
+      "formulaValue": "=IF(OR(E83=\"\",N83=\"\"),\"\",IFERROR(E83/N83,\"\"))"
      }
     ],
     [
@@ -4438,7 +5372,7 @@
      83,
      8,
      {
-      "formulaValue": "=IF(C84=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C84, 'Trade List'!A:A, \"<=\"&B84, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C84, 'Trade List'!A:A, \"<=\"&B84, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B84=\"\",C84=\"\",N(D84)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C84,'Trade List'!A:A,\"<\"&B84)/D84,0))"
      }
     ],
     [
@@ -4453,6 +5387,13 @@
      10,
      {
       "formulaValue": "=IF(C84=\"\",\"\", IFERROR(E84/I84, 0))"
+     }
+    ],
+    [
+     83,
+     14,
+     {
+      "formulaValue": "=IF(OR(E84=\"\",N84=\"\"),\"\",IFERROR(E84/N84,\"\"))"
      }
     ],
     [
@@ -4480,7 +5421,7 @@
      84,
      8,
      {
-      "formulaValue": "=IF(C85=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C85, 'Trade List'!A:A, \"<=\"&B85, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C85, 'Trade List'!A:A, \"<=\"&B85, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B85=\"\",C85=\"\",N(D85)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C85,'Trade List'!A:A,\"<\"&B85)/D85,0))"
      }
     ],
     [
@@ -4495,6 +5436,13 @@
      10,
      {
       "formulaValue": "=IF(C85=\"\",\"\", IFERROR(E85/I85, 0))"
+     }
+    ],
+    [
+     84,
+     14,
+     {
+      "formulaValue": "=IF(OR(E85=\"\",N85=\"\"),\"\",IFERROR(E85/N85,\"\"))"
      }
     ],
     [
@@ -4522,7 +5470,7 @@
      85,
      8,
      {
-      "formulaValue": "=IF(C86=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C86, 'Trade List'!A:A, \"<=\"&B86, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C86, 'Trade List'!A:A, \"<=\"&B86, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B86=\"\",C86=\"\",N(D86)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C86,'Trade List'!A:A,\"<\"&B86)/D86,0))"
      }
     ],
     [
@@ -4537,6 +5485,13 @@
      10,
      {
       "formulaValue": "=IF(C86=\"\",\"\", IFERROR(E86/I86, 0))"
+     }
+    ],
+    [
+     85,
+     14,
+     {
+      "formulaValue": "=IF(OR(E86=\"\",N86=\"\"),\"\",IFERROR(E86/N86,\"\"))"
      }
     ],
     [
@@ -4564,7 +5519,7 @@
      86,
      8,
      {
-      "formulaValue": "=IF(C87=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C87, 'Trade List'!A:A, \"<=\"&B87, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C87, 'Trade List'!A:A, \"<=\"&B87, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B87=\"\",C87=\"\",N(D87)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C87,'Trade List'!A:A,\"<\"&B87)/D87,0))"
      }
     ],
     [
@@ -4579,6 +5534,13 @@
      10,
      {
       "formulaValue": "=IF(C87=\"\",\"\", IFERROR(E87/I87, 0))"
+     }
+    ],
+    [
+     86,
+     14,
+     {
+      "formulaValue": "=IF(OR(E87=\"\",N87=\"\"),\"\",IFERROR(E87/N87,\"\"))"
      }
     ],
     [
@@ -4606,7 +5568,7 @@
      87,
      8,
      {
-      "formulaValue": "=IF(C88=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C88, 'Trade List'!A:A, \"<=\"&B88, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C88, 'Trade List'!A:A, \"<=\"&B88, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B88=\"\",C88=\"\",N(D88)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C88,'Trade List'!A:A,\"<\"&B88)/D88,0))"
      }
     ],
     [
@@ -4621,6 +5583,13 @@
      10,
      {
       "formulaValue": "=IF(C88=\"\",\"\", IFERROR(E88/I88, 0))"
+     }
+    ],
+    [
+     87,
+     14,
+     {
+      "formulaValue": "=IF(OR(E88=\"\",N88=\"\"),\"\",IFERROR(E88/N88,\"\"))"
      }
     ],
     [
@@ -4648,7 +5617,7 @@
      88,
      8,
      {
-      "formulaValue": "=IF(C89=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C89, 'Trade List'!A:A, \"<=\"&B89, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C89, 'Trade List'!A:A, \"<=\"&B89, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B89=\"\",C89=\"\",N(D89)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C89,'Trade List'!A:A,\"<\"&B89)/D89,0))"
      }
     ],
     [
@@ -4663,6 +5632,13 @@
      10,
      {
       "formulaValue": "=IF(C89=\"\",\"\", IFERROR(E89/I89, 0))"
+     }
+    ],
+    [
+     88,
+     14,
+     {
+      "formulaValue": "=IF(OR(E89=\"\",N89=\"\"),\"\",IFERROR(E89/N89,\"\"))"
      }
     ],
     [
@@ -4690,7 +5666,7 @@
      89,
      8,
      {
-      "formulaValue": "=IF(C90=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C90, 'Trade List'!A:A, \"<=\"&B90, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C90, 'Trade List'!A:A, \"<=\"&B90, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B90=\"\",C90=\"\",N(D90)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C90,'Trade List'!A:A,\"<\"&B90)/D90,0))"
      }
     ],
     [
@@ -4705,6 +5681,13 @@
      10,
      {
       "formulaValue": "=IF(C90=\"\",\"\", IFERROR(E90/I90, 0))"
+     }
+    ],
+    [
+     89,
+     14,
+     {
+      "formulaValue": "=IF(OR(E90=\"\",N90=\"\"),\"\",IFERROR(E90/N90,\"\"))"
      }
     ],
     [
@@ -4732,7 +5715,7 @@
      90,
      8,
      {
-      "formulaValue": "=IF(C91=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C91, 'Trade List'!A:A, \"<=\"&B91, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C91, 'Trade List'!A:A, \"<=\"&B91, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B91=\"\",C91=\"\",N(D91)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C91,'Trade List'!A:A,\"<\"&B91)/D91,0))"
      }
     ],
     [
@@ -4747,6 +5730,13 @@
      10,
      {
       "formulaValue": "=IF(C91=\"\",\"\", IFERROR(E91/I91, 0))"
+     }
+    ],
+    [
+     90,
+     14,
+     {
+      "formulaValue": "=IF(OR(E91=\"\",N91=\"\"),\"\",IFERROR(E91/N91,\"\"))"
      }
     ],
     [
@@ -4774,7 +5764,7 @@
      91,
      8,
      {
-      "formulaValue": "=IF(C92=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C92, 'Trade List'!A:A, \"<=\"&B92, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C92, 'Trade List'!A:A, \"<=\"&B92, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B92=\"\",C92=\"\",N(D92)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C92,'Trade List'!A:A,\"<\"&B92)/D92,0))"
      }
     ],
     [
@@ -4789,6 +5779,13 @@
      10,
      {
       "formulaValue": "=IF(C92=\"\",\"\", IFERROR(E92/I92, 0))"
+     }
+    ],
+    [
+     91,
+     14,
+     {
+      "formulaValue": "=IF(OR(E92=\"\",N92=\"\"),\"\",IFERROR(E92/N92,\"\"))"
      }
     ],
     [
@@ -4816,7 +5813,7 @@
      92,
      8,
      {
-      "formulaValue": "=IF(C93=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C93, 'Trade List'!A:A, \"<=\"&B93, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C93, 'Trade List'!A:A, \"<=\"&B93, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B93=\"\",C93=\"\",N(D93)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C93,'Trade List'!A:A,\"<\"&B93)/D93,0))"
      }
     ],
     [
@@ -4831,6 +5828,13 @@
      10,
      {
       "formulaValue": "=IF(C93=\"\",\"\", IFERROR(E93/I93, 0))"
+     }
+    ],
+    [
+     92,
+     14,
+     {
+      "formulaValue": "=IF(OR(E93=\"\",N93=\"\"),\"\",IFERROR(E93/N93,\"\"))"
      }
     ],
     [
@@ -4858,7 +5862,7 @@
      93,
      8,
      {
-      "formulaValue": "=IF(C94=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C94, 'Trade List'!A:A, \"<=\"&B94, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C94, 'Trade List'!A:A, \"<=\"&B94, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B94=\"\",C94=\"\",N(D94)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C94,'Trade List'!A:A,\"<\"&B94)/D94,0))"
      }
     ],
     [
@@ -4873,6 +5877,13 @@
      10,
      {
       "formulaValue": "=IF(C94=\"\",\"\", IFERROR(E94/I94, 0))"
+     }
+    ],
+    [
+     93,
+     14,
+     {
+      "formulaValue": "=IF(OR(E94=\"\",N94=\"\"),\"\",IFERROR(E94/N94,\"\"))"
      }
     ],
     [
@@ -4900,7 +5911,7 @@
      94,
      8,
      {
-      "formulaValue": "=IF(C95=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C95, 'Trade List'!A:A, \"<=\"&B95, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C95, 'Trade List'!A:A, \"<=\"&B95, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B95=\"\",C95=\"\",N(D95)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C95,'Trade List'!A:A,\"<\"&B95)/D95,0))"
      }
     ],
     [
@@ -4915,6 +5926,13 @@
      10,
      {
       "formulaValue": "=IF(C95=\"\",\"\", IFERROR(E95/I95, 0))"
+     }
+    ],
+    [
+     94,
+     14,
+     {
+      "formulaValue": "=IF(OR(E95=\"\",N95=\"\"),\"\",IFERROR(E95/N95,\"\"))"
      }
     ],
     [
@@ -4942,7 +5960,7 @@
      95,
      8,
      {
-      "formulaValue": "=IF(C96=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C96, 'Trade List'!A:A, \"<=\"&B96, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C96, 'Trade List'!A:A, \"<=\"&B96, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B96=\"\",C96=\"\",N(D96)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C96,'Trade List'!A:A,\"<\"&B96)/D96,0))"
      }
     ],
     [
@@ -4957,6 +5975,13 @@
      10,
      {
       "formulaValue": "=IF(C96=\"\",\"\", IFERROR(E96/I96, 0))"
+     }
+    ],
+    [
+     95,
+     14,
+     {
+      "formulaValue": "=IF(OR(E96=\"\",N96=\"\"),\"\",IFERROR(E96/N96,\"\"))"
      }
     ],
     [
@@ -4984,7 +6009,7 @@
      96,
      8,
      {
-      "formulaValue": "=IF(C97=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C97, 'Trade List'!A:A, \"<=\"&B97, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C97, 'Trade List'!A:A, \"<=\"&B97, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B97=\"\",C97=\"\",N(D97)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C97,'Trade List'!A:A,\"<\"&B97)/D97,0))"
      }
     ],
     [
@@ -4999,6 +6024,13 @@
      10,
      {
       "formulaValue": "=IF(C97=\"\",\"\", IFERROR(E97/I97, 0))"
+     }
+    ],
+    [
+     96,
+     14,
+     {
+      "formulaValue": "=IF(OR(E97=\"\",N97=\"\"),\"\",IFERROR(E97/N97,\"\"))"
      }
     ],
     [
@@ -5026,7 +6058,7 @@
      97,
      8,
      {
-      "formulaValue": "=IF(C98=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C98, 'Trade List'!A:A, \"<=\"&B98, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C98, 'Trade List'!A:A, \"<=\"&B98, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B98=\"\",C98=\"\",N(D98)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C98,'Trade List'!A:A,\"<\"&B98)/D98,0))"
      }
     ],
     [
@@ -5041,6 +6073,13 @@
      10,
      {
       "formulaValue": "=IF(C98=\"\",\"\", IFERROR(E98/I98, 0))"
+     }
+    ],
+    [
+     97,
+     14,
+     {
+      "formulaValue": "=IF(OR(E98=\"\",N98=\"\"),\"\",IFERROR(E98/N98,\"\"))"
      }
     ],
     [
@@ -5068,7 +6107,7 @@
      98,
      8,
      {
-      "formulaValue": "=IF(C99=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C99, 'Trade List'!A:A, \"<=\"&B99, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C99, 'Trade List'!A:A, \"<=\"&B99, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B99=\"\",C99=\"\",N(D99)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C99,'Trade List'!A:A,\"<\"&B99)/D99,0))"
      }
     ],
     [
@@ -5083,6 +6122,13 @@
      10,
      {
       "formulaValue": "=IF(C99=\"\",\"\", IFERROR(E99/I99, 0))"
+     }
+    ],
+    [
+     98,
+     14,
+     {
+      "formulaValue": "=IF(OR(E99=\"\",N99=\"\"),\"\",IFERROR(E99/N99,\"\"))"
      }
     ],
     [
@@ -5110,7 +6156,7 @@
      99,
      8,
      {
-      "formulaValue": "=IF(C100=\"\",\"\", IFERROR(SUMIFS('Trade List'!L:L, 'Trade List'!B:B, C100, 'Trade List'!A:A, \"<=\"&B100, 'Trade List'!C:C, \"Buy\") / SUMIFS('Trade List'!D:D, 'Trade List'!B:B, C100, 'Trade List'!A:A, \"<=\"&B100, 'Trade List'!C:C, \"Buy\"), 0))"
+      "formulaValue": "=IF(OR(B100=\"\",C100=\"\",N(D100)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,C100,'Trade List'!A:A,\"<\"&B100)/D100,0))"
      }
     ],
     [
@@ -5125,6 +6171,13 @@
      10,
      {
       "formulaValue": "=IF(C100=\"\",\"\", IFERROR(E100/I100, 0))"
+     }
+    ],
+    [
+     99,
+     14,
+     {
+      "formulaValue": "=IF(OR(E100=\"\",N100=\"\"),\"\",IFERROR(E100/N100,\"\"))"
      }
     ]
    ],
@@ -5144,12 +6197,6 @@
     [
      0,
      7,
-     8,
-     1
-    ],
-    [
-     0,
-     10,
      10,
      1
     ],
@@ -5168,7 +6215,7 @@
     [
      1,
      7,
-     10,
+     11,
      1
     ],
     [
@@ -5240,8 +6287,8 @@
     [
      6,
      7,
-     10,
-     8
+     11,
+     12
     ],
     [
      7,
@@ -5265,7 +6312,7 @@
      8,
      6,
      6,
-     0
+     8
     ],
     [
      8,
@@ -5289,19 +6336,13 @@
      10,
      6,
      6,
-     0
+     9
     ],
     [
      10,
      7,
      99,
-     9
-    ],
-    [
-     11,
-     0,
-     5,
-     7
+     13
     ],
     [
      11,
@@ -5312,8 +6353,56 @@
     [
      11,
      7,
-     10,
+     99,
+     13
+    ],
+    [
+     12,
+     0,
+     5,
+     7
+    ],
+    [
+     12,
+     6,
+     6,
+     0
+    ],
+    [
+     12,
+     7,
+     11,
+     14
+    ],
+    [
+     13,
+     6,
+     6,
      10
+    ],
+    [
+     13,
+     7,
+     10,
+     3
+    ],
+    [
+     13,
+     12,
+     99,
+     3
+    ],
+    [
+     14,
+     6,
+     6,
+     11
+    ],
+    [
+     14,
+     7,
+     99,
+     13
     ]
    ],
    "merges": [],
@@ -5504,43 +6593,43 @@
      0,
      0,
      0,
-     11
+     15
     ],
     [
      0,
      2,
      11,
-     13
+     17
     ],
     [
      1,
      0,
      0,
-     12
+     16
     ],
     [
      1,
      2,
      3,
-     14
+     18
     ],
     [
      1,
      4,
      7,
-     15
+     19
     ],
     [
      1,
      8,
      10,
-     14
+     18
     ],
     [
      1,
      11,
      11,
-     16
+     20
     ]
    ],
    "merges": [],
@@ -6052,6 +7141,10 @@
     [
      14,
      115
+    ],
+    [
+     15,
+     115
     ]
    ],
    "rowHeights": [],
@@ -6130,7 +7223,7 @@
      0,
      10,
      {
-      "stringValue": "Dividends (ex-date, after tax)"
+      "stringValue": "Dividends (received, after tax)"
      }
     ],
     [
@@ -6159,6 +7252,13 @@
      14,
      {
       "stringValue": "Chart label: KSE-100 (helper)"
+     }
+    ],
+    [
+     0,
+     15,
+     {
+      "stringValue": "Chart label: Return on Cost (helper)"
      }
     ],
     [
@@ -6207,7 +7307,7 @@
      1,
      10,
      {
-      "formulaValue": "=MAP(A2:A,LAMBDA(day,IF(day=\"\",\"\",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$B$8:$B,day))))"
+      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",LET(day,INDEX(A2:A,idx),prev,IF(idx=1,0,INDEX(A2:A,idx-1)),SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$A$8:$A,\">\"&prev,'Dividend summary'!$A$8:$A,\"<=\"&day)))))"
      }
     ],
     [
@@ -6237,6 +7337,13 @@
      {
       "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(I2:I,idx),\"+0.0%;-0.0%;0.0%\"),\"\"))))"
      }
+    ],
+    [
+     1,
+     15,
+     {
+      "formulaValue": "=MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",IF(MOD(COUNT(A2:A)-idx,5)=0,TEXT(INDEX(M2:M,idx),\"+0.0%;-0.0%;0.0%\"),\"\"))))"
+     }
     ]
    ],
    "styleRuns": [
@@ -6244,7 +7351,7 @@
      0,
      0,
      0,
-     17
+     21
     ],
     [
      0,
@@ -6256,7 +7363,7 @@
      1,
      0,
      0,
-     17
+     21
     ],
     [
      1,
@@ -6268,7 +7375,7 @@
      2,
      0,
      0,
-     17
+     21
     ],
     [
      2,
@@ -6280,19 +7387,19 @@
      3,
      0,
      0,
-     17
+     21
     ],
     [
      3,
      1,
      999,
-     18
+     25
     ],
     [
      4,
      0,
      0,
-     17
+     21
     ],
     [
      4,
@@ -6304,67 +7411,67 @@
      5,
      0,
      0,
-     17
+     21
     ],
     [
      5,
      1,
      999,
-     18
+     25
     ],
     [
      6,
      0,
      0,
-     17
+     21
     ],
     [
      6,
      1,
      999,
-     18
+     25
     ],
     [
      7,
      0,
      0,
-     17
+     22
     ],
     [
      7,
      1,
      999,
-     18
+     26
     ],
     [
      8,
      0,
      0,
-     17
+     23
     ],
     [
      8,
      1,
      999,
-     18
+     27
     ],
     [
      9,
      0,
      0,
-     17
+     21
     ],
     [
      9,
      1,
      999,
-     18
+     25
     ],
     [
      10,
      0,
      0,
-     17
+     21
     ],
     [
      10,
@@ -6376,7 +7483,7 @@
      11,
      0,
      0,
-     17
+     21
     ],
     [
      11,
@@ -6388,40 +7495,66 @@
      12,
      0,
      0,
-     17
+     24
     ],
     [
      12,
      1,
      999,
-     18
+     28
     ],
     [
      13,
      0,
      0,
-     17
+     21
     ],
     [
      13,
      1,
      999,
-     19
+     29
     ],
     [
      14,
      0,
      0,
-     17
+     21
     ],
     [
      14,
      1,
      999,
-     19
+     29
+    ],
+    [
+     15,
+     0,
+     0,
+     21
+    ],
+    [
+     15,
+     1,
+     999,
+     29
+    ],
+    [
+     17,
+     26,
+     26,
+     30
     ]
    ],
-   "merges": [],
+   "merges": [
+    {
+     "sheetId": 387349341,
+     "startRowIndex": 26,
+     "endRowIndex": 34,
+     "startColumnIndex": 17,
+     "endColumnIndex": 26
+    }
+   ],
    "conditionalFormats": [],
    "bandedRanges": [],
    "basicFilter": null,
@@ -6429,7 +7562,7 @@
     {
      "chartId": 1341527595,
      "spec": {
-      "title": "My Portfolio vs KSE-100 (return since start)",
+      "title": "My Portfolio vs KSE-100 vs broker app (return since start)",
       "basicChart": {
        "chartType": "LINE",
        "legendPosition": "BOTTOM_LEGEND",
@@ -6592,6 +7725,68 @@
            "blue": 0.21568628
           }
          }
+        },
+        {
+         "series": {
+          "sourceRange": {
+           "sources": [
+            {
+             "sheetId": 387349341,
+             "startRowIndex": 0,
+             "endRowIndex": 1000,
+             "startColumnIndex": 12,
+             "endColumnIndex": 13
+            }
+           ]
+          }
+         },
+         "targetAxis": "LEFT_AXIS",
+         "dataLabel": {
+          "type": "CUSTOM",
+          "textFormat": {
+           "foregroundColor": {
+            "red": 0.20392157,
+            "green": 0.65882355,
+            "blue": 0.32156864
+           },
+           "fontFamily": "Roboto",
+           "fontSize": 9,
+           "bold": true,
+           "foregroundColorStyle": {
+            "rgbColor": {
+             "red": 0.20392157,
+             "green": 0.65882355,
+             "blue": 0.32156864
+            }
+           }
+          },
+          "placement": "RIGHT",
+          "customLabelData": {
+           "sourceRange": {
+            "sources": [
+             {
+              "sheetId": 387349341,
+              "startRowIndex": 0,
+              "endRowIndex": 1000,
+              "startColumnIndex": 15,
+              "endColumnIndex": 16
+             }
+            ]
+           }
+          }
+         },
+         "color": {
+          "red": 0.20392157,
+          "green": 0.65882355,
+          "blue": 0.32156864
+         },
+         "colorStyle": {
+          "rgbColor": {
+           "red": 0.20392157,
+           "green": 0.65882355,
+           "blue": 0.32156864
+          }
+         }
         }
        ],
        "headerCount": 1
@@ -6607,7 +7802,7 @@
        "anchorCell": {
         "sheetId": 387349341,
         "rowIndex": 1,
-        "columnIndex": 16
+        "columnIndex": 17
        },
        "widthPixels": 980,
        "heightPixels": 480
@@ -7012,7 +8207,7 @@
      71,
      20,
      {
-      "stringValue": "Dividends (after tax)"
+      "stringValue": "Dividends received (after tax)"
      }
     ],
     [
@@ -7075,7 +8270,7 @@
      72,
      20,
      {
-      "formulaValue": "=ARRAYFORMULA(IF($N$73:$N$92=\"\",\"\",SUMIF('Dividend summary'!$C$8:$C,$N$73:$N$92,'Dividend summary'!$H$8:$H)))"
+      "formulaValue": "=MAP($N$73:$N$92,LAMBDA(s,IF(s=\"\",\"\",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$C$8:$C,s,'Dividend summary'!$A$8:$A,\"<=\"&$T$26))))"
      }
     ],
     [
@@ -7091,115 +8286,115 @@
      0,
      0,
      0,
-     20
+     31
     ],
     [
      0,
      1,
      1,
-     21
+     32
     ],
     [
      0,
      24,
      24,
-     21
+     32
     ],
     [
      0,
      47,
      47,
-     21
+     32
     ],
     [
      0,
      70,
      70,
+     32
+    ],
+    [
+     13,
+     2,
+     2,
      21
     ],
     [
      13,
-     2,
-     2,
-     17
-    ],
-    [
-     13,
      71,
      71,
-     17
+     21
     ],
     [
      14,
      2,
      2,
-     17
+     21
     ],
     [
      14,
      3,
      70,
-     23
+     34
     ],
     [
      14,
      71,
      71,
-     17
+     21
     ],
     [
      14,
      92,
      199,
-     23
+     34
     ],
     [
      15,
      2,
      2,
-     17
+     21
     ],
     [
      15,
      3,
      70,
-     23
+     34
     ],
     [
      15,
      71,
      71,
-     17
+     21
     ],
     [
      15,
      72,
      91,
-     24
+     35
     ],
     [
      15,
      92,
      199,
-     23
+     34
     ],
     [
      16,
      2,
      2,
-     17
+     21
     ],
     [
      16,
      3,
      70,
-     23
+     34
     ],
     [
      16,
      71,
      71,
-     17
+     21
     ],
     [
      16,
@@ -7211,13 +8406,13 @@
      16,
      92,
      199,
-     23
+     34
     ],
     [
      17,
      71,
      71,
-     17
+     21
     ],
     [
      17,
@@ -7229,25 +8424,25 @@
      18,
      2,
      5,
-     22
+     33
     ],
     [
      18,
      25,
      29,
-     22
+     33
     ],
     [
      18,
      48,
      51,
-     22
+     33
     ],
     [
      18,
      71,
      71,
-     17
+     21
     ],
     [
      18,
@@ -7271,19 +8466,19 @@
      19,
      29,
      29,
-     23
+     34
     ],
     [
      19,
      48,
      51,
-     23
+     34
     ],
     [
      19,
      71,
      71,
-     17
+     21
     ],
     [
      19,
@@ -7295,7 +8490,7 @@
      20,
      71,
      71,
-     17
+     21
     ],
     [
      20,
@@ -7307,7 +8502,7 @@
      21,
      71,
      71,
-     17
+     21
     ],
     [
      21,
@@ -8242,19 +9437,19 @@
      0,
      0,
      0,
-     25
+     36
     ],
     [
      0,
      2,
      2,
-     26
+     37
     ],
     [
      0,
      3,
      3,
-     28
+     39
     ],
     [
      0,
@@ -8266,7 +9461,7 @@
      0,
      26,
      26,
-     33
+     44
     ],
     [
      0,
@@ -8278,13 +9473,13 @@
      1,
      2,
      2,
-     27
+     38
     ],
     [
      1,
      3,
      3,
-     29
+     40
     ],
     [
      1,
@@ -8296,7 +9491,7 @@
      1,
      5,
      24,
-     24
+     35
     ],
     [
      1,
@@ -8314,7 +9509,7 @@
      2,
      2,
      3,
-     28
+     39
     ],
     [
      2,
@@ -8344,19 +9539,19 @@
      2,
      48,
      399,
-     34
+     45
     ],
     [
      3,
      2,
      2,
-     27
+     38
     ],
     [
      3,
      3,
      3,
-     29
+     40
     ],
     [
      3,
@@ -8386,13 +9581,13 @@
      3,
      48,
      399,
-     34
+     45
     ],
     [
      4,
      2,
      3,
-     28
+     39
     ],
     [
      4,
@@ -8422,19 +9617,19 @@
      4,
      48,
      399,
-     34
+     45
     ],
     [
      5,
      2,
      2,
-     29
+     40
     ],
     [
      5,
      3,
      3,
-     30
+     41
     ],
     [
      5,
@@ -8446,7 +9641,7 @@
      5,
      5,
      24,
-     31
+     42
     ],
     [
      5,
@@ -8464,7 +9659,7 @@
      5,
      48,
      399,
-     34
+     45
     ],
     [
      6,
@@ -8476,7 +9671,7 @@
      6,
      5,
      24,
-     32
+     43
     ],
     [
      6,
@@ -8494,7 +9689,7 @@
      6,
      48,
      399,
-     34
+     45
     ],
     [
      7,
@@ -8650,13 +9845,13 @@
      0,
      0,
      0,
-     35
+     46
     ],
     [
      0,
      1,
      1,
-     22
+     33
     ],
     [
      0,
@@ -8668,13 +9863,13 @@
      1,
      1,
      1,
-     22
+     33
     ],
     [
      2,
      1,
      1,
-     22
+     33
     ],
     [
      2,
@@ -8686,7 +9881,7 @@
      3,
      1,
      1,
-     22
+     33
     ],
     [
      3,
@@ -8698,7 +9893,7 @@
      4,
      1,
      1,
-     22
+     33
     ],
     [
      4,
@@ -8710,7 +9905,7 @@
      5,
      1,
      1,
-     22
+     33
     ],
     [
      5,
@@ -8765,13 +9960,13 @@
      0,
      0,
      0,
-     17
+     21
     ],
     [
      1,
      0,
      0,
-     17
+     21
     ],
     [
      1,
@@ -8783,7 +9978,7 @@
      2,
      0,
      0,
-     17
+     21
     ],
     [
      2,
@@ -8860,7 +10055,7 @@
      0,
      0,
      0,
-     17
+     21
     ],
     [
      0,
@@ -8872,25 +10067,25 @@
      1,
      0,
      0,
-     17
+     21
     ],
     [
      1,
      1,
      999,
-     23
+     34
     ],
     [
      2,
      0,
      0,
-     17
+     21
     ],
     [
      2,
      1,
      999,
-     23
+     34
     ]
    ],
    "merges": [],
