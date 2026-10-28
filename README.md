@@ -126,7 +126,7 @@ You should see a table of trading days and a line comparing the rebuilt KSE-100 
 | Dashboard_Data | Hidden helper tab for the Dashboard |
 | Charts | Four performance charts with their key numbers (see [Charts tab](#charts-tab)) |
 | Charts_Data | Hidden helper tab for the drawdown chart |
-| Daily Summary | Trades, investment, charges and realized P/L per day |
+| Daily Summary | Trades, investment, charges and realized P/L per day, plus a **Monthly Totals** table (columns H–N): trades, money bought and sold, net money added, charges and realized P/L per month |
 | Portfolio Summary | Holdings per stock, weights, realized P/L, and average, lowest and highest buy prices (with and without charges) |
 | Daily Performance | Daily and cumulative return vs KSE-100, filled by `./psx update` |
 | Latest Prices | Latest closing price of every stock you have traded, filled by `./psx update` |

@@ -948,6 +948,23 @@
      "bold": true
     }
    }
+  },
+  {
+   "userEnteredFormat": {
+    "textFormat": {
+     "bold": true
+    }
+   },
+   "note": "Money you put in (buys incl. charges) minus money you took out (sells after charges) that month."
+  },
+  {
+   "userEnteredFormat": {
+    "numberFormat": {
+     "type": "DATE",
+     "pattern": "mmm yyyy"
+    },
+    "horizontalAlignment": "LEFT"
+   }
   }
  ],
  "sheets": [
@@ -1404,11 +1421,11 @@
     ],
     [
      13,
-     120
+     134
     ],
     [
      14,
-     120
+     84
     ]
    ],
    "rowHeights": [],
@@ -9744,6 +9761,34 @@
     [
      5,
      80
+    ],
+    [
+     7,
+     130
+    ],
+    [
+     8,
+     130
+    ],
+    [
+     9,
+     130
+    ],
+    [
+     10,
+     130
+    ],
+    [
+     11,
+     130
+    ],
+    [
+     12,
+     130
+    ],
+    [
+     13,
+     130
     ]
    ],
    "rowHeights": [],
@@ -9753,6 +9798,13 @@
      0,
      {
       "stringValue": "Daily Totals"
+     }
+    ],
+    [
+     0,
+     7,
+     {
+      "stringValue": "Monthly Totals"
      }
     ],
     [
@@ -9798,6 +9850,55 @@
      }
     ],
     [
+     1,
+     7,
+     {
+      "stringValue": "Month"
+     }
+    ],
+    [
+     1,
+     8,
+     {
+      "stringValue": "Number of Trades"
+     }
+    ],
+    [
+     1,
+     9,
+     {
+      "stringValue": "Bought (incl. charges)"
+     }
+    ],
+    [
+     1,
+     10,
+     {
+      "stringValue": "Sold (after charges)"
+     }
+    ],
+    [
+     1,
+     11,
+     {
+      "stringValue": "Net Money Added"
+     }
+    ],
+    [
+     1,
+     12,
+     {
+      "stringValue": "Total Charges"
+     }
+    ],
+    [
+     1,
+     13,
+     {
+      "stringValue": "Realized P/L"
+     }
+    ],
+    [
      2,
      0,
      {
@@ -9837,6 +9938,55 @@
      5,
      {
       "formulaValue": "=ARRAYFORMULA(IF($A3:$A=\"\",\"\",SUMIF('Trade List'!$A$2:$A,$A3:$A,'Trade List'!$O$2:$O)))"
+     }
+    ],
+    [
+     2,
+     7,
+     {
+      "formulaValue": "=IFERROR(SORT(UNIQUE(FILTER(ARRAYFORMULA(EOMONTH('Trade List'!A2:A,-1)+1),'Trade List'!A2:A<>\"\"))),\"\")"
+     }
+    ],
+    [
+     2,
+     8,
+     {
+      "formulaValue": "=MAP($H$3:$H,LAMBDA(m,IF(m=\"\",\"\",LET(e,EOMONTH(m,0),COUNTIFS('Trade List'!$A$2:$A,\">=\"&m,'Trade List'!$A$2:$A,\"<=\"&e)))))"
+     }
+    ],
+    [
+     2,
+     9,
+     {
+      "formulaValue": "=MAP($H$3:$H,LAMBDA(m,IF(m=\"\",\"\",LET(e,EOMONTH(m,0),SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,\">=\"&m,'Trade List'!$A$2:$A,\"<=\"&e,'Trade List'!$C$2:$C,\"Buy\")))))"
+     }
+    ],
+    [
+     2,
+     10,
+     {
+      "formulaValue": "=MAP($H$3:$H,LAMBDA(m,IF(m=\"\",\"\",LET(e,EOMONTH(m,0),SUMIFS('Trade List'!$K$2:$K,'Trade List'!$A$2:$A,\">=\"&m,'Trade List'!$A$2:$A,\"<=\"&e,'Trade List'!$C$2:$C,\"Sell\")))))"
+     }
+    ],
+    [
+     2,
+     11,
+     {
+      "formulaValue": "=ARRAYFORMULA(IF($H$3:$H=\"\",\"\",$J$3:$J-$K$3:$K))"
+     }
+    ],
+    [
+     2,
+     12,
+     {
+      "formulaValue": "=MAP($H$3:$H,LAMBDA(m,IF(m=\"\",\"\",LET(e,EOMONTH(m,0),SUMIFS('Trade List'!$J$2:$J,'Trade List'!$A$2:$A,\">=\"&m,'Trade List'!$A$2:$A,\"<=\"&e)))))"
+     }
+    ],
+    [
+     2,
+     13,
+     {
+      "formulaValue": "=MAP($H$3:$H,LAMBDA(m,IF(m=\"\",\"\",LET(e,EOMONTH(m,0),SUMIFS('Trade List'!$O$2:$O,'Trade List'!$A$2:$A,\">=\"&m,'Trade List'!$A$2:$A,\"<=\"&e)))))"
      }
     ]
    ],
@@ -9909,6 +10059,96 @@
     ],
     [
      5,
+     2,
+     999,
+     4
+    ],
+    [
+     7,
+     0,
+     0,
+     46
+    ],
+    [
+     7,
+     1,
+     1,
+     33
+    ],
+    [
+     7,
+     2,
+     999,
+     48
+    ],
+    [
+     8,
+     1,
+     1,
+     33
+    ],
+    [
+     8,
+     2,
+     999,
+     43
+    ],
+    [
+     9,
+     1,
+     1,
+     33
+    ],
+    [
+     9,
+     2,
+     999,
+     3
+    ],
+    [
+     10,
+     1,
+     1,
+     33
+    ],
+    [
+     10,
+     2,
+     999,
+     3
+    ],
+    [
+     11,
+     1,
+     1,
+     47
+    ],
+    [
+     11,
+     2,
+     999,
+     3
+    ],
+    [
+     12,
+     1,
+     1,
+     33
+    ],
+    [
+     12,
+     2,
+     999,
+     3
+    ],
+    [
+     13,
+     1,
+     1,
+     33
+    ],
+    [
+     13,
      2,
      999,
      4
