@@ -29,6 +29,7 @@ Run it whenever you like. Each run re-prices the last `DAYS_TO_REFILL` days (30 
 - [Running the script](#running-the-script)
 - [Spreadsheet layout](#spreadsheet-layout)
 - [Charts tab](#charts-tab)
+- [Printing or exporting to PDF](#printing-or-exporting-to-pdf)
 - [Changing the sheet's structure](#changing-the-sheets-structure)
 - [How the numbers are calculated](#how-the-numbers-are-calculated)
 - [Data sources](#data-sources)
@@ -321,6 +322,20 @@ If you move a table, its formulas and the chart that uses it need updating: ask 
 
 ---
 
+## Printing or exporting to PDF
+
+The calculated columns only fill rows that have data, and the Daily Performance column colours only apply to rows with a date. Empty rows really are empty, so **File → Download → PDF** stops where your data stops, and you never need to delete empty rows. (Deleting them used to be the only way to avoid blank pages, and it also cut the charts short.)
+
+The column headers have hover notes explaining what they mean. Google prints those as numbered footnotes on an extra page at the end; to leave it out, choose **File → Print** and untick **Show notes** under *Formatting*.
+
+If you add a fill-down formula yourself, keep it from writing into empty rows the same way, for example:
+
+```text
+=IFERROR(ARRAY_CONSTRAIN(<your formula>, MAX(1, COUNT($A$2:$A)), 1), "")
+```
+
+---
+
 ## Changing the sheet's structure
 
 If you change the tracker sheet itself (new columns, formulas, formatting or charts) and want new copies to include the change:
@@ -424,6 +439,7 @@ No file for a date means the market was closed. The script treats that as a holi
 | `No PSX closing price on <date> for: XYZ` | The ticker in Trade List column B doesn't match a PSX symbol (check spelling), or the stock was suspended or delisted that day. |
 | `Could not anchor the KSE-100 level` | Only on a brand-new, empty Daily Performance tab: PSX's indices page isn't showing the latest trading day yet. Run again after about 5 PM PKT. |
 | HTTP `403` from `dps.psx.com.pk` | PSX is blocking the request. PSX blocks Google's servers, so this script can't run inside Google Apps Script. Run it from your own computer. |
+| A chart stops before the latest days | Usually because empty rows were deleted at the bottom of Daily Performance, which makes Google trim the charts' ranges. The next `./psx update` restores the rows and extends the charts automatically. |
 | Today's row missing | PSX hadn't published today's files yet. Run again later in the evening. |
 
 ---

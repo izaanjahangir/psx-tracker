@@ -243,7 +243,43 @@ def main():
     perf.update(range_name=f"E2:F{len(ordered) + 1}",
                 values=[[rows[d][1], rows[d][2]] for d in ordered], value_input_option="RAW")
     print(f"\nUpdated {len(days)} trading day(s) in '{PERF_SHEET}'.")
+    repair_charts(book, perf)
     write_latest_prices(book, trades, *last_closes)
+
+
+MIN_PERF_ROWS = 1000
+
+
+def repair_charts(book, perf):
+    """Keep the performance tab at least MIN_PERF_ROWS rows long, and make every chart that
+    reads it cover the whole tab. (Deleting the empty rows at the bottom makes Google trim
+    the charts' ranges, and charts never grow on their own as new days are added.)"""
+    if perf.row_count < MIN_PERF_ROWS:
+        perf.add_rows(MIN_PERF_ROWS - perf.row_count)
+    rows = max(perf.row_count, MIN_PERF_ROWS)
+
+    def stretch(obj):
+        changed = False
+        if isinstance(obj, dict):
+            if obj.get("sheetId") == perf.id and "endRowIndex" in obj and obj["endRowIndex"] < rows:
+                obj["endRowIndex"] = rows
+                changed = True
+            for value in obj.values():
+                changed |= stretch(value)
+        elif isinstance(obj, list):
+            for value in obj:
+                changed |= stretch(value)
+        return changed
+
+    meta = book.fetch_sheet_metadata(params={"fields": "sheets(charts(chartId,spec))"})
+    fixes = []
+    for sheet in meta["sheets"]:
+        for chart in sheet.get("charts", []):
+            if stretch(chart["spec"]):
+                fixes.append({"updateChartSpec": {"chartId": chart["chartId"], "spec": chart["spec"]}})
+                print(f"Extended chart '{chart['spec'].get('title', '')}' to cover all of '{perf.title}'.")
+    if fixes:
+        book.batch_update({"requests": fixes})
 
 
 def write_ex_date_prices(book, today, dry_run):
