@@ -252,10 +252,11 @@ Enter one row per dividend from row 8 down: **Received date** (A, for your recor
 | L DIV yield (received) | After-tax amount ÷ Total Invested |
 | N Price before ex-date | Filled by `./psx update`: PSX close on the last trading day before the ex-date. Blank until the ex-date has passed. |
 | O Market yield | Dividend per share ÷ N. The **market dividend yield** quoted by brokers and news; useful for comparing stocks. |
+| P Quarter (by ex-date) | Calendar quarter and year of the ex-date, e.g. *Q4 2026 (Oct–Dec)*, matching the quarterly table |
 
 Every dividend counts from its **ex-date** once that date has passed, whether or not you've received it yet: in *My Return %* (Daily Performance), on the Charts tab and in the quarterly table below. The **Received date** is for your own records.
 
-**Quarterly Dividend Yield** (columns Q–W): one row per calendar quarter you've held shares in, counting each dividend in the quarter of its **ex-date**, as soon as the ex-date has passed (whether or not it has been received yet):
+**Quarterly Dividend Yield** (columns R–X): one row per calendar quarter you've held shares in, counting each dividend in the quarter of its **ex-date**, as soon as the ex-date has passed (whether or not it has been received yet):
 
 | Column | Meaning |
 |---|---|
