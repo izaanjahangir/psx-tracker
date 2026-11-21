@@ -240,7 +240,7 @@ The **Net Money Added** and **Cost of Holdings** formulas on the Daily Performan
 
 ### Dividend summary
 
-Enter one row per dividend from row 8 down: **Received date** (A, for your records), **EX-Date** (B), **Stock** (C, same name as in Trade List), **DIV per share** (F), **Tax Rate** (H) and **Status** (N). The rest is calculated:
+Enter one row per dividend from row 8 down: **Received date** (A, for your records), **EX-Date** (B), **Stock** (C, same name as in Trade List), **DIV per share** (F), **Tax Rate** (H) and **Status** (N). Optionally, also **Announced on** (Q) and **For period** (R). The rest is calculated:
 
 | Column | Meaning |
 |---|---|
@@ -253,6 +253,10 @@ Enter one row per dividend from row 8 down: **Received date** (A, for your recor
 | M DIV yield (received) | After-tax amount ÷ Total Invested |
 | O Price before ex-date | Filled by `./psx update`: PSX close on the last trading day before the ex-date. Blank until the ex-date has passed. The script finds this column by its header, so keep the header text as it is. |
 | P Market yield | Dividend per share ÷ O. The **market dividend yield** quoted by brokers and news; useful for comparing stocks. |
+| Q Announced on | *(you enter, optional)* Date the company announced the dividend: the *Date* column of the PSX payouts table. For information only. |
+| R For period | *(you enter, optional)* Which results the dividend is paid from, e.g. *FY Jun-2026 Final* (PSX shows 30/06/2026 (YR), (F)) or *Q1 Sep-2026 Interim* (30/09/2026 (IQ), (i)). For information only. |
+
+**Why quarters use the ex-date, not the announcement date:** the ex-date is when you actually earn a dividend. Shares sold after the announcement but before the ex-date get nothing, and shares bought in that gap get the full dividend. So a company's final dividend for its financial year can be announced in one quarter and counted in the next (e.g. HUBCO's FY Jun-2026 final: announced 27 Aug, ex-date 12 Oct). The *Announced on* and *For period* columns are there so you can still see where each dividend came from.
 
 **Which date to enter as the EX-Date:** a company's dividend announcement says the dividend goes to shareholders *"whose names appear in the Register of Members on <date>"*. On PSX that date is normally the ex-date (the day the share price drops). **If it falls on a weekend or PSX holiday, use the last trading day before it instead.** For example, HUBCO's interim dividend with a register date of Monday 9 Nov 2026 (a holiday) went ex on Friday 6 Nov.
 
@@ -267,7 +271,7 @@ It only warns; it never changes your data. Older dividends aren't checked, to ke
 
 Every dividend counts from its **ex-date** once that date has passed, whether or not you've received it yet: in *My Return %* (Daily Performance), on the Charts tab and in the quarterly table below. The **Received date** is for your own records.
 
-**Quarterly Dividend Yield** (columns R–X): one row per calendar quarter you've held shares in, counting each dividend in the quarter of its **ex-date**, as soon as the ex-date has passed (whether or not it has been received yet):
+**Quarterly Dividend Yield** (columns T–Z): one row per calendar quarter you've held shares in, counting each dividend in the quarter of its **ex-date**, as soon as the ex-date has passed (whether or not it has been received yet):
 
 | Column | Meaning |
 |---|---|
