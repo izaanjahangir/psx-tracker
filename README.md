@@ -254,6 +254,17 @@ Enter one row per dividend from row 8 down: **Received date** (A, for your recor
 | O Price before ex-date | Filled by `./psx update`: PSX close on the last trading day before the ex-date. Blank until the ex-date has passed. The script finds this column by its header, so keep the header text as it is. |
 | P Market yield | Dividend per share ÷ O. The **market dividend yield** quoted by brokers and news; useful for comparing stocks. |
 
+**Which date to enter as the EX-Date:** a company's dividend announcement says the dividend goes to shareholders *"whose names appear in the Register of Members on <date>"*. On PSX that date is normally the ex-date (the day the share price drops). **If it falls on a weekend or PSX holiday, use the last trading day before it instead.** For example, HUBCO's interim dividend with a register date of Monday 9 Nov 2026 (a holiday) went ex on Friday 6 Nov.
+
+**Automatic check:** every `./psx update` compares the ex-date and *DIV per share* of each dividend in the **current and previous quarter** with the day PSX actually lowered that stock's previous close, and by how much. If they don't match, it prints a warning with the correct date, for example:
+
+```text
+Dividend ex-date check (9 dividend(s) since 2026-07-01):
+  HUBC (row 15): ex-date is 2026-11-09 (Mon), but PSX adjusted the price on 2026-11-06 (Fri). Change the EX-Date to 2026-11-06.
+```
+
+It only warns; it never changes your data. Older dividends aren't checked, to keep the number of downloads small.
+
 Every dividend counts from its **ex-date** once that date has passed, whether or not you've received it yet: in *My Return %* (Daily Performance), on the Charts tab and in the quarterly table below. The **Received date** is for your own records.
 
 **Quarterly Dividend Yield** (columns R–X): one row per calendar quarter you've held shares in, counting each dividend in the quarter of its **ex-date**, as soon as the ex-date has passed (whether or not it has been received yet):

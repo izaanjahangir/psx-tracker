@@ -27,6 +27,7 @@ import sys
 import urllib.error
 import urllib.request
 import zipfile
+from functools import lru_cache
 
 import gspread
 import xlrd
@@ -49,6 +50,7 @@ def fetch(url):
         raise
 
 
+@lru_cache(maxsize=None)  # each day's file is downloaded at most once per run
 def psx_closes(day):
     """{symbol: (close, previous close)} for every PSX symbol, or None if no trading that day."""
     data = fetch(f"{PSX}/download/mkt_summary/{day.isoformat()}.Z")
@@ -232,6 +234,7 @@ def main():
               f"sheet = {computed[days[-1]][1]:,.2f}")
 
     write_ex_date_prices(book, today, dry_run)
+    check_ex_dates(book, today)
 
     if dry_run:
         print("\nDry run: nothing written.")
@@ -284,6 +287,74 @@ def repair_charts(book, perf):
 
 
 DIVIDEND_HEADER_ROW = 7
+
+
+def quarter_start(day):
+    return dt.date(day.year, (day.month - 1) // 3 * 3 + 1, 1)
+
+
+def check_ex_dates(book, today):
+    """Warn when a dividend's ex-date doesn't match the day PSX actually adjusted the stock's
+    previous close (e.g. a record date that fell on a weekend or holiday was entered), or when
+    the adjustment differs from the dividend per share. Only dividends with an ex-date in the
+    current or previous quarter are checked, to keep the number of downloads small."""
+    ws = book.worksheet(DIVIDEND_SHEET)
+    header = [h.strip().lower() for h in ws.row_values(DIVIDEND_HEADER_ROW)]
+    if "ex-date" not in header or "stock" not in header:
+        return
+    col = lambda name: header.index(name) + 1 if name in header else None
+    first = DIVIDEND_HEADER_ROW + 1
+    exs = ws.col_values(col("ex-date"), value_render_option="UNFORMATTED_VALUE")[first - 1:]
+    stocks = ws.col_values(col("stock"))[first - 1:]
+    dps_col = col("div per share")
+    dps = ws.col_values(dps_col, value_render_option="UNFORMATTED_VALUE")[first - 1:] if dps_col else []
+
+    this_q = quarter_start(today)
+    window_start = quarter_start(this_q - dt.timedelta(days=1))  # start of the previous quarter
+
+    def adjustment(ticker, day):
+        """Amount PSX took off the stock's previous close on `day` (0 if none / not a trading day)."""
+        closes = psx_closes(day) if day.weekday() < 5 else None
+        if not closes or ticker not in closes:
+            return 0.0
+        prev = previous_trading_closes(day)
+        if not prev or ticker not in prev:
+            return 0.0
+        return round(prev[ticker][0] - closes[ticker][1], 2)
+
+    warnings, checked = [], 0
+    for i, stock in enumerate(stocks):
+        ex = exs[i] if i < len(exs) else ""
+        if not stock or not isinstance(ex, (int, float)):
+            continue
+        ex = to_date(ex)
+        if not (window_start <= ex <= today):
+            continue
+        checked += 1
+        ticker = str(stock).strip().split(" ")[0]
+        row = first + i
+        amount = adjustment(ticker, ex)
+        actual = ex if amount > 0 else None
+        if actual is None:  # look at the trading days just before (weekend / holiday record dates)
+            for back in range(1, 8):
+                d = ex - dt.timedelta(days=back)
+                amount = adjustment(ticker, d)
+                if amount > 0:
+                    actual = d
+                    break
+        if actual is None:
+            warnings.append(f"  {ticker} (row {row}): no PSX price adjustment found on or before ex-date {ex}; please check the date.")
+            continue
+        if actual != ex:
+            warnings.append(f"  {ticker} (row {row}): ex-date is {ex} ({ex:%a}), but PSX adjusted the price on "
+                            f"{actual} ({actual:%a}). Change the EX-Date to {actual}.")
+        expected = dps[i] if i < len(dps) and isinstance(dps[i], (int, float)) else None
+        if expected and abs(amount - expected) > 0.01:
+            warnings.append(f"  {ticker} (row {row}): DIV per share is {expected}, but PSX adjusted the price by {amount}. "
+                            "Check the amount (a bonus issue on the same day can also cause this).")
+    if checked:
+        print(f"\nDividend ex-date check ({checked} dividend(s) since {window_start}):")
+        print("\n".join(warnings) if warnings else "  All ex-dates and amounts match PSX.")
 
 
 def write_ex_date_prices(book, today, dry_run):
