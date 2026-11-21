@@ -1421,51 +1421,51 @@
     ],
     [
      3,
-     77
+     150
     ],
     [
      4,
-     93
+     77
     ],
     [
      5,
-     104
+     93
     ],
     [
      6,
-     62
+     104
     ],
     [
      7,
+     62
+    ],
+    [
+     8,
      91
     ],
     [
-     9,
+     10,
      96
     ],
     [
-     10,
+     11,
      63
     ],
     [
-     11,
+     12,
      130
     ],
     [
-     12,
+     13,
      102
     ],
     [
-     13,
+     14,
      134
     ],
     [
-     14,
-     84
-    ],
-    [
      15,
-     150
+     84
     ],
     [
      16,
@@ -1513,7 +1513,7 @@
      0,
      2,
      {
-      "formulaValue": "=SUM(F8:F)"
+      "formulaValue": "=SUM(G8:G)"
      }
     ],
     [
@@ -1527,7 +1527,7 @@
      1,
      2,
      {
-      "formulaValue": "=SUM(H8:H)"
+      "formulaValue": "=SUM(I8:I)"
      }
     ],
     [
@@ -1555,7 +1555,7 @@
      3,
      2,
      {
-      "formulaValue": "=SUMIFS(H8:H, M8:M, \"Received\")"
+      "formulaValue": "=SUMIFS(I8:I, N8:N, \"Received\")"
      }
     ],
     [
@@ -1569,7 +1569,7 @@
      4,
      2,
      {
-      "formulaValue": "=SUMIFS(H8:H, M8:M, \"Pending\")"
+      "formulaValue": "=SUMIFS(I8:I, N8:N, \"Pending\")"
      }
     ],
     [
@@ -1604,91 +1604,91 @@
      6,
      3,
      {
-      "stringValue": "# of shares"
+      "stringValue": "Quarter (by ex-date)"
      }
     ],
     [
      6,
      4,
      {
-      "stringValue": "DIV per share"
+      "stringValue": "# of shares"
      }
     ],
     [
      6,
      5,
      {
-      "stringValue": "Gross dividend"
+      "stringValue": "DIV per share"
      }
     ],
     [
      6,
      6,
      {
-      "stringValue": "Tax Rate"
+      "stringValue": "Gross dividend"
      }
     ],
     [
      6,
      7,
      {
-      "stringValue": "Received DIV"
+      "stringValue": "Tax Rate"
      }
     ],
     [
      6,
      8,
      {
-      "stringValue": "AVG Buy Price"
+      "stringValue": "Received DIV"
      }
     ],
     [
      6,
      9,
      {
-      "stringValue": "Total Invested"
+      "stringValue": "AVG Buy Price"
      }
     ],
     [
      6,
      10,
      {
-      "stringValue": "DIV yield"
+      "stringValue": "Total Invested"
      }
     ],
     [
      6,
      11,
      {
-      "stringValue": "DIV yield (received)"
+      "stringValue": "DIV yield"
      }
     ],
     [
      6,
      12,
      {
-      "stringValue": "Status"
+      "stringValue": "DIV yield (received)"
      }
     ],
     [
      6,
      13,
      {
-      "stringValue": "Price before ex-date"
+      "stringValue": "Status"
      }
     ],
     [
      6,
      14,
      {
-      "stringValue": "Market yield"
+      "stringValue": "Price before ex-date"
      }
     ],
     [
      6,
      15,
      {
-      "stringValue": "Quarter (by ex-date)"
+      "stringValue": "Market yield"
      }
     ],
     [
@@ -1744,63 +1744,63 @@
      7,
      3,
      {
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP($B$8:$B,LAMBDA(ex,IF(ex=\"\",\"\",LET(q,DATE(YEAR(ex),INT((MONTH(ex)-1)/3)*3+1,1),\"Q\"&(INT((MONTH(q)-1)/3)+1)&\" \"&YEAR(q)&\" (\"&TEXT(q,\"mmm\")&\"–\"&TEXT(EOMONTH(q,2),\"mmm\")&\")\")))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+     }
+    ],
+    [
+     7,
+     4,
+     {
       "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP($B$8:$B,$C$8:$C,LAMBDA(ex,s,IF(OR(ex=\"\",s=\"\"),\"\",SUMIFS('Trade List'!D:D,'Trade List'!B:B,s,'Trade List'!A:A,\"<\"&ex,'Trade List'!C:C,\"Buy\")-SUMIFS('Trade List'!D:D,'Trade List'!B:B,s,'Trade List'!A:A,\"<\"&ex,'Trade List'!C:C,\"Sell\")))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
-     5,
+     6,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF(($D$8:$D=\"\")+($E$8:$E=\"\"),\"\",$D$8:$D*$E$8:$E)),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
-     }
-    ],
-    [
-     7,
-     7,
-     {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF(($F$8:$F=\"\")+($G$8:$G=\"\"),\"\",$F$8:$F*(1-$G$8:$G))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF(($E$8:$E=\"\")+($F$8:$F=\"\"),\"\",$E$8:$E*$F$8:$F)),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
      8,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP($B$8:$B,$C$8:$C,$D$8:$D,LAMBDA(ex,s,d,IF(OR(ex=\"\",s=\"\",N(d)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,s,'Trade List'!A:A,\"<\"&ex)/d,0)))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF(($G$8:$G=\"\")+($H$8:$H=\"\"),\"\",$G$8:$G*(1-$H$8:$H))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
      9,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF($C$8:$C=\"\",\"\",$I$8:$I*$D$8:$D)),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP($B$8:$B,$C$8:$C,$E$8:$E,LAMBDA(ex,s,d,IF(OR(ex=\"\",s=\"\",N(d)=0),\"\",IFERROR(SUMIFS('Trade List'!M:M,'Trade List'!B:B,s,'Trade List'!A:A,\"<\"&ex)/d,0)))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
      10,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF($C$8:$C=\"\",\"\",IFERROR($E$8:$E/$I$8:$I,0))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF($C$8:$C=\"\",\"\",$J$8:$J*$E$8:$E)),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
      11,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF($C$8:$C=\"\",\"\",IFERROR($H$8:$H/$J$8:$J,\"\"))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF($C$8:$C=\"\",\"\",IFERROR($F$8:$F/$J$8:$J,0))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
-     14,
+     12,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF(($E$8:$E=\"\")+($N$8:$N=\"\"),\"\",IFERROR($E$8:$E/$N$8:$N,\"\"))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF($C$8:$C=\"\",\"\",IFERROR($I$8:$I/$K$8:$K,\"\"))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
      7,
      15,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP($B$8:$B,LAMBDA(ex,IF(ex=\"\",\"\",LET(q,DATE(YEAR(ex),INT((MONTH(ex)-1)/3)*3+1,1),\"Q\"&(INT((MONTH(q)-1)/3)+1)&\" \"&YEAR(q)&\" (\"&TEXT(q,\"mmm\")&\"–\"&TEXT(EOMONTH(q,2),\"mmm\")&\")\")))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(ARRAYFORMULA(IF(($F$8:$F=\"\")+($O$8:$O=\"\"),\"\",IFERROR($F$8:$F/$O$8:$O,\"\"))),MAX(1,IFERROR(MAX(FILTER(ROW($C$8:$C),$C$8:$C<>\"\")),8)-7),1),\"\")"
      }
     ],
     [
@@ -1814,14 +1814,14 @@
      7,
      18,
      {
-      "formulaValue": "=IFERROR(LET(starts,SORT(UNIQUE(FILTER(ARRAYFORMULA(DATE(YEAR('Daily Performance'!$A$2:$A),INT((MONTH('Daily Performance'!$A$2:$A)-1)/3)*3+1,1)),'Daily Performance'!$A$2:$A<>\"\"))),MAP(starts,LAMBDA(q,LET(e,EOMONTH(q,2),SUMIFS($F$8:$F,$B$8:$B,\">=\"&q,$B$8:$B,\"<=\"&e,$B$8:$B,\"<=\"&TODAY()))))),\"\")"
+      "formulaValue": "=IFERROR(LET(starts,SORT(UNIQUE(FILTER(ARRAYFORMULA(DATE(YEAR('Daily Performance'!$A$2:$A),INT((MONTH('Daily Performance'!$A$2:$A)-1)/3)*3+1,1)),'Daily Performance'!$A$2:$A<>\"\"))),MAP(starts,LAMBDA(q,LET(e,EOMONTH(q,2),SUMIFS($G$8:$G,$B$8:$B,\">=\"&q,$B$8:$B,\"<=\"&e,$B$8:$B,\"<=\"&TODAY()))))),\"\")"
      }
     ],
     [
      7,
      19,
      {
-      "formulaValue": "=IFERROR(LET(starts,SORT(UNIQUE(FILTER(ARRAYFORMULA(DATE(YEAR('Daily Performance'!$A$2:$A),INT((MONTH('Daily Performance'!$A$2:$A)-1)/3)*3+1,1)),'Daily Performance'!$A$2:$A<>\"\"))),MAP(starts,LAMBDA(q,LET(e,EOMONTH(q,2),SUMIFS($H$8:$H,$B$8:$B,\">=\"&q,$B$8:$B,\"<=\"&e,$B$8:$B,\"<=\"&TODAY()))))),\"\")"
+      "formulaValue": "=IFERROR(LET(starts,SORT(UNIQUE(FILTER(ARRAYFORMULA(DATE(YEAR('Daily Performance'!$A$2:$A),INT((MONTH('Daily Performance'!$A$2:$A)-1)/3)*3+1,1)),'Daily Performance'!$A$2:$A<>\"\"))),MAP(starts,LAMBDA(q,LET(e,EOMONTH(q,2),SUMIFS($I$8:$I,$B$8:$B,\">=\"&q,$B$8:$B,\"<=\"&e,$B$8:$B,\"<=\"&TODAY()))))),\"\")"
      }
     ],
     [
@@ -1922,12 +1922,6 @@
     ],
     [
      3,
-     0,
-     5,
-     7
-    ],
-    [
-     3,
      6,
      6,
      0
@@ -1969,48 +1963,48 @@
      0
     ],
     [
+     7,
+     0,
+     5,
+     7
+    ],
+    [
+     7,
      6,
+     6,
+     0
+    ],
+    [
+     7,
      7,
      15,
      16
     ],
     [
-     7,
+     8,
      0,
      0,
      6
     ],
     [
-     7,
+     8,
      1,
      5,
      7
     ],
     [
-     7,
+     8,
      6,
      6,
      0
     ],
     [
-     8,
+     9,
      6,
      6,
      9
     ],
     [
-     8,
-     7,
-     99,
-     3
-    ],
-    [
-     9,
-     6,
-     6,
-     0
-    ],
-    [
      9,
      7,
      99,
@@ -2018,23 +2012,23 @@
     ],
     [
      10,
+     6,
+     6,
+     0
+    ],
+    [
+     10,
+     7,
+     99,
+     3
+    ],
+    [
+     11,
      6,
      6,
      10
     ],
     [
-     10,
-     7,
-     99,
-     17
-    ],
-    [
-     11,
-     6,
-     6,
-     0
-    ],
-    [
      11,
      7,
      99,
@@ -2042,63 +2036,69 @@
     ],
     [
      12,
+     6,
+     6,
+     0
+    ],
+    [
+     12,
+     7,
+     99,
+     17
+    ],
+    [
+     13,
      0,
      5,
      7
     ],
     [
-     12,
+     13,
      6,
      6,
      0
     ],
     [
-     12,
+     13,
      7,
      15,
      18
     ],
     [
-     13,
+     14,
      6,
      6,
      11
     ],
     [
-     13,
+     14,
      7,
      10,
      3
     ],
     [
-     13,
+     14,
      12,
      12,
      3
     ],
     [
-     13,
+     14,
      14,
      99,
      3
-    ],
-    [
-     14,
-     6,
-     6,
-     12
-    ],
-    [
-     14,
-     7,
-     99,
-     17
     ],
     [
      15,
      6,
      6,
-     0
+     12
+    ],
+    [
+     15,
+     7,
+     99,
+     17
     ],
     [
      17,
@@ -3087,7 +3087,7 @@
      1,
      10,
      {
-      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",LET(day,INDEX(A2:A,idx),prev,IF(idx=1,0,INDEX(A2:A,idx-1)),SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$B$8:$B,\">\"&prev,'Dividend summary'!$B$8:$B,\"<=\"&day))))),MAX(1,COUNT($A$2:$A)),1),\"\")"
+      "formulaValue": "=IFERROR(ARRAY_CONSTRAIN(MAP(SEQUENCE(ROWS(A2:A)),LAMBDA(idx,IF(INDEX(A2:A,idx)=\"\",\"\",LET(day,INDEX(A2:A,idx),prev,IF(idx=1,0,INDEX(A2:A,idx-1)),SUMIFS('Dividend summary'!$I$8:$I,'Dividend summary'!$B$8:$B,\">\"&prev,'Dividend summary'!$B$8:$B,\"<=\"&day))))),MAX(1,COUNT($A$2:$A)),1),\"\")"
      }
     ],
     [
@@ -4156,7 +4156,7 @@
      72,
      20,
      {
-      "formulaValue": "=MAP($N$73:$N$92,LAMBDA(s,IF(s=\"\",\"\",SUMIFS('Dividend summary'!$H$8:$H,'Dividend summary'!$C$8:$C,s,'Dividend summary'!$B$8:$B,\"<=\"&$T$26))))"
+      "formulaValue": "=MAP($N$73:$N$92,LAMBDA(s,IF(s=\"\",\"\",SUMIFS('Dividend summary'!$I$8:$I,'Dividend summary'!$C$8:$C,s,'Dividend summary'!$B$8:$B,\"<=\"&$T$26))))"
      }
     ],
     [

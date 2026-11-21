@@ -9,7 +9,7 @@ KSE-100's daily change is rebuilt from PSX's daily index file and anchored
 to PSX's official close.
 It also writes each traded stock's latest closing price to the
 "Latest Prices" tab (used by the Charts tab), and the closing price before each
-dividend's ex-date to column N of the dividend tab (for the market yield).
+dividend's ex-date to the dividend tab's "Price before ex-date" column.
 
 Usage:
   .venv/bin/python update_performance.py            # update the sheet
@@ -30,6 +30,7 @@ import zipfile
 
 import gspread
 import xlrd
+from gspread.utils import rowcol_to_a1
 
 from config import (DAYS_TO_REFILL, DIVIDEND_SHEET, PERF_SHEET, PRICES_SHEET, PSX, TRADE_SHEET,
                     open_spreadsheet, spreadsheet_id)
@@ -282,17 +283,33 @@ def repair_charts(book, perf):
         book.batch_update({"requests": fixes})
 
 
+DIVIDEND_HEADER_ROW = 7
+
+
 def write_ex_date_prices(book, today, dry_run):
-    """Fill the dividend tab's "Price before ex-date" (column N) with the PSX close on the
-    last trading day before each ex-date. Ex-dates in the future are left blank."""
+    """Fill the dividend tab's "Price before ex-date" column with the PSX close on the last
+    trading day before each ex-date. Ex-dates in the future are left blank.
+    Columns are found by their header names, so they can be moved around."""
     ws = book.worksheet(DIVIDEND_SHEET)
-    rows = ws.get("B8:C", value_render_option="UNFORMATTED_VALUE")
-    if not rows:
+    header = ws.row_values(DIVIDEND_HEADER_ROW)
+    cols = {}
+    for name in ("EX-Date", "Stock", "Price before ex-date"):
+        matches = [i for i, h in enumerate(header) if h.strip().lower() == name.lower()]
+        if not matches:
+            print(f"\nSkipped price before ex-date: no '{name}' header in row {DIVIDEND_HEADER_ROW} of '{DIVIDEND_SHEET}'.")
+            return
+        cols[name] = matches[0] + 1
+    first = DIVIDEND_HEADER_ROW + 1
+    col_letter = lambda c: rowcol_to_a1(1, c)[:-1]
+    exs = ws.col_values(cols["EX-Date"], value_render_option="UNFORMATTED_VALUE")[first - 1:]
+    stocks = ws.col_values(cols["Stock"])[first - 1:]
+    if not stocks:
         return
+    target = col_letter(cols["Price before ex-date"])
     cache, values = {}, []
-    print(f"\nPrice before ex-date ({DIVIDEND_SHEET}, column N):")
-    for r in rows:
-        ex, stock = (r + ["", ""])[:2]
+    print(f"\nPrice before ex-date ({DIVIDEND_SHEET}, column {target}):")
+    for i, stock in enumerate(stocks):
+        ex = exs[i] if i < len(exs) else ""
         if not isinstance(ex, (int, float)) or not stock or to_date(ex) > today:
             values.append([""])
             continue
@@ -304,7 +321,7 @@ def write_ex_date_prices(book, today, dry_run):
         values.append([price])
         print(f"  {ticker:<8} ex-date {ex}  price before: {price if price != '' else 'not found'}")
     if not dry_run:
-        ws.update(range_name=f"N8:N{len(values) + 7}", values=values, value_input_option="RAW")
+        ws.update(range_name=f"{target}{first}:{target}{first + len(values) - 1}", values=values, value_input_option="RAW")
 
 
 def write_latest_prices(book, trades, day, closes):

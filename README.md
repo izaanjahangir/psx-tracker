@@ -157,7 +157,7 @@ All settings that differ between people live in `.env`. That file isn't committe
 | `TRADE_SHEET` | No | `Trade List` | Name of the tab holding your trades |
 | `PERF_SHEET` | No | `Daily Performance` | Name of the daily performance tab the script writes to |
 | `PRICES_SHEET` | No | `Latest Prices` | Name of the tab the script writes latest closing prices to (created if missing) |
-| `DIVIDEND_SHEET` | No | `Dividend summary` | Name of the dividend tab (the script fills its column N) |
+| `DIVIDEND_SHEET` | No | `Dividend summary` | Name of the dividend tab (the script fills its *Price before ex-date* column) |
 | `DAYS_TO_REFILL` | No | `30` | How many days back to re-price on every run. Increase it if you often enter trades more than 30 days late. Set it high (e.g. `400`) to rebuild your whole history. |
 | `PSX_BASE_URL` | No | `https://dps.psx.com.pk` | PSX Data Portal address. Only change it if PSX moves the portal. |
 
@@ -240,19 +240,19 @@ The **Net Money Added** and **Cost of Holdings** formulas on the Daily Performan
 
 ### Dividend summary
 
-Enter one row per dividend from row 8 down: **Received date** (A, for your records), **EX-Date** (B), **Stock** (C, same name as in Trade List), **DIV per share** (E), **Tax Rate** (G) and **Status** (M). The rest is calculated:
+Enter one row per dividend from row 8 down: **Received date** (A, for your records), **EX-Date** (B), **Stock** (C, same name as in Trade List), **DIV per share** (F), **Tax Rate** (H) and **Status** (N). The rest is calculated:
 
 | Column | Meaning |
 |---|---|
-| D # of shares | Shares held before the ex-date (only those qualify for the dividend) |
-| F, H | Gross dividend, and after tax (what you receive) |
-| I AVG Buy Price | Average cost of the shares held just before the ex-date (average-cost method, so shares you sold leave at their average cost; excludes charges) |
-| J Total Invested | I × D |
-| K DIV yield | **Yield on cost**: dividend per share ÷ your average buy price. What this dividend pays on *your* money. |
-| L DIV yield (received) | After-tax amount ÷ Total Invested |
-| N Price before ex-date | Filled by `./psx update`: PSX close on the last trading day before the ex-date. Blank until the ex-date has passed. |
-| O Market yield | Dividend per share ÷ N. The **market dividend yield** quoted by brokers and news; useful for comparing stocks. |
-| P Quarter (by ex-date) | Calendar quarter and year of the ex-date, e.g. *Q4 2026 (Oct–Dec)*, matching the quarterly table |
+| D Quarter (by ex-date) | Calendar quarter and year of the ex-date, e.g. *Q4 2026 (Oct–Dec)*, matching the quarterly table |
+| E # of shares | Shares held before the ex-date (only those qualify for the dividend) |
+| G, I | Gross dividend, and after tax (what you receive) |
+| J AVG Buy Price | Average cost of the shares held just before the ex-date (average-cost method, so shares you sold leave at their average cost; excludes charges) |
+| K Total Invested | J × E |
+| L DIV yield | **Yield on cost**: dividend per share ÷ your average buy price. What this dividend pays on *your* money. |
+| M DIV yield (received) | After-tax amount ÷ Total Invested |
+| O Price before ex-date | Filled by `./psx update`: PSX close on the last trading day before the ex-date. Blank until the ex-date has passed. The script finds this column by its header, so keep the header text as it is. |
+| P Market yield | Dividend per share ÷ O. The **market dividend yield** quoted by brokers and news; useful for comparing stocks. |
 
 Every dividend counts from its **ex-date** once that date has passed, whether or not you've received it yet: in *My Return %* (Daily Performance), on the Charts tab and in the quarterly table below. The **Received date** is for your own records.
 
